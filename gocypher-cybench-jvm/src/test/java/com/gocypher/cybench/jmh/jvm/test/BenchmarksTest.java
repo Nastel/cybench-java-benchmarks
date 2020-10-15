@@ -49,7 +49,8 @@ public class BenchmarksTest {
         //optBuild.include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName());
         //optBuild.include(NumberBenchmarks.class.getSimpleName());
 
-        Options opt = optBuild
+        @SuppressWarnings("unused")
+		Options opt = optBuild
                 .forks(forks)
                 .measurementIterations(measurementIterations)
                 //.measurementTime(TimeValue.seconds(20))
