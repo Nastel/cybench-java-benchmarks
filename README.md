@@ -34,7 +34,7 @@ Attachment and execution of user-defined benchmarks using CyBench launcher:
 
 ### Adding Custom Benchmarks for Execution
 
-Update CyBench Launcher configuration located in `<cybench-home>/conf/gocypher-benchmark-client-configuration.properties`:
+Update CyBench Launcher configuration located in `<cybench-home>/conf/cybench-launcher.properties`:
 
 * __required__: add or update property `customBenchmarks`, set path to jar file which contains your custom benchmark, this path will be added to the `CLASSPATH` of the JVM. Values must be semicolon separated!  
 
