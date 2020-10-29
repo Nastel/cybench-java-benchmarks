@@ -164,9 +164,9 @@
                                 <addClasspath>true</addClasspath>
                             </manifest>
                             <manifestEntries>
-                                <customBenchmarkMetadata>
+                                <benchmarkMetadata>
                                     com.gocypher.cybench.jmh.jvm.client.tests.IOAsyncAPIComparisonBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOAsyncFileSeekBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOSyncAPIComparisonBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOSyncFileSeekBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.NumberBenchmarks=category:NUMBERS,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.StringBenchmarks=category:STRINGS,context:JVM,version:1.0.0;
-                                </customBenchmarkMetadata>
+                                </benchmarkMetadata>
                             </manifestEntries>
                         </archive>
                     </configuration>
