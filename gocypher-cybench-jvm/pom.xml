@@ -24,7 +24,6 @@
 
     <groupId>com.gocypher.cybench.client</groupId>
 
-
     <artifactId>gocypher-cybench-jvm</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
@@ -75,7 +74,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.target>1.8</javac.target>
-        <skip.assembly.pack>true</skip.assembly.pack>
         <license-name>CYBENCH_LICENSE*</license-name>
 
         <jmh.version>1.26</jmh.version>
@@ -85,7 +83,6 @@
 
         <jvm.jar.name>gocypher-cybench-jvm</jvm.jar.name>
     </properties>
-
 
     <build>
         <defaultGoal>clean package</defaultGoal>
