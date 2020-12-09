@@ -30,7 +30,12 @@
     <name>gocypher-cybench-jvm</name>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.gocypher.cybench.client</groupId>
+            <artifactId>gocypher-cybench-annotations</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
@@ -69,12 +74,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gocypher.cybench.client</groupId>
-            <artifactId>gocypher-cybench-annotations</artifactId>
-            <version>1.0.0</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
