@@ -70,6 +70,29 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.gocypher.cybench.client</groupId>
+            <artifactId>gocypher-cybench-runner</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fastjson</groupId>
+            <artifactId>boon</artifactId>
+            <version>0.34</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -97,6 +120,12 @@
                 <includes>
                     <include>${license-name}</include>
                 </includes>
+
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
+
             </resource>
         </resources>
         <plugins>
@@ -189,6 +218,9 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
+
+
 
 </project>
