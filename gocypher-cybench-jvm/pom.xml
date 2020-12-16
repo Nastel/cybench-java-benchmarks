@@ -24,13 +24,18 @@
 
     <groupId>com.gocypher.cybench.client</groupId>
 
-
     <artifactId>gocypher-cybench-jvm</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
     <name>gocypher-cybench-jvm</name>
 
     <dependencies>
+        <dependency>
+            <groupId>com.gocypher.cybench.client</groupId>
+            <artifactId>gocypher-cybench-annotations</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
@@ -98,7 +103,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.target>1.8</javac.target>
-        <skip.assembly.pack>true</skip.assembly.pack>
         <license-name>CYBENCH_LICENSE*</license-name>
 
         <jmh.version>1.26</jmh.version>
@@ -108,7 +112,6 @@
 
         <jvm.jar.name>gocypher-cybench-jvm</jvm.jar.name>
     </properties>
-
 
     <build>
         <defaultGoal>clean package</defaultGoal>
@@ -137,6 +140,7 @@
                     <compilerVersion>${javac.target}</compilerVersion>
                     <source>${javac.target}</source>
                     <target>${javac.target}</target>
+                    <!--annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors-->
                 </configuration>
             </plugin>
             <plugin>
@@ -193,9 +197,9 @@
                                 <addClasspath>true</addClasspath>
                             </manifest>
                             <manifestEntries>
-                                <customBenchmarkMetadata>
+                                <benchmarkMetadata>
                                     com.gocypher.cybench.jmh.jvm.client.tests.IOAsyncAPIComparisonBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOAsyncFileSeekBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOSyncAPIComparisonBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.IOSyncFileSeekBenchmarks=category:IO,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.NumberBenchmarks=category:NUMBERS,context:JVM,version:1.0.0;com.gocypher.cybench.jmh.jvm.client.tests.StringBenchmarks=category:STRINGS,context:JVM,version:1.0.0;
-                                </customBenchmarkMetadata>
+                                </benchmarkMetadata>
                             </manifestEntries>
                         </archive>
                     </configuration>

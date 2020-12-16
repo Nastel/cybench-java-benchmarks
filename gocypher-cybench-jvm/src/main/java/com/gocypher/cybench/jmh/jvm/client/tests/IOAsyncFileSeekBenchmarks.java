@@ -16,59 +16,65 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  */
-
 package com.gocypher.cybench.jmh.jvm.client.tests;
+
 import com.gocypher.cybench.jmh.jvm.utils.IOUtils;
 import org.openjdk.jmh.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.concurrent.TimeUnit;
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
 @State(Scope.Benchmark)
-public class IOAsyncFileSeekBenchmarks  {
+public class IOAsyncFileSeekBenchmarks {
+
     private static Logger LOG = LoggerFactory.getLogger(IOAsyncFileSeekBenchmarks.class);
 
-    private File srcFile ;
+    private File srcFile;
+
     private File targetFile;
+
     private long fileSize = 0;
 
-    private RandomAccessFile seekSrc ;
-    private RandomAccessFile seekDst ;
+    private RandomAccessFile seekSrc;
 
-    public static int hugeSeekChunk = 16_777_216 ;
-    public static int smallSeekChunk = 4_096 ;
+    private RandomAccessFile seekDst;
 
-    private byte [] dataForSeekAndWriteSmallChunks ;
-    private byte [] dataForSeekAndWriteHugeChunks ;
+    public static int hugeSeekChunk = 16_777_216;
 
-    private long [] arrayOfRandomNumbersForSmallChunks ;
-    private long [] arrayOfRandomNumbersForHugeChunks ;
+    public static int smallSeekChunk = 4_096;
 
-    public static int hugeSeekIterationsCount = 64 ;
-    public static int smallSeekIterationsCount = 262_144 ;
+    private byte[] dataForSeekAndWriteSmallChunks;
 
-    @Setup (Level.Trial)
-    public void setupForFork () throws  Exception {
+    private byte[] dataForSeekAndWriteHugeChunks;
+
+    private long[] arrayOfRandomNumbersForSmallChunks;
+
+    private long[] arrayOfRandomNumbersForHugeChunks;
+
+    public static int hugeSeekIterationsCount = 64;
+
+    public static int smallSeekIterationsCount = 262_144;
+
+    @Setup(Level.Trial)
+    public void setupForFork() throws Exception {
         LOG.info("\n-->Will generate binary file for tests...");
         srcFile = IOUtils.generateBinaryFileForTests();
         fileSize = srcFile.length();
         LOG.info("\n-->Generated file {} for processing, size(B):{}", srcFile, fileSize);
         seekSrc = new RandomAccessFile(srcFile, "rw");
-
-        LOG.info("Will generate an array of random numbers for file positions") ;
-        this.arrayOfRandomNumbersForSmallChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0,fileSize-smallSeekChunk-10,smallSeekIterationsCount) ;
-        this.arrayOfRandomNumbersForHugeChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0,fileSize-hugeSeekChunk-10,hugeSeekIterationsCount) ;
-
-        this.dataForSeekAndWriteSmallChunks = IOUtils.getArrayOfRandomBytes(smallSeekChunk) ;
-        this.dataForSeekAndWriteHugeChunks = IOUtils.getArrayOfRandomBytes(hugeSeekChunk) ;
-        LOG.info ("Generated all prerequisites!") ;
+        LOG.info("Will generate an array of random numbers for file positions");
+        this.arrayOfRandomNumbersForSmallChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0, fileSize - smallSeekChunk - 10, smallSeekIterationsCount);
+        this.arrayOfRandomNumbersForHugeChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0, fileSize - hugeSeekChunk - 10, hugeSeekIterationsCount);
+        this.dataForSeekAndWriteSmallChunks = IOUtils.getArrayOfRandomBytes(smallSeekChunk);
+        this.dataForSeekAndWriteHugeChunks = IOUtils.getArrayOfRandomBytes(hugeSeekChunk);
+        LOG.info("Generated all prerequisites!");
     }
-    
+
     @Setup(Level.Iteration)
-    public void setupForIteration() throws Exception{
+    public void setupForIteration() throws Exception {
         LOG.info("\n Will setup for iteration...");
         targetFile = IOUtils.createOutputFileForTests();
         seekDst = new RandomAccessFile(targetFile, "rw");
@@ -77,52 +83,55 @@ public class IOAsyncFileSeekBenchmarks  {
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public int seekAndReadFileUsingSmallChunks () throws  Exception{
-        int bytesRead = 0 ;
-        for (long position:arrayOfRandomNumbersForSmallChunks) {
+    @BenchmarkTag(tag = "f5dfcc25-4a38-470e-b9e3-f3cef2ba37e8")
+    public int seekAndReadFileUsingSmallChunks() throws Exception {
+        int bytesRead = 0;
+        for (long position : arrayOfRandomNumbersForSmallChunks) {
             bytesRead += IOUtils.seekAndReadFile(seekSrc, (int) fileSize, smallSeekChunk, position);
         }
-        //LOG.info("Read bytes:{}",bytesRead);
+        // LOG.info("Read bytes:{}",bytesRead);
         return bytesRead;
     }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public int seekAndReadFileUsingHugeChunks () throws  Exception{
-        int bytesRead = 0 ;
-        for (long position:arrayOfRandomNumbersForHugeChunks) {
-            bytesRead+= IOUtils.seekAndReadFile(seekSrc, (int) fileSize, hugeSeekChunk, position);
+    @BenchmarkTag(tag = "34cd7bc4-d6b2-4a33-9ced-ea6a20a1c564")
+    public int seekAndReadFileUsingHugeChunks() throws Exception {
+        int bytesRead = 0;
+        for (long position : arrayOfRandomNumbersForHugeChunks) {
+            bytesRead += IOUtils.seekAndReadFile(seekSrc, (int) fileSize, hugeSeekChunk, position);
         }
-        //LOG.info("Read bytes:{}",bytesRead);
+        // LOG.info("Read bytes:{}",bytesRead);
         return bytesRead;
     }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void seekAndWriteFileUsingSmallChunks () throws Exception{
-        for (long position:this.arrayOfRandomNumbersForSmallChunks) {
+    @BenchmarkTag(tag = "f4695c18-96c4-4e93-ad8b-4d0c1d4641d4")
+    public void seekAndWriteFileUsingSmallChunks() throws Exception {
+        for (long position : this.arrayOfRandomNumbersForSmallChunks) {
             IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteSmallChunks);
         }
-
     }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void seekAndWriteFileUsingHugeChunks () throws Exception{
-        for (long position:this.arrayOfRandomNumbersForHugeChunks) {
+    @BenchmarkTag(tag = "84825e3e-a06a-4c99-abed-09b16180c76d")
+    public void seekAndWriteFileUsingHugeChunks() throws Exception {
+        for (long position : this.arrayOfRandomNumbersForHugeChunks) {
             IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteHugeChunks);
         }
     }
 
-
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void seekAndCopyFileUsingSmallChunks ()throws Exception{
-        long position = 0 ;
+    @BenchmarkTag(tag = "21a48cbc-d85d-4193-958e-46e8cbb71bd2")
+    public void seekAndCopyFileUsingSmallChunks() throws Exception {
+        long position = 0;
         while (position <= fileSize) {
             byte[] bytes = IOUtils.seekAndReadFile(seekSrc, smallSeekChunk, position);
             IOUtils.seekAndWriteFile(seekDst, position, bytes);
@@ -133,41 +142,39 @@ public class IOAsyncFileSeekBenchmarks  {
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void seekAndCopyFileUsingHugeChunks ()throws Exception{
-        long position = 0 ;
+    @BenchmarkTag(tag = "b91e5be7-5b5c-4463-913d-15bee841531c")
+    public void seekAndCopyFileUsingHugeChunks() throws Exception {
+        long position = 0;
         while (position <= fileSize) {
             byte[] bytes = IOUtils.seekAndReadFile(seekSrc, hugeSeekChunk, position);
             IOUtils.seekAndWriteFile(seekDst, position, bytes);
             position += hugeSeekChunk;
         }
-
     }
 
-
     @TearDown(Level.Iteration)
-    public void cleanUpAfterIteration (){
+    public void cleanUpAfterIteration() {
         try {
             if (seekDst != null) {
                 seekDst.close();
             }
             IOUtils.removeFile(targetFile);
             LOG.info("\n==>Iteration clean up successful!");
-        }catch (Exception e){
-            LOG.error("Error on file removal",e);
+        } catch (Exception e) {
+            LOG.error("Error on file removal", e);
         }
     }
 
     @TearDown(Level.Trial)
-    public void cleanUpAfterFork (){
+    public void cleanUpAfterFork() {
         try {
             if (seekSrc != null) {
                 seekSrc.close();
             }
-            //IOUtils.removeFile(srcFile);
+            // IOUtils.removeFile(srcFile);
             LOG.info("\n==>Generated files were closed successfully!");
-        }catch (Exception e){
-            LOG.error("Error on file removal",e);
+        } catch (Exception e) {
+            LOG.error("Error on file removal", e);
         }
-
     }
 }
