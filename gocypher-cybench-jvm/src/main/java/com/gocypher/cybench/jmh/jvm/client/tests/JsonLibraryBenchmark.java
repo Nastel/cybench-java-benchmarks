@@ -77,8 +77,8 @@ public class JsonLibraryBenchmark {
     }
 
     @Benchmark
-    @BenchmarkTag(tag = "c437b7ab-49c1-462c-885e-6da3c144f7dd")
-    public Object boonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
+    @BenchmarkTag(tag = "813b142a-e8c9-4e6e-b3fb-ad3512517e7b")
+    public Object jacksonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
@@ -95,14 +95,26 @@ public class JsonLibraryBenchmark {
     }
 
     @Benchmark
-    @BenchmarkTag(tag = "813b142a-e8c9-4e6e-b3fb-ad3512517e7b")
-    public Object jacksonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
+    @BenchmarkTag(tag = "c437b7ab-49c1-462c-885e-6da3c144f7dd")
+    public Object boonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     // ######################################################################
     // ####################Deserialisation #################################
     // ######################################################################
+    @Benchmark
+    @BenchmarkTag(tag = "3158b5a3-b37d-40f3-9c7b-aa4d422fb4af")
+    public Object gsonWithSmallObject(SmallJson json, GsonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "4a475f6f-0f1a-4633-a786-6083da40b898")
+    public Object gsonWithAverageObject(AverageJson json, GsonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
     @Benchmark
     @BenchmarkTag(tag = "28975a65-c685-464c-acee-aa4a1e7b51cd")
     public Object gsonWithBigObject(BigJson json, GsonSerialize impl, Blackhole bh) {
@@ -122,6 +134,12 @@ public class JsonLibraryBenchmark {
     }
 
     @Benchmark
+    @BenchmarkTag(tag = "4877323c-5def-41da-830f-d518d29c5da5")
+    public Object jacksonWithBigObject(BigJson json, JacksonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
     @BenchmarkTag(tag = "6f17dcf4-460e-4a57-8959-7cf20d1fb92e")
     public Object boonWithBigObject(BigJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
@@ -136,12 +154,6 @@ public class JsonLibraryBenchmark {
     @Benchmark
     @BenchmarkTag(tag = "64eba044-96dc-4ac8-91aa-25a95e63745a")
     public Object boonWithAverageObject(AverageJson json, BoonSerialize impl, Blackhole bh) {
-        return impl.doJob(json.object);
-    }
-
-    @Benchmark
-    @BenchmarkTag(tag = "4877323c-5def-41da-830f-d518d29c5da5")
-    public Object jacksonWithBigObject(BigJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
