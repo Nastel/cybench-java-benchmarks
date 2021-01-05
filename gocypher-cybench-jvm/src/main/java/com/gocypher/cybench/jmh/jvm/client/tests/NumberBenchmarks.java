@@ -23,14 +23,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.TearDown;
+
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
@@ -61,7 +56,7 @@ public class NumberBenchmarks {
         blackHole.consume(sum);
     }
 
-    @Benchmark
+   @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
     @BenchmarkTag(tag = "d55b00f0-cdb6-46e9-8b74-3c575e5f1e5a")
@@ -105,16 +100,11 @@ public class NumberBenchmarks {
         Double number = Double.valueOf(Math.pow(rangeMin + (rangeMax - rangeMin) * this.randomGenerator.nextDouble(), 10));
         blackHole.consume(number);
     }
-
-    /*@Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void sumNumbersAtomicLongStream (Blackhole blackHole){
-        AtomicLong atomicLong = new AtomicLong();
-        testList.parallelStream().forEach(atomicLong::addAndGet);
-        blackHole.consume(atomicLong.get());
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
     }
-    */
+
     @TearDown
     public void cleanUp() {
         if (this.testList != null) {

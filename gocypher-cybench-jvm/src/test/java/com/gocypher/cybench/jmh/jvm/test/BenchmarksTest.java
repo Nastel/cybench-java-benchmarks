@@ -19,12 +19,22 @@
 
 package com.gocypher.cybench.jmh.jvm.test;
 
+import com.gocypher.cybench.jmh.jvm.client.tests.NumberBenchmarks;
+import org.openjdk.jmh.profile.GCProfiler;
 import org.openjdk.jmh.profile.StackProfiler;
+import org.openjdk.jmh.results.IterationResult;
+import org.openjdk.jmh.results.RunResult;
+import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
 
 import com.gocypher.cybench.jmh.jvm.client.tests.StringBenchmarks;
+
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class BenchmarksTest {
 
@@ -37,14 +47,14 @@ public class BenchmarksTest {
         // number of iterations executed for warm up
         int warmUpIterations = 1 ;
         // number of seconds dedicated for each warm up iteration
-        int warmUpSeconds = 5 ;
+        int warmUpSeconds = 2 ;
         // number of threads for benchmark test execution
         int threads =1;
 
         OptionsBuilder optBuild = new OptionsBuilder();
 
-        optBuild.include(StringBenchmarks.class.getSimpleName());
-        //optBuild.include(NumberBenchmarks.class.getSimpleName());
+        //optBuild.include(StringBenchmarks.class.getSimpleName());
+        optBuild.include(NumberBenchmarks.class.getSimpleName());
         //optBuild.include(IOSyncFileSeekBenchmarks.class.getSimpleName());
         //optBuild.include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName());
         //optBuild.include(NumberBenchmarks.class.getSimpleName());
@@ -59,7 +69,7 @@ public class BenchmarksTest {
                 .threads(threads)
                 .shouldDoGC(true)
                 //.addProfiler(GCProfiler.class)
-                .addProfiler(StackProfiler.class) //produces zeros
+                //.addProfiler(StackProfiler.class) //produces zeros
                 //.addProfiler(HotspotMemoryProfiler.class)
                 //.addProfiler(HotspotRuntimeProfiler.class)
                 //.addProfiler(HotspotClassloadingProfiler.class)
@@ -77,10 +87,28 @@ public class BenchmarksTest {
 
                 .build();
 
-        /*Runner runner = new Runner(opt);
+        Runner runner = new Runner(opt);
         Collection<RunResult> results = runner.run() ;
+        /*ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean() ;
+        long cpuTime = threadMXBean.getThreadCpuTime(Thread.currentThread().getId()) ;
+        System.out.println("CPU:"+cpuTime);
+        */
+        System.out.println("Results amount:"+results.size());
+        Iterator<RunResult> it = results.iterator() ;
+        while (it.hasNext()) {
+            RunResult result = it.next();
+            System.out.println("Secondary Results:"+result.getAggregatedResult().getSecondaryResults());
+            Collection<IterationResult> iterations = result.getAggregatedResult().getIterationResults() ;
+            Iterator<IterationResult>it2 = iterations.iterator() ;
+            while (it2.hasNext()){
+                IterationResult iteration = it2.next() ;
+                System.out.println("Iteration secondary:"+iteration.getSecondaryResults());
 
-        LOG.info ("Tests finished, executed tests count:{}",results.size()) ;
+            }
+        }
+
+
+        /*LOG.info ("Tests finished, executed tests count:{}",results.size()) ;
         System.out.println("Thread count:"+results.iterator().next().getParams().getThreads());
         IOUtils.removeTestDataFiles() ;
         LOG.info("Test data files removed!!!");

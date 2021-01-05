@@ -21,6 +21,8 @@ package com.gocypher.cybench.jmh.jvm.client.tests;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;
@@ -133,93 +135,9 @@ public class StringBenchmarks {
         return flag;
     }
 
-    // FIXME Experimental tests which results require conversion , uncomment for experimental usage
-    /*@Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void stringBufferConcatSingleChar () {
-
-        for (int i = 0; i < numberOfIterations; i++){
-            this.stringBuffer.append(i);
-        }
-
-    }
-    */
-    /*@Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public String replaceBenchmark (){
-
-        return executeReplace(iterations, TEMPLATE, REGEX, REPL);
-    }
-    */
-    /*
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void stringBufferConcatMultiChars (){
-        for (int i = 0; i < numberOfIterations; i++) {
-            this.stringBuffer.append(label1);
-            this.stringBuffer.append(i);
-            this.stringBuffer.append(label2);
-            this.stringBuffer.append(i);
-        }
-    }
-    */
-    /*
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void concatSingleChar (){
-       for (int i = 0; i < iterations;i++){
-           buffer += i ;
-       }
-       System.out.println("-->"+buffer.length());
-    }
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void concatMultiChars (){
-        for (int i = 0; i < iterations;i++){
-            buffer += i+label1 ;
-            buffer += i+label2;
-        }
-        System.out.println("-->"+buffer.length());
-    }
-    */
-    /*
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void stringConcatSingleChar (){
-       this.buffer += count ;
-       this.count++ ;
-    }
-    */
-    /*private static String executeConcat(int reps, String part1, String part2, String repl){
-
-        String s = "" ;
-        for (int ii = 0 ; ii < reps ; ii++){
-            s = part1 + repl + part2;
-
-        }
-        return s ;
-    }
-
-
-    private static String executeReplace(int reps, String template, String regex, String repl) {
-        String s = "" ;
-        for (int ii = 0 ; ii < reps ; ii++){
-            s = template.replaceAll(regex, repl);
-        }
-        return s ;
-    }
-    */
     @TearDown(Level.Iteration)
-    public void clearIteration() {
-        // System.out.println("->Buffer:"+this.buffer.length()+";Iterations:"+this.count);
-        // System.out.println("->String Buffer:"+this.stringBuffer.length());
-        // System.out.println("->REGEX Matches count:"+this.regexMatchesCount);
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
     }
 
     private StringBuffer replaceAll(StringBuffer buff, String srcLabel, String targetLabel) {
