@@ -1,6 +1,7 @@
 package com.gocypher.cybench.jmh.jvm.client.tests;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
@@ -14,8 +15,9 @@ import com.gocypher.cybench.core.annotation.BenchmarkTag;
 public class ListsBenchmark {
 
     @Benchmark
+    @Fork(jvmArgsAppend = "-Xmx2048m")
     @BenchmarkTag(tag = "7e179230-5c62-4a5a-8344-03e723bad434")
-    public void arrayListAdd(Arraylist ar, Add action, Blackhole bh) {
+    public void arrayListAdd(ArrayList ar, Add action, Blackhole bh) {
         bh.consume(action.doJob(ar));
     }
 
@@ -33,7 +35,7 @@ public class ListsBenchmark {
 
     @Benchmark
     @BenchmarkTag(tag = "23ae5f95-0ffa-40a0-9559-d6c74e938e61")
-    public void arrayListRemove(Arraylist ar, Delete action, Blackhole bh) {
+    public void arrayListRemove(ArrayList ar, Delete action, Blackhole bh) {
         bh.consume(action.doJob(ar));
     }
 
@@ -44,8 +46,8 @@ public class ListsBenchmark {
     }
 
     public static void main(String[] args) {
-        Stack c = new Stack();
-        Delete delete = new Delete();
+        ArrayList c = new ArrayList();
+        Add delete = new Add();
         for (int i = 0; i < 100000001; i++) {
             delete.doJob(c);
 
@@ -62,7 +64,7 @@ public class ListsBenchmark {
 
     @Benchmark
     @BenchmarkTag(tag = "e0eb5644-69fb-42ad-b55c-4ccaa156a5c4")
-    public void arrayListUpdate(Arraylist ar, Update action, Blackhole bh) {
+    public void arrayListUpdate(ArrayList ar, Update action, Blackhole bh) {
         bh.consume(action.doJob(ar));
     }
 
@@ -79,19 +81,19 @@ public class ListsBenchmark {
     }
 
     @State(value = Scope.Thread)
-    public static class Arraylist implements LST {
+    public static class ArrayList implements LST {
         java.util.ArrayList collection = null;
 
-        public ArrayList getCollection() {
+        public java.util.ArrayList getCollection() {
             return collection;
         }
 
-        public Arraylist() {
+        public ArrayList() {
             fill();
         }
 
         public void fill() {
-            collection = new ArrayList(Stream.iterate(0, i -> i + 2).limit(100000).collect(Collectors.toList()));
+            collection = new java.util.ArrayList(Stream.iterate(0, i -> i + 2).limit(100000).collect(Collectors.toList()));
         }
     }
 
@@ -141,7 +143,7 @@ public class ListsBenchmark {
 
         @Override
         public Object doJob(LST c) {
-            return c.getCollection().add(cache[i % cache.length]);
+            return c.getCollection().add(cache[i++ % cache.length]);
         }
     }
 
@@ -161,10 +163,11 @@ public class ListsBenchmark {
         public Object doJob(LST c) {
             List collection = c.getCollection();
             Object remove = collection.remove(0);
+            remove = collection.remove(collection.size()-1);
             if (collection.size() == 0) {
                 c.fill();
             }
-            return "ASD";
+            return remove;
         }
     }
 
@@ -177,7 +180,7 @@ public class ListsBenchmark {
 
         @Override
         public Object doJob(LST c) {
-            c.getCollection().add(0, cache[i % cache.length]);
+            c.getCollection().add(0, cache[i++ % cache.length]);
             return null;
         }
     }

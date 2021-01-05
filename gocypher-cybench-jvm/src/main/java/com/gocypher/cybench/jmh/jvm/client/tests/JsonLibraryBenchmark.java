@@ -20,7 +20,14 @@ package com.gocypher.cybench.jmh.jvm.client.tests;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import com.google.gson.Gson;
+import com.jsoniter.JsonIterator;
+import com.jsoniter.output.JsonStream;
+import com.owlike.genson.Genson;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import io.quarkus.qson.generator.QsonMapper;
 import org.boon.json.JsonFactory;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -29,14 +36,13 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
 public class JsonLibraryBenchmark {
 
     /**
-     *    <b>GSON </b>
-     *    This benchmark deserializes small 45 bytes json {@link SmallJson#actualJson}
-     *    with GSON 2.8.6
+     * <b>GSON </b>
+     * This benchmark deserializes small 45 bytes json {@link SmallJson#actualJson}
+     * with GSON 2.8.6
      */
     @Benchmark
     @BenchmarkTag(tag = "40541ade-f193-43b1-9b47-bf3fd1bfe91d")
@@ -50,12 +56,78 @@ public class JsonLibraryBenchmark {
         return impl.doJob(json.actualJson);
     }
 
-    /**
-     *    <b>GSON </b>
-     *    This benchmark deserializes 400 Kb json {@link BigJson#actualJson}
-     *    with relatively flat tree
-     *    with GSON 2.8.6
-     */
+    @Benchmark
+    @BenchmarkTag(tag = "6e15fcde-b18d-4a43-9b0d-327727a1c18f")
+    public Object moshiWithBigJSON(BigJson json, MoshiDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "91acab8e-59f3-40db-8afb-a14db22369b2")
+    public Object moshiWithSmallJSON(SmallJson json, MoshiDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "b9fe98b5-8c12-477c-9422-ffdb23a2cac0")
+    public Object moshiWithAverageJSON(AverageJson json, MoshiDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "71826df8-c9ac-483b-b391-85d1a86e6000")
+    public Object jsonIteratorWithBigJSON(BigJson json, JSonIteratorDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "3eb37d7c-9345-4d70-8299-d592a7bcf541")
+    public Object jsonIteratorWithSmallJSON(SmallJson json, JSonIteratorDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "9b288275-ecc9-41de-a20a-c4ae4c233b04")
+    public Object jsonIteratorWithAverageJSON(AverageJson json, JSonIteratorDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "39f78124-8aef-4f94-a0ca-95cb44302d32")
+    public Object qsonIteratorWithBigJSON(BigJson json, QSonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "c77e0a09-6893-4cb7-96d9-1d422f24e8ab")
+    public Object qsonIteratorWithSmallJSON(SmallJson json, QSonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "e211ae89-ca0e-45c2-b5e1-6e97d7570537")
+    public Object qsonIteratorWithAverageJSON(AverageJson json, QSonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "fef9b157-1b3a-4c3a-8225-d6759775bb23")
+    public Object gensonIteratorWithAverageJSON(AverageJson json, GensonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "0d64df0f-e8f1-4f5c-a862-e6a8bacf1422")
+    public Object gensonIteratorWithBigJSON(BigJson json, GensonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "d6402516-6bb0-424c-8c3a-279ae80f13e6")
+    public Object gensonIteratorWithSmallJSON(SmallJson json, GensonDeserialize impl, Blackhole bh) {
+        return impl.doJob(json.actualJson);
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -157,6 +229,88 @@ public class JsonLibraryBenchmark {
         return impl.doJob(json.object);
     }
 
+    @Benchmark
+    @BenchmarkTag(tag = "23374b54-1256-46f8-9621-87d1eccf43c1")
+    public Object gensonWithBigObject(BigJson json, GensonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "e4713c41-daab-4a7c-b688-ea14534f7053")
+    public Object gensonWithSmallObject(SmallJson json, GensonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "ac39da76-28a2-40f3-a8b4-1052c73ddacf")
+    public Object gensonWithAverageObject(AverageJson json, GensonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "e93a9640-bf4b-4b32-8d6b-4c5792cbe50f")
+    public Object moshiWithBigObject(BigJson json, MoshiSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "23084973-5f77-4e0e-9e3b-52cb756321a0")
+    public Object moshiWithSmallObject(SmallJson json, MoshiSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "0050f409-d663-4a57-bffb-cf94b2ef0c26")
+    public Object moshiWithAverageObject(AverageJson json, MoshiSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "43358e4e-9dfc-45f1-87d4-bed656e93130")
+    public Object qsonWithBigObject(BigJson json, QsonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "476f6e54-87db-4351-867d-47303432979b")
+    public Object qsonWithSmallObject(SmallJson json, QsonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "ac298664-6455-4128-9c2a-33615db2d30e")
+    public Object qsonWithAverageObject(AverageJson json, QsonSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "f36defd9-ffc3-416d-8dc0-8cfedfb312b8")
+    public Object jsonIteratorWithBigObject(BigJson json, JsonIteratorSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "7d6b9aa5-195f-4582-9739-90783405bc89")
+    public Object jsonIteratorWithSmallObject(SmallJson json, JsonIteratorSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    @Benchmark
+    @BenchmarkTag(tag = "ec2cf16b-5e7f-418e-8fe0-f5a7b894711b")
+    public Object jsonIteratorWithAverageObject(AverageJson json, JsonIteratorSerialize impl, Blackhole bh) {
+        return impl.doJob(json.object);
+    }
+
+    interface IMPL {
+
+        Object doJob(String json);
+    }
+
+    interface IMPLSerialize {
+
+        String doJob(Object o);
+    }
+
     @State(Scope.Thread)
     public static class SmallJson {
 
@@ -168,9 +322,15 @@ public class JsonLibraryBenchmark {
     @State(Scope.Benchmark)
     public static class BigJson {
 
-        public String actualJson = new BufferedReader(new InputStreamReader(JsonLibraryBenchmark.class.getResourceAsStream("big.json"))).lines().collect(Collectors.joining("\n"));
+        public String actualJson;
 
-        public Object object = new JacksonDeserialize().doJob(actualJson);
+        public Object object;
+
+        @Setup(value = Level.Trial)
+        public void setup() {
+            actualJson = new BufferedReader(new InputStreamReader(JsonLibraryBenchmark.class.getResourceAsStream("big.json"))).lines().collect(Collectors.joining("\n"));
+            object = new JacksonDeserialize().doJob(actualJson);
+        }
     }
 
     @State(Scope.Benchmark)
@@ -229,6 +389,74 @@ public class JsonLibraryBenchmark {
     }
 
     @State(Scope.Benchmark)
+    public static class MoshiDeserialize implements IMPL {
+
+        private JsonAdapter<Map> jsonAdapter;
+
+        @Setup
+        public void setup() {
+            Moshi moshi = new Moshi.Builder().build();
+            jsonAdapter = moshi.adapter(Map.class);
+        }
+
+        @Override
+        public Object doJob(String json) {
+            try {
+                return jsonAdapter.fromJson(json);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    @State(Scope.Benchmark)
+    public static class QSonDeserialize implements IMPL {
+
+        QsonMapper mapper;
+
+        @Setup
+        public void setup() {
+            mapper = new QsonMapper();
+        }
+
+        @Override
+        public Object doJob(String json) {
+            try {
+                return mapper.read(json, Map.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    @State(Scope.Benchmark)
+    public static class JSonIteratorDeserialize implements IMPL {
+
+        @Override
+        public Object doJob(String json) {
+            return JsonIterator.deserialize(json, Map.class);
+        }
+    }
+
+    @State(Scope.Benchmark)
+    public static class GensonDeserialize implements IMPL {
+
+        private Genson genson;
+
+        @Setup
+        public void setup() {
+            genson = new Genson();
+        }
+
+        @Override
+        public Object doJob(String json) {
+            return genson.deserialize(json, Map.class);
+        }
+    }
+
+    @State(Scope.Benchmark)
     public static class GsonSerialize implements IMPLSerialize {
 
         Gson gson = new Gson();
@@ -266,13 +494,61 @@ public class JsonLibraryBenchmark {
         }
     }
 
-    interface IMPL {
+    @State(Scope.Benchmark)
+    public static class JsonIteratorSerialize implements IMPLSerialize {
 
-        Object doJob(String json);
+        @Override
+        public String doJob(Object o) {
+            return JsonStream.serialize(o);
+        }
     }
 
-    interface IMPLSerialize {
+    @State(Scope.Benchmark)
+    public static class QsonSerialize implements IMPLSerialize {
 
-        String doJob(Object o);
+        private QsonMapper mapper;
+
+        @Setup
+        public void setup() {
+            mapper = new QsonMapper();
+        }
+
+        @Override
+        public String doJob(Object o) {
+            return mapper.writeString(o);
+        }
+    }
+
+    @State(Scope.Benchmark)
+    public static class GensonSerialize implements IMPLSerialize {
+
+        private Genson mapper;
+
+        @Setup
+        public void setup() {
+            mapper = new Genson();
+        }
+
+        @Override
+        public String doJob(Object o) {
+            return mapper.serialize(o);
+        }
+    }
+
+    @State(Scope.Benchmark)
+    public static class MoshiSerialize implements IMPLSerialize {
+
+        private JsonAdapter<Map> jsonAdapter;
+
+        @Setup
+        public void setup() {
+            Moshi moshi = new Moshi.Builder().build();
+            jsonAdapter = moshi.adapter(Map.class);
+        }
+
+        @Override
+        public String doJob(Object o) {
+            return jsonAdapter.toJson((Map) o);
+        }
     }
 }

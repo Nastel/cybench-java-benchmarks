@@ -97,6 +97,26 @@
             <artifactId>boon</artifactId>
             <version>0.34</version>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.moshi</groupId>
+            <artifactId>moshi</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus.qson</groupId>
+            <artifactId>qson-generator</artifactId>
+            <version>1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jsoniter</groupId>
+            <artifactId>jsoniter</artifactId>
+            <version>0.9.23</version>
+        </dependency>
+        <dependency>
+            <groupId>com.owlike</groupId>
+            <artifactId>genson</artifactId>
+            <version>1.6</version>
+        </dependency>
 
     </dependencies>
 
