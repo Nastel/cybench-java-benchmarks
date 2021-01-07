@@ -130,7 +130,6 @@ public class JsonLibraryBenchmark {
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @BenchmarkTag(tag = "45da6fbf-ceb1-4e99-9fdb-94994f8b3d1d")
     public Object gsonWithBigJSON(BigJson json, GsonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
