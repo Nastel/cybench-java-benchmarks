@@ -1,7 +1,7 @@
 package com.gocypher.cybench.jmh.jvm.client.tests;
 
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
-import com.gocypher.cybench.core.annotation.CyBenchMetadata;
+import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.model.BaseScoreConverter;
 import com.gocypher.cybench.core.model.ScoreConverter;
 import org.openjdk.jmh.annotations.*;
@@ -13,12 +13,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@CyBenchMetadata(key = "Key", value = "a")
-@CyBenchMetadata(key = "Key2", value = "a")
+@BenchmarkMetaData(key = "Key", value = "a")
+@BenchmarkMetaData(key = "Key2", value = "a")
 @ScoreConverter(converter = ListsBenchmark.class)
 public class ListsBenchmark extends BaseScoreConverter {
 
     public static final int PRECOMPILED_LIST_SIZE = 1000000;
+
+
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
@@ -63,7 +65,7 @@ public class ListsBenchmark extends BaseScoreConverter {
     @Benchmark
     @OperationsPerInvocation(value = 100)
     @BenchmarkMode(Mode.SingleShotTime)
-    @CyBenchMetadata(key="D", value="B")
+    @BenchmarkMetaData(key="D", value="B")
     @BenchmarkTag(tag = "1d5c9229-4d21-4ce5-a7fd-362fcfc7e965")
     public void linkedListRemove(LinkedList ar, Delete action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -73,9 +75,9 @@ public class ListsBenchmark extends BaseScoreConverter {
     @OperationsPerInvocation(value = 101)
     @BenchmarkMode(Mode.SingleShotTime)
     @BenchmarkTag(tag = "e0eb5644-69fb-42ad-b55c-4ccaa156a5c4")
-    @CyBenchMetadata(key="A", value="0")
-    @CyBenchMetadata(key="B", value="B")
-    @CyBenchMetadata(key="C", value="B")
+    @BenchmarkMetaData(key="A", value="0")
+    @BenchmarkMetaData(key="B", value="B")
+    @BenchmarkMetaData(key="C", value="B")
     public void arrayListUpdate(ArrayList ar, Update action, Blackhole bh) {
         bh.consume(action.doJob(ar));
     }
@@ -133,7 +135,8 @@ public class ListsBenchmark extends BaseScoreConverter {
     @State(value = Scope.Thread)
     public static class ArrayList implements LST {
         java.util.ArrayList collection = null;
-
+        @Param({"2555", "3666"})
+        private int PRECOMPILED_LIST_SIZ;
         public ArrayList() {
             fill();
         }
