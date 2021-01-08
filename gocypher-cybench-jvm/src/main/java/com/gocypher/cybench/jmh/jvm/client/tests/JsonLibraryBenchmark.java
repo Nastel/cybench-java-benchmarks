@@ -42,10 +42,10 @@ import java.util.stream.Collectors;
 
 @BenchmarkMetaData(key="isLibraryBenchmark", value="true")
 @BenchmarkMetaData(key="context", value="JSON parsers")
+@BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="libVersion", value="1.0")
 @BenchmarkMetaData(key="title", value="JSON parsers")
 @BenchmarkMetaData(key="description", value="Various JSON parser benchmark")
-
 public class JsonLibraryBenchmark {
 
     /**
