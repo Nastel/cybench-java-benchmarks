@@ -21,6 +21,10 @@ package com.gocypher.cybench.jmh.jvm.client.tests;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import com.gocypher.cybench.jmh.jvm.utils.IOUtils;
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File;
@@ -49,8 +53,21 @@ public class IOSyncAPIComparisonBenchmarks {
     private int smallChunk = 16_384;
 
     private int hugeChunk = 67_108_864;
+    // private int hugeChunk = 8_388_608;
 
     private boolean isSyncWrite = true;
+
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(IOSyncAPIComparisonBenchmarks.class.getSimpleName())
+                .forks(1)
+                .threads(10)
+                .measurementIterations(3)
+                .warmupIterations(1)
+                .build();
+
+        new Runner(opt).run();
+    }
 
     @Setup(Level.Trial)
     public void setupForFork() throws Exception {
@@ -71,59 +88,75 @@ public class IOSyncAPIComparisonBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "9badbef6-11a7-4f6d-a83f-e97dee8833b6")
     public void copyFileUsingMappedByteBuffer() throws Exception {
         IOUtils.rwFileUsingMappedByteBuffer(readFileChannel, writeFileChannel, isSyncWrite);
     }
 
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @BenchmarkTag(tag = "d1dc08aa-a013-4a1b-8c82-22261cce5b4f")
-    public void copyFileUsingFileStreamAndSmallChunks() throws Exception {
-        long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-        assert bytesCopied == fileSize;
-    }
+//    @Benchmark
+//    @BenchmarkMode(Mode.SingleShotTime)
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @BenchmarkTag(tag = "d1dc08aa-a013-4a1b-8c82-22261cce5b4f")
+//    public void copyFileUsingFileStreamAndSmallChunks() throws Exception {
+//        long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+//        assert bytesCopied == fileSize;
+//    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "afdad4a2-41d5-4bf7-8dac-987ccef2edd4")
     public void copyFileUsingFileStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, hugeChunk, isSyncWrite);
         assert bytesCopied == fileSize;
     }
 
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @BenchmarkTag(tag = "25e27373-c7b9-431e-abf3-4d55b20d788a")
-    public void copyFileUsingBufferedStreamAndSmallChunks() throws Exception {
-        long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-        assert bytesCopied == fileSize;
-    }
+//    @Benchmark
+//    @BenchmarkMode(Mode.SingleShotTime)
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @BenchmarkTag(tag = "25e27373-c7b9-431e-abf3-4d55b20d788a")
+//    public void copyFileUsingBufferedStreamAndSmallChunks() throws Exception {
+//        long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+//        assert bytesCopied == fileSize;
+//    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "d45422f6-58ac-49c3-a749-24e5a3dbfc2d")
     public void copyFileUsingBufferedStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, hugeChunk, isSyncWrite);
         assert bytesCopied == fileSize;
     }
 
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @BenchmarkTag(tag = "a68bc04c-f4e9-46fd-aba7-833623f0d94e")
-    public void copyFileUsingDirectBufferedStreamAndSmallChunks() throws Exception {
-        long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-        assert bytesCopied == fileSize;
-    }
+//    @Benchmark
+//    @BenchmarkMode(Mode.SingleShotTime)
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @BenchmarkTag(tag = "a68bc04c-f4e9-46fd-aba7-833623f0d94e")
+//    public void copyFileUsingDirectBufferedStreamAndSmallChunks() throws Exception {
+//        long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+//        assert bytesCopied == fileSize;
+//    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "9756e9f2-bd85-4781-bfb7-5bb8e7986bf8")
     public void copyFileUsingDirectBufferedStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, hugeChunk, isSyncWrite);

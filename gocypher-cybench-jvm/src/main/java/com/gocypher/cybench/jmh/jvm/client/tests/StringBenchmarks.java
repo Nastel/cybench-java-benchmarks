@@ -18,21 +18,13 @@
  */
 package com.gocypher.cybench.jmh.jvm.client.tests;
 
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
+import org.openjdk.jmh.annotations.*;
+
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.TearDown;
-import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
 @State(Scope.Benchmark)
 public class StringBenchmarks {
@@ -62,6 +54,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "ff3ed9f5-bed9-40f2-b64f-5cd049ae29b5")
     public String stringConcatMultiChars() {
         String buff = "";
@@ -80,6 +76,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "175e9abd-fbb0-4eef-ac97-293ca7347f8b")
     public StringBuffer stringBufferConcatMultiChars() {
         StringBuffer buff = new StringBuffer();
@@ -98,6 +98,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "971ed476-bfc7-432c-bbba-a2f833ee35da")
     public String stringReplaceAll() {
         String s = labelForReplacement;
@@ -109,6 +113,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "693ceffb-6843-4157-b1eb-9abcf078eab9")
     public StringBuffer stringBufferReplaceAll() {
         StringBuffer buff = new StringBuffer(labelForReplacement);
@@ -120,6 +128,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "2f75e07b-bd24-455f-8aaf-a1930d11a8eb")
     public boolean findRegexCompiled() {
         boolean flag = matcher.reset(labelForReplacement).matches();
@@ -129,6 +141,10 @@ public class StringBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "5b0f8faa-e740-401e-85b3-6e0ec3714510")
     public boolean findRegexUnCompiled() {
         boolean flag = labelForReplacement.matches(REGEX);

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2020, K2N.IO.
+  ~
+  ~ This library is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU Lesser General Public
+  ~ License as published by the Free Software Foundation; either
+  ~ version 2.1 of the License, or (at your option) any later version.
+  ~
+  ~ This library is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this library; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+  ~
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.gocypher.cybench.client</groupId>
+    <artifactId>gocypher-cybench-java-core</artifactId>
+    <version>1.0.0</version>
+
+    <name>gocypher-cybench-java-core</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.gocypher.cybench.client</groupId>
+            <artifactId>gocypher-cybench-runner</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javac.target>1.8</javac.target>
+        <assembly.skipAssembly>true</assembly.skipAssembly>
+        <license-name>CYBENCH_LICENSE*</license-name>
+        <uberjar.name>gocypher-cybench-core</uberjar.name>
+        <jmh.version>1.26</jmh.version>
+        <jackson.version>2.11.2</jackson.version>
+        <log4j.version>1.2.17</log4j.version>
+        <org.slf4j.version>1.7.30</org.slf4j.version>
+
+
+        <release.deploy.dir.core>../deploy</release.deploy.dir.core>
+        <skip.core.assembly>true</skip.core.assembly>
+        <skip.json.assembly>true</skip.json.assembly>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>pack-jvm-core</id>
+            <properties>
+                <release.core>src/assembly-core</release.core>
+                <target.deploy.core.jar>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</target.deploy.core.jar>
+                <coreRelease>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</coreRelease>
+                <release.deploy.dir.core>../deploy-core</release.deploy.dir.core>
+                <skip.core.assembly>false</skip.core.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-jvm</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>pack-jvm-json</id>
+            <properties>
+                <release.json>src/assembly-json</release.json>
+                <target.deploy.json.jar>../gocypher-cybench-json/target/gocypher-cybench-json.jar</target.deploy.json.jar>
+                <release.deploy.dir.json>../deploy-json</release.deploy.dir.json>
+                <skip.json.assembly>false</skip.json.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-json</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>x-distribution</id>
+            <activation>
+                <file><exists>.</exists></file>
+            </activation>
+            <modules>
+                <module>gocypher-cybench-distribution</module>
+            </modules>
+        </profile>
+    </profiles>
+
+<!--    <modules>-->
+<!--        <module>gocypher-cybench-jvm</module>-->
+<!--        <module>gocypher-cybench-json</module>-->
+<!--        <module>gocypher-cybench-distribution</module>-->
+<!--    </modules>-->
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+
+        <resources>
+            <resource>
+                <directory>../</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>${license-name}</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <inherited>true</inherited>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

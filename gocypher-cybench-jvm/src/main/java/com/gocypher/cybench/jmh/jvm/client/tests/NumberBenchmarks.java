@@ -18,53 +18,58 @@
  */
 package com.gocypher.cybench.jmh.jvm.client.tests;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
-
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
-import com.gocypher.cybench.core.annotation.BenchmarkTag;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 @State(Scope.Benchmark)
 public class NumberBenchmarks {
 
     public List<Integer> testList;
-
     Random randomGenerator;
-
     double rangeMax = 100000;
-
     double rangeMin = 0;
 
     @Setup
     public void setUp() {
-        randomGenerator = new Random();
     }
+
+//    @Benchmark
+//    @BenchmarkMode(Mode.Throughput)
+//    @OutputTimeUnit(TimeUnit.SECONDS)
+//    @Fork(1)
+//    @Threads(5)
+//    @Measurement(iterations = 5, time = 5)
+//    @Warmup(iterations = 1, time = 5)
+//    @BenchmarkTag(tag = "e57460e6-9589-4d64-92e1-8e6a36ecc93c")
+//    public void generateAndAddDoubleNumbers(Blackhole blackHole) {
+//        double sum = 0.0;
+//        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
+//        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
+//        blackHole.consume(sum);
+//    }
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
-    @BenchmarkTag(tag = "e57460e6-9589-4d64-92e1-8e6a36ecc93c")
-    public void generateAndAddDoubleNumbers(Blackhole blackHole) {
-        Double sum = 0.0;
-        sum += Double.valueOf(rangeMin + (rangeMax - rangeMin) * this.randomGenerator.nextDouble());
-        sum += Double.valueOf(rangeMin + (rangeMax - rangeMin) * this.randomGenerator.nextDouble());
-        blackHole.consume(sum);
-    }
-
-   @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "d55b00f0-cdb6-46e9-8b74-3c575e5f1e5a")
     public void generateAndAddAtomicNumbers(Blackhole blackHole) {
-        int num = (int) (rangeMin + (int) (this.randomGenerator.nextFloat() * (rangeMax - rangeMin)));
+        int num = (int) (rangeMin + (int) (ThreadLocalRandom.current().nextFloat() * (rangeMax - rangeMin)));
         AtomicLong atomicLong = new AtomicLong();
         atomicLong.addAndGet(Long.valueOf(num));
-        int num2 = (int) (rangeMin + (int) this.randomGenerator.nextFloat() * (rangeMax - rangeMin));
+        int num2 = (int) (rangeMin + (int) ThreadLocalRandom.current().nextFloat() * (rangeMax - rangeMin));
         atomicLong.addAndGet(Long.valueOf(num2));
         Long result = atomicLong.get();
         blackHole.consume(result);
@@ -73,12 +78,16 @@ public class NumberBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "4eb23d57-1d6a-4eb9-8d52-0b0a82de92d5")
     public void generateAndAddBigDecimalNumbers(Blackhole blackHole) {
-        int num = (int) (rangeMin + (int) (this.randomGenerator.nextFloat() * (rangeMax - rangeMin)));
+        int num = (int) (rangeMin + (int) (ThreadLocalRandom.current().nextFloat() * (rangeMax - rangeMin)));
         BigDecimal sum = BigDecimal.ZERO;
         sum = sum.add(BigDecimal.valueOf(num));
-        int num2 = (int) (rangeMin + (int) (this.randomGenerator.nextFloat() * (rangeMax - rangeMin)));
+        int num2 = (int) (rangeMin + (int) (ThreadLocalRandom.current().nextFloat() * (rangeMax - rangeMin)));
         sum = sum.add(BigDecimal.valueOf(num2));
         blackHole.consume(sum);
     }
@@ -88,7 +97,7 @@ public class NumberBenchmarks {
     @OutputTimeUnit(TimeUnit.SECONDS)
     @BenchmarkTag(tag = "3085ca56-8f30-4b2d-add8-b86258f63f6e")
     public void generateAndLogarithmDoubleNumbers(Blackhole blackHole) {
-        Double number = Double.valueOf(Math.log10(rangeMin + (rangeMax - rangeMin) * this.randomGenerator.nextDouble()));
+        Double number = Double.valueOf(Math.log10(rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble()));
         blackHole.consume(number);
     }
 
@@ -97,7 +106,7 @@ public class NumberBenchmarks {
     @OutputTimeUnit(TimeUnit.SECONDS)
     @BenchmarkTag(tag = "4fcd4596-3dbf-492b-9602-c66a1c26d648")
     public void generateAndPowerDoubleNumbers(Blackhole blackHole) {
-        Double number = Double.valueOf(Math.pow(rangeMin + (rangeMax - rangeMin) * this.randomGenerator.nextDouble(), 10));
+        Double number = Double.valueOf(Math.pow(rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble(), 10));
         blackHole.consume(number);
     }
     @TearDown(Level.Iteration)

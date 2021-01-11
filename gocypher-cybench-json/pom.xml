@@ -28,13 +28,13 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>gocypher-cybench-jvm</artifactId>
+    <artifactId>gocypher-cybench-json</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
-    <name>gocypher-cybench-jvm</name>
+    <name>gocypher-cybench-json</name>
 
     <properties>
-        <jvm.jar.name>gocypher-cybench-jvm</jvm.jar.name>
+        <jvm.jar.name>gocypher-cybench-json</jvm.jar.name>
     </properties>
 
     <dependencies>
@@ -118,7 +118,7 @@
                     <compilerVersion>${javac.target}</compilerVersion>
                     <source>${javac.target}</source>
                     <target>${javac.target}</target>
-<!--                    annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors-->
+                    <!--                    annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors-->
                 </configuration>
             </plugin>
             <plugin>
