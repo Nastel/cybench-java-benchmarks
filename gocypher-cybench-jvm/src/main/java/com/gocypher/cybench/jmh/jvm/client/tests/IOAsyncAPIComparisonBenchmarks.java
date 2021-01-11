@@ -98,14 +98,18 @@ public class IOAsyncAPIComparisonBenchmarks {
         IOUtils.rwFileUsingMappedByteBuffer(readFileChannel, writeFileChannel, isSyncWrite);
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "26be83d9-e801-4fee-a8df-b282bf730382")
-//    public void copyFileUsingFileStreamAndSmallChunks() throws Exception {
-//        long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-//        assert bytesCopied == fileSize;
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "26be83d9-e801-4fee-a8df-b282bf730382")
+    public void copyFileUsingFileStreamAndSmallChunks() throws Exception {
+        long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+        assert bytesCopied == fileSize;
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
@@ -120,14 +124,18 @@ public class IOAsyncAPIComparisonBenchmarks {
         assert bytesCopied == fileSize;
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "baa29159-7bbf-48e1-9fb9-a9fb05943499")
-//    public void copyFileUsingBufferedStreamAndSmallChunks() throws Exception {
-//        long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-//        assert bytesCopied == fileSize;
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "baa29159-7bbf-48e1-9fb9-a9fb05943499")
+    public void copyFileUsingBufferedStreamAndSmallChunks() throws Exception {
+        long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+        assert bytesCopied == fileSize;
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
@@ -142,14 +150,18 @@ public class IOAsyncAPIComparisonBenchmarks {
         assert bytesCopied == fileSize;
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "7ebb2f8e-eb1e-4cd6-ac9b-f8e2270a5358")
-//    public void copyFileUsingDirectBufferedStreamAndSmallChunks() throws Exception {
-//        long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
-//        assert bytesCopied == fileSize;
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "7ebb2f8e-eb1e-4cd6-ac9b-f8e2270a5358")
+    public void copyFileUsingDirectBufferedStreamAndSmallChunks() throws Exception {
+        long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
+        assert bytesCopied == fileSize;
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)

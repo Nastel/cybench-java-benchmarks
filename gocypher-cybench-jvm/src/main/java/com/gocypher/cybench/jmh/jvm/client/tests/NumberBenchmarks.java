@@ -42,20 +42,20 @@ public class NumberBenchmarks {
     public void setUp() {
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.Throughput)
-//    @OutputTimeUnit(TimeUnit.SECONDS)
-//    @Fork(1)
-//    @Threads(5)
-//    @Measurement(iterations = 5, time = 5)
-//    @Warmup(iterations = 1, time = 5)
-//    @BenchmarkTag(tag = "e57460e6-9589-4d64-92e1-8e6a36ecc93c")
-//    public void generateAndAddDoubleNumbers(Blackhole blackHole) {
-//        double sum = 0.0;
-//        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
-//        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
-//        blackHole.consume(sum);
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "e57460e6-9589-4d64-92e1-8e6a36ecc93c")
+    public void generateAndAddDoubleNumbers(Blackhole blackHole) {
+        double sum = 0.0;
+        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
+        sum += rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble();
+        blackHole.consume(sum);
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
@@ -95,6 +95,10 @@ public class NumberBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "3085ca56-8f30-4b2d-add8-b86258f63f6e")
     public void generateAndLogarithmDoubleNumbers(Blackhole blackHole) {
         Double number = Double.valueOf(Math.log10(rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble()));
@@ -104,6 +108,10 @@ public class NumberBenchmarks {
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    @Threads(5)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "4fcd4596-3dbf-492b-9602-c66a1c26d648")
     public void generateAndPowerDoubleNumbers(Blackhole blackHole) {
         Double number = Double.valueOf(Math.pow(rangeMin + (rangeMax - rangeMin) * ThreadLocalRandom.current().nextDouble(), 10));

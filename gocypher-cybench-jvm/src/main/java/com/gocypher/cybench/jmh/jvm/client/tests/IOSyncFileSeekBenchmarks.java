@@ -83,17 +83,21 @@ public class IOSyncFileSeekBenchmarks {
         seekDst = new RandomAccessFile(targetFile, "rwd");
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "62a03d1d-051f-4ac6-80a6-ed516ad85518")
-//    public int seekAndReadFileUsingSmallChunks() throws Exception {
-//        int bytesRead = 0;
-//        for (long position : arrayOfRandomNumbersForSmallChunks) {
-//            bytesRead += IOUtils.seekAndReadFile(seekSrc, (int) fileSize, smallSeekChunk, position);
-//        }
-//        return bytesRead;
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "62a03d1d-051f-4ac6-80a6-ed516ad85518")
+    public int seekAndReadFileUsingSmallChunks() throws Exception {
+        int bytesRead = 0;
+        for (long position : arrayOfRandomNumbersForSmallChunks) {
+            bytesRead += IOUtils.seekAndReadFile(seekSrc, (int) fileSize, smallSeekChunk, position);
+        }
+        return bytesRead;
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
@@ -112,15 +116,19 @@ public class IOSyncFileSeekBenchmarks {
         return bytesRead;
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "c4bfa008-6616-4b4b-b8f1-98be4e488423")
-//    public void seekAndWriteFileUsingSmallChunks() throws Exception {
-//        for (long position : this.arrayOfRandomNumbersForSmallChunks) {
-//            IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteSmallChunks);
-//        }
-//    }
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "c4bfa008-6616-4b4b-b8f1-98be4e488423")
+    public void seekAndWriteFileUsingSmallChunks() throws Exception {
+        for (long position : this.arrayOfRandomNumbersForSmallChunks) {
+            IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteSmallChunks);
+        }
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
@@ -136,19 +144,23 @@ public class IOSyncFileSeekBenchmarks {
         }
     }
 
-//    @Benchmark
-//    @BenchmarkMode(Mode.SingleShotTime)
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @BenchmarkTag(tag = "be7d5a60-154d-43ca-95fe-2606bda9b6d5")
-//    public void seekAndCopyFileUsingSmallChunks() throws Exception {
-//        long position = 0;
-//        while (position <= fileSize) {
-//            byte[] bytes = IOUtils.seekAndReadFile(seekSrc, smallSeekChunk, position);
-//            IOUtils.seekAndWriteFile(seekDst, position, bytes);
-//            position += smallSeekChunk;
-//        }
-//    }
-//
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(1)
+    @Threads(1)
+    @Measurement(iterations = 5, time = 5)
+    @Warmup(iterations = 1, time = 5)
+    @BenchmarkTag(tag = "be7d5a60-154d-43ca-95fe-2606bda9b6d5")
+    public void seekAndCopyFileUsingSmallChunks() throws Exception {
+        long position = 0;
+        while (position <= fileSize) {
+            byte[] bytes = IOUtils.seekAndReadFile(seekSrc, smallSeekChunk, position);
+            IOUtils.seekAndWriteFile(seekDst, position, bytes);
+            position += smallSeekChunk;
+        }
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
