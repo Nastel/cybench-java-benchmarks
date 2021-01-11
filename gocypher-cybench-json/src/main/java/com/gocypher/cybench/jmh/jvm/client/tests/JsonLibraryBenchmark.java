@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
 import com.owlike.genson.Genson;
+import com.owlike.genson.TransformationException;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import io.quarkus.qson.generator.QsonMapper;
@@ -38,8 +39,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-//import com.owlike.genson.TransformationException;
 
 @BenchmarkMetaData(key="isLibraryBenchmark", value="true")
 @BenchmarkMetaData(key="context", value="JSON parsers")
@@ -715,9 +714,14 @@ public class JsonLibraryBenchmark {
 
         @Override
         public Object doJob(String json) {
-            return genson.deserialize(json, Map.class);
-//            } catch (TransformationException e) {
-//                e.printStackTrace();
+            try {
+                return genson.deserialize(json, Map.class);
+            } catch (TransformationException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
     }
 
@@ -798,9 +802,14 @@ public class JsonLibraryBenchmark {
 
         @Override
         public String doJob(Object o) {
-            return mapper.serialize(o);
-//            } catch (TransformationException e) {
-//                e.printStackTrace();
+            try {
+                return mapper.serialize(o);
+            } catch (TransformationException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
     }
 
@@ -817,7 +826,12 @@ public class JsonLibraryBenchmark {
 
         @Override
         public String doJob(Object o) {
-            return jsonAdapter.toJson((Map) o);
+            try {
+                return jsonAdapter.toJson((Map) o);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
     }
 }
