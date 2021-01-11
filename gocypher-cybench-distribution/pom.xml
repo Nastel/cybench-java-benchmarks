@@ -124,14 +124,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <!-- Just to make sure distribution assemblies are made after all modules have been built -->
-    <!-- It is enough to have dependency to single (mandatory) module to have modules correctly ordered by Maven -->
-    <dependencies>
-        <dependency>
-            <groupId>com.gocypher.cybench.client</groupId>
-            <artifactId>gocypher-cybench-shade</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-    </dependencies>
 </project>

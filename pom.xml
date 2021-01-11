@@ -81,20 +81,23 @@
         <log4j.version>1.2.17</log4j.version>
         <org.slf4j.version>1.7.30</org.slf4j.version>
 
-
-        <release.deploy.dir.core>../deploy</release.deploy.dir.core>
+        <!-- All assembly modules set to skip by default and not to skip when the profile is enabled -->
         <skip.core.assembly>true</skip.core.assembly>
         <skip.json.assembly>true</skip.json.assembly>
+        <!-- Properties for different assembly modules -->
+        <release.core>src/assembly-core</release.core>
+        <target.deploy.core.jar>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</target.deploy.core.jar>
+        <release.deploy.dir.core>../deploy-core</release.deploy.dir.core>
+
+        <release.json>src/assembly-json</release.json>
+        <target.deploy.json.jar>../gocypher-cybench-json/target/gocypher-cybench-json.jar</target.deploy.json.jar>
+        <release.deploy.dir.json>../deploy-json</release.deploy.dir.json>
     </properties>
 
     <profiles>
         <profile>
             <id>pack-jvm-core</id>
             <properties>
-                <release.core>src/assembly-core</release.core>
-                <target.deploy.core.jar>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</target.deploy.core.jar>
-                <coreRelease>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</coreRelease>
-                <release.deploy.dir.core>../deploy-core</release.deploy.dir.core>
                 <skip.core.assembly>false</skip.core.assembly>
             </properties>
             <modules>
@@ -104,9 +107,6 @@
         <profile>
             <id>pack-jvm-json</id>
             <properties>
-                <release.json>src/assembly-json</release.json>
-                <target.deploy.json.jar>../gocypher-cybench-json/target/gocypher-cybench-json.jar</target.deploy.json.jar>
-                <release.deploy.dir.json>../deploy-json</release.deploy.dir.json>
                 <skip.json.assembly>false</skip.json.assembly>
             </properties>
             <modules>
