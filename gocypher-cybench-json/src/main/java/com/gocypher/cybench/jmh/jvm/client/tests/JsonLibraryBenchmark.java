@@ -26,7 +26,6 @@ import com.google.gson.Gson;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
 import com.owlike.genson.Genson;
-import com.owlike.genson.TransformationException;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import io.quarkus.qson.generator.QsonMapper;
@@ -41,11 +40,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @BenchmarkMetaData(key="isLibraryBenchmark", value="true")
-@BenchmarkMetaData(key="context", value="JSON parsers")
+@BenchmarkMetaData(key="context", value="JSON_parsers")
 @BenchmarkMetaData(key="domain", value="java")
-@BenchmarkMetaData(key="libVersion", value="1.0")
-@BenchmarkMetaData(key="title", value="JSON parsers")
-@BenchmarkMetaData(key="description", value="Various JSON parser benchmark")
+@BenchmarkMetaData(key="version", value="1.0")
+@BenchmarkMetaData(key="description", value="Serialization/deserialization of object/JSON (in memory)")
+
 public class JsonLibraryBenchmark {
 
     /**
@@ -55,24 +54,30 @@ public class JsonLibraryBenchmark {
      */
     @Benchmark
     @BenchmarkTag(tag = "40541ade-f193-43b1-9b47-bf3fd1bfe91d")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gsonWithSmallJSON(SmallJson json, GsonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "c72a5095-f613-4176-a76a-bcef763b6afe")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gsonWithAverageJSON(AverageJson json, GsonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
@@ -80,228 +85,288 @@ public class JsonLibraryBenchmark {
 
     @Benchmark
     @BenchmarkTag(tag = "45da6fbf-ceb1-4e99-9fdb-94994f8b3d1d")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gsonWithBigJSON(BigJson json, GsonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "6e15fcde-b18d-4a43-9b0d-327727a1c18f")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object moshiWithBigJSON(BigJson json, MoshiDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "91acab8e-59f3-40db-8afb-a14db22369b2")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object moshiWithSmallJSON(SmallJson json, MoshiDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "b9fe98b5-8c12-477c-9422-ffdb23a2cac0")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object moshiWithAverageJSON(AverageJson json, MoshiDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "71826df8-c9ac-483b-b391-85d1a86e6000")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jsonIteratorWithBigJSON(BigJson json, JSonIteratorDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "3eb37d7c-9345-4d70-8299-d592a7bcf541")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jsonIteratorWithSmallJSON(SmallJson json, JSonIteratorDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "9b288275-ecc9-41de-a20a-c4ae4c233b04")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jsonIteratorWithAverageJSON(AverageJson json, JSonIteratorDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "39f78124-8aef-4f94-a0ca-95cb44302d32")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object qsonWithBigJSON(BigJson json, QSonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "c77e0a09-6893-4cb7-96d9-1d422f24e8ab")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object qsonWithSmallJSON(SmallJson json, QSonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "e211ae89-ca0e-45c2-b5e1-6e97d7570537")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object qsonWithAverageJSON(AverageJson json, QSonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "fef9b157-1b3a-4c3a-8225-d6759775bb23")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gensonWithAverageJSON(AverageJson json, GensonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "0d64df0f-e8f1-4f5c-a862-e6a8bacf1422")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gensonWithBigJSON(BigJson json, GensonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "d6402516-6bb0-424c-8c3a-279ae80f13e6")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="428000")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object gensonWithSmallJSON(SmallJson json, GensonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "38cddf00-9a51-4351-bd30-b9a6ba0d195c")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
+    @BenchmarkMetaData(key="libDescription", value="Core Jackson processing abstractions (aka Streaming API), implementation for JSON")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jacksonWithSmallJSON(SmallJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "1ba08cd2-f2da-43a7-b720-8ea886543503")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
+    @BenchmarkMetaData(key="libDescription", value="Core Jackson processing abstractions (aka Streaming API), implementation for JSON")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jacksonWithAverageJSON(AverageJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "813b142a-e8c9-4e6e-b3fb-ad3512517e7b")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
+    @BenchmarkMetaData(key="libDescription", value="Core Jackson processing abstractions (aka Streaming API), implementation for JSON")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object jacksonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "351f821f-ca69-4e35-9a82-e9c9f34478f9")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object boonWithSmallJSON(SmallJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "ec3fb51a-270b-4249-ae5f-9b70e2563e1c")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object boonWithAverageJSON(AverageJson json, BoonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "c437b7ab-49c1-462c-885e-6da3c144f7dd")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Deserialization of JSON")
     public Object boonWithBigJSON(BigJson json, JacksonDeserialize impl, Blackhole bh) {
         return impl.doJob(json.actualJson);
     }
@@ -311,252 +376,315 @@ public class JsonLibraryBenchmark {
     // ######################################################################
     @Benchmark
     @BenchmarkTag(tag = "3158b5a3-b37d-40f3-9c7b-aa4d422fb4af")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gsonWithSmallObject(SmallJson json, GsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "4a475f6f-0f1a-4633-a786-6083da40b898")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gsonWithAverageObject(AverageJson json, GsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "28975a65-c685-464c-acee-aa4a1e7b51cd")
-    @BenchmarkMetaData(key="libName", value="gson")
+    @BenchmarkMetaData(key="api", value="gson")
     @BenchmarkMetaData(key="libVendor", value="com.google")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/google/gson")
     @BenchmarkMetaData(key="libVersion", value="2.8.6")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.google.gson")
+    @BenchmarkMetaData(key="libDescription", value="Gson JSON library")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gsonWithBigObject(BigJson json, GsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "74af4f22-c7a9-49f7-947c-54b5e283acc9")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object jacksonWithSmallObject(SmallJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "1aea3b3a-a521-4ed4-97fb-adc6126f398e")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object jacksonWithAverageObject(AverageJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "4877323c-5def-41da-830f-d518d29c5da5")
-    @BenchmarkMetaData(key="libName", value="jackson")
+    @BenchmarkMetaData(key="api", value="jackson")
     @BenchmarkMetaData(key="libVendor", value="com.fasterxml.jackson")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/FasterXML/jackson")
     @BenchmarkMetaData(key="libVersion", value="2.11.2")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.fasterxml.jackson.core.jackson")
+    @BenchmarkMetaData(key="libDescription", value="Jackson is most popular java based library to serialize or map java objects to JSON and vice versa.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object jacksonWithBigObject(BigJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "6f17dcf4-460e-4a57-8959-7cf20d1fb92e")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object boonWithBigObject(BigJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "fd75ae2e-28c2-4c23-8cb9-a4d399551041")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object boonWithSmallObject(SmallJson json, JacksonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "64eba044-96dc-4ac8-91aa-25a95e63745a")
-    @BenchmarkMetaData(key="libName", value="boon")
+    @BenchmarkMetaData(key="api", value="boon")
     @BenchmarkMetaData(key="libVendor", value="io.fastjson")
     @BenchmarkMetaData(key="libUrl", value="https://mvnrepository.com/artifact/io.fastjson/boon")
     @BenchmarkMetaData(key="libVersion", value="0.34")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.fastjson.boon")
+    @BenchmarkMetaData(key="libDescription", value="Simple opinionated Java for the novice to expert level Java Programmer. Low Ceremony. High Productivit y. A real boon to Java to developers!")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object boonWithAverageObject(AverageJson json, BoonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "23374b54-1256-46f8-9621-87d1eccf43c1")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gensonWithBigObject(BigJson json, GensonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "e4713c41-daab-4a7c-b688-ea14534f7053")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gensonWithSmallObject(SmallJson json, GensonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "ac39da76-28a2-40f3-a8b4-1052c73ddacf")
-    @BenchmarkMetaData(key="libName", value="genson")
+    @BenchmarkMetaData(key="api", value="genson")
     @BenchmarkMetaData(key="libVendor", value="com.owlike")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/owlike/genson")
     @BenchmarkMetaData(key="libVersion", value="1.6")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.owlike.genson")
+    @BenchmarkMetaData(key="libDescription", value="Genson API is designed to be easy to use, it handles for you all the databinding, streaming and much more.")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object gensonWithAverageObject(AverageJson json, GensonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "e93a9640-bf4b-4b32-8d6b-4c5792cbe50f")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object moshiWithBigObject(BigJson json, MoshiSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "23084973-5f77-4e0e-9e3b-52cb756321a0")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object moshiWithSmallObject(SmallJson json, MoshiSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "0050f409-d663-4a57-bffb-cf94b2ef0c26")
-    @BenchmarkMetaData(key="libName", value="moshi")
+    @BenchmarkMetaData(key="api", value="moshi")
     @BenchmarkMetaData(key="libVendor", value="com.squareup")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/square/moshi")
     @BenchmarkMetaData(key="libVersion", value="1.11.0")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.squareup.moshi")
+    @BenchmarkMetaData(key="libDescription", value="Modern JSON library for Java ")
+    @BenchmarkMetaData(key="title", value="Serialization of Object")
     public Object moshiWithAverageObject(AverageJson json, MoshiSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "43358e4e-9dfc-45f1-87d4-bed656e93130")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object qsonWithBigObject(BigJson json, QsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "476f6e54-87db-4351-867d-47303432979b")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object qsonWithSmallObject(SmallJson json, QsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "ac298664-6455-4128-9c2a-33615db2d30e")
-    @BenchmarkMetaData(key="libName", value="qson")
+    @BenchmarkMetaData(key="api", value="qson")
     @BenchmarkMetaData(key="libVendor", value="io.quarkus")
     @BenchmarkMetaData(key="libUrl", value="https://github.com/quarkusio/qson")
     @BenchmarkMetaData(key="libVersion", value="1.0.Final")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="io.quarkus.qson")
+    @BenchmarkMetaData(key="libDescription", value="JSON serializer primary for QUARKUS/GRAAL")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object qsonWithAverageObject(AverageJson json, QsonSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "f36defd9-ffc3-416d-8dc0-8cfedfb312b8")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="440203")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object jsonIteratorWithBigObject(BigJson json, JsonIteratorSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "7d6b9aa5-195f-4582-9739-90783405bc89")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="45")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object jsonIteratorWithSmallObject(SmallJson json, JsonIteratorSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
 
     @Benchmark
     @BenchmarkTag(tag = "ec2cf16b-5e7f-418e-8fe0-f5a7b894711b")
-    @BenchmarkMetaData(key="libName", value="jsoniter")
+    @BenchmarkMetaData(key="api", value="jsoniter")
     @BenchmarkMetaData(key="libVendor", value="com.jsoniter")
     @BenchmarkMetaData(key="libUrl", value="http://jsoniter.com/")
     @BenchmarkMetaData(key="libVersion", value="0.9.23")
     @BenchmarkMetaData(key="dataSize", value="4280")
-    @BenchmarkMetaData(key="actionName", value="deserialize")
+    @BenchmarkMetaData(key="actionName", value="serialize")
+    @BenchmarkMetaData(key="libSymbolicName", value="com.jsoniter")
+    @BenchmarkMetaData(key="libDescription", value="Fast and flexible JSON parser available in Java and Go")
+    @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object jsonIteratorWithAverageObject(AverageJson json, JsonIteratorSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
     }
@@ -716,9 +844,7 @@ public class JsonLibraryBenchmark {
         public Object doJob(String json) {
             try {
                 return genson.deserialize(json, Map.class);
-            } catch (TransformationException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
@@ -804,9 +930,7 @@ public class JsonLibraryBenchmark {
         public String doJob(Object o) {
             try {
                 return mapper.serialize(o);
-            } catch (TransformationException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
@@ -828,7 +952,7 @@ public class JsonLibraryBenchmark {
         public String doJob(Object o) {
             try {
                 return jsonAdapter.toJson((Map) o);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
