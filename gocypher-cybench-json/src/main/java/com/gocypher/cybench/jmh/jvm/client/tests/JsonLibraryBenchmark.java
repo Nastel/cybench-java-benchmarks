@@ -22,6 +22,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.google.gson.Gson;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
@@ -32,13 +33,13 @@ import io.quarkus.qson.generator.QsonMapper;
 import org.boon.json.JsonFactory;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@State(Scope.Benchmark)
 @BenchmarkMetaData(key="isLibraryBenchmark", value="true")
 @BenchmarkMetaData(key="context", value="JSON_parsers")
 @BenchmarkMetaData(key="domain", value="java")
@@ -687,6 +688,11 @@ public class JsonLibraryBenchmark {
     @BenchmarkMetaData(key="title", value="Serialization of JSON")
     public Object jsonIteratorWithAverageObject(AverageJson json, JsonIteratorSerialize impl, Blackhole bh) {
         return impl.doJob(json.object);
+    }
+
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
     }
 
     interface IMPL {

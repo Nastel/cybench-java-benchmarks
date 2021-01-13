@@ -19,7 +19,6 @@
 
 package com.gocypher.cybench.jmh.jvm.test;
 
-import com.gocypher.cybench.jmh.jvm.client.tests.NumberBenchmarks;
 import org.openjdk.jmh.profile.GCProfiler;
 import org.openjdk.jmh.profile.StackProfiler;
 import org.openjdk.jmh.results.IterationResult;
@@ -54,7 +53,7 @@ public class BenchmarksTest {
         OptionsBuilder optBuild = new OptionsBuilder();
 
         //optBuild.include(StringBenchmarks.class.getSimpleName());
-        optBuild.include(NumberBenchmarks.class.getSimpleName());
+        optBuild.include(StringBenchmarks.class.getSimpleName());
         //optBuild.include(IOSyncFileSeekBenchmarks.class.getSimpleName());
         //optBuild.include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName());
         //optBuild.include(NumberBenchmarks.class.getSimpleName());

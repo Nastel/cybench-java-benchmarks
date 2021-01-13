@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (C) 2020, K2N.IO.
   ~
@@ -20,21 +21,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>com.gocypher.cybench.client</groupId>
         <artifactId>gocypher-cybench-java-core</artifactId>
+        <groupId>com.gocypher.cybench.client</groupId>
         <version>1.0.0</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>gocypher-cybench-string</artifactId>
+    <artifactId>gocypher-cybench-list</artifactId>
+
+
     <packaging>jar</packaging>
     <version>1.0.0</version>
-    <name>gocypher-cybench-string</name>
+    <name>gocypher-cybench-list</name>
 
     <properties>
-        <jvm.jar.name>gocypher-cybench-string</jvm.jar.name>
+        <jvm.jar.name>gocypher-cybench-list</jvm.jar.name>
     </properties>
 
     <dependencies>
@@ -93,7 +95,6 @@
                     <compilerVersion>${javac.target}</compilerVersion>
                     <source>${javac.target}</source>
                     <target>${javac.target}</target>
-<!--                    annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors-->
                 </configuration>
             </plugin>
             <plugin>
@@ -165,7 +166,5 @@
         </pluginManagement>
 
     </build>
-
-
 
 </project>

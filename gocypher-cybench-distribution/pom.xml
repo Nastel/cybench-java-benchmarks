@@ -67,8 +67,35 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>${release.deploy.dir.core}</directory>
+                            <directory>${release.deploy.dir.string}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}/</include>
+                                <include>${release.deploy.finalName}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
                             <directory>${release.deploy.dir.json}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}/</include>
+                                <include>${release.deploy.finalName}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.io}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}/</include>
+                                <include>${release.deploy.finalName}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.list}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}/</include>
+                                <include>${release.deploy.finalName}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.number}</directory>
                             <includes>
                                 <include>${release.deploy.finalName}/</include>
                                 <include>${release.deploy.finalName}.*</include>
@@ -83,20 +110,39 @@
                 <version>3.3.0</version>
                 <executions>
                     <execution>
-                        <id>core-deploy</id>
+                        <id>string-deploy</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <skipAssembly>${skip.core.assembly}</skipAssembly>
+                            <skipAssembly>${skip.string.assembly}</skipAssembly>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
-                                <descriptor>${release.core}/${release.deploy.zip.assembly}</descriptor>
-                                <descriptor>${release.core}/${release.deploy.gz.assembly}</descriptor>
-                                <descriptor>${release.core}/${release.deploy.dir.assembly}</descriptor>
+                                <descriptor>${release.string}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.string}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.string}/${release.deploy.dir.assembly}</descriptor>
                             </descriptors>
-                            <outputDirectory>${release.deploy.dir.core}</outputDirectory>
+                            <outputDirectory>${release.deploy.dir.string}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>number-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skip.number.assembly}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${release.number}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.number}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.number}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${release.deploy.dir.number}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
                             <finalName>${release.deploy.finalName}</finalName>
                         </configuration>
@@ -116,6 +162,44 @@
                                 <descriptor>${release.json}/${release.deploy.dir.assembly}</descriptor>
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.json}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>io-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skip.io.assembly}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${release.io}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.io}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.io}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${release.deploy.dir.io}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>list-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skip.list.assembly}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${release.list}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.list}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.list}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${release.deploy.dir.list}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
                             <finalName>${release.deploy.finalName}</finalName>
                         </configuration>

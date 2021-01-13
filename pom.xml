@@ -25,6 +25,9 @@
     <groupId>com.gocypher.cybench.client</groupId>
     <artifactId>gocypher-cybench-java-core</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>gocypher-cybench-number</module>
+    </modules>
 
     <name>gocypher-cybench-java-core</name>
 
@@ -47,25 +50,6 @@
             <version>${jmh.version}</version>
             <scope>compile</scope>
         </dependency>
-
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
 
     <packaging>pom</packaging>
@@ -82,23 +66,38 @@
         <org.slf4j.version>1.7.30</org.slf4j.version>
 
         <!-- All assembly modules set to skip by default and not to skip when the profile is enabled -->
-        <skip.core.assembly>true</skip.core.assembly>
+        <skip.string.assembly>true</skip.string.assembly>
         <skip.json.assembly>true</skip.json.assembly>
+        <skip.io.assembly>true</skip.io.assembly>
+        <skip.list.assembly>true</skip.list.assembly>
+        <skip.number.assembly>false</skip.number.assembly>
         <!-- Properties for different assembly modules -->
-        <release.core>src/assembly-core</release.core>
-        <target.deploy.core.jar>../gocypher-cybench-jvm/target/gocypher-cybench-jvm.jar</target.deploy.core.jar>
-        <release.deploy.dir.core>../deploy-core</release.deploy.dir.core>
+        <release.string>src/assembly-string</release.string>
+        <target.deploy.string.jar>../gocypher-cybench-jvm/target/gocypher-cybench-string.jar</target.deploy.string.jar>
+        <release.deploy.dir.string>../deploy/string</release.deploy.dir.string>
 
         <release.json>src/assembly-json</release.json>
         <target.deploy.json.jar>../gocypher-cybench-json/target/gocypher-cybench-json.jar</target.deploy.json.jar>
-        <release.deploy.dir.json>../deploy-json</release.deploy.dir.json>
+        <release.deploy.dir.json>../deploy/json</release.deploy.dir.json>
+
+        <release.io>src/assembly-io</release.io>
+        <target.deploy.io.jar>../gocypher-cybench-io/target/gocypher-cybench-io.jar</target.deploy.io.jar>
+        <release.deploy.dir.io>../deploy/io</release.deploy.dir.io>
+
+        <release.list>src/assembly-list</release.list>
+        <target.deploy.list.jar>../gocypher-cybench-list/target/gocypher-cybench-list.jar</target.deploy.list.jar>
+        <release.deploy.dir.list>../deploy/list</release.deploy.dir.list>
+
+        <release.number>src/assembly-number</release.number>
+        <target.deploy.number.jar>../gocypher-cybench-number/target/gocypher-cybench-number.jar</target.deploy.number.jar>
+        <release.deploy.dir.number>../deploy/number</release.deploy.dir.number>
     </properties>
 
     <profiles>
         <profile>
-            <id>pack-jvm-core</id>
+            <id>pack-jvm-string</id>
             <properties>
-                <skip.core.assembly>false</skip.core.assembly>
+                <skip.string.assembly>false</skip.string.assembly>
             </properties>
             <modules>
                 <module>gocypher-cybench-jvm</module>
@@ -114,21 +113,44 @@
             </modules>
         </profile>
         <profile>
+            <id>pack-jvm-io</id>
+            <properties>
+                <skip.io.assembly>false</skip.io.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-io</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>pack-jvm-list</id>
+            <properties>
+                <skip.list.assembly>false</skip.list.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-list</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>pack-jvm-number</id>
+            <properties>
+                <skip.number.assembly>false</skip.number.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-number</module>
+            </modules>
+        </profile>
+        <profile>
             <id>x-distribution</id>
             <activation>
                 <file><exists>.</exists></file>
             </activation>
             <modules>
                 <module>gocypher-cybench-distribution</module>
+                <module>gocypher-cybench-utils</module>
             </modules>
         </profile>
     </profiles>
 
-<!--    <modules>-->
-<!--        <module>gocypher-cybench-jvm</module>-->
-<!--        <module>gocypher-cybench-json</module>-->
-<!--        <module>gocypher-cybench-distribution</module>-->
-<!--    </modules>-->
     <build>
         <defaultGoal>clean package</defaultGoal>
 
