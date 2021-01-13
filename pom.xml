@@ -91,6 +91,10 @@
         <release.number>src/assembly-number</release.number>
         <target.deploy.number.jar>../gocypher-cybench-number/target/gocypher-cybench-number.jar</target.deploy.number.jar>
         <release.deploy.dir.number>../deploy/number</release.deploy.dir.number>
+
+        <release.number>src/assembly-matrices</release.number>
+        <target.deploy.matrices.jar>../gocypher-cybench-matrices/target/gocypher-cybench-matrices.jar</target.deploy.matrices.jar>
+        <release.deploy.dir.number>../deploy/matrices</release.deploy.dir.number>
     </properties>
 
     <profiles>
