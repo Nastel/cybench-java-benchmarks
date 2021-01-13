@@ -140,6 +140,15 @@
             </modules>
         </profile>
         <profile>
+            <id>pack-jvm-matrices</id>
+            <properties>
+                <skip.matrices.assembly>false</skip.matrices.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-matrices</module>
+            </modules>
+        </profile>
+        <profile>
             <id>x-distribution</id>
             <activation>
                 <file><exists>.</exists></file>
