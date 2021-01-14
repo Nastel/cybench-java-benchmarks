@@ -28,13 +28,13 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>gocypher-cybench-json</artifactId>
+    <artifactId>gocypher-cybench-httpServers</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
-    <name>gocypher-cybench-json</name>
+    <name>gocypher-cybench-httpServers</name>
 
     <properties>
-        <jvm.jar.name>gocypher-cybench-json</jvm.jar.name>
+        <jvm.jar.name>gocypher-cybench-httpServers</jvm.jar.name>
     </properties>
 
     <dependencies>
@@ -44,57 +44,7 @@
             <artifactId>gocypher-cybench-runner</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.6</version>
-        </dependency>
-        <dependency>
-            <groupId>io.fastjson</groupId>
-            <artifactId>boon</artifactId>
-            <version>0.34</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.moshi</groupId>
-            <artifactId>moshi</artifactId>
-            <version>1.11.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus.qson</groupId>
-            <artifactId>qson-generator</artifactId>
-            <version>1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jsoniter</groupId>
-            <artifactId>jsoniter</artifactId>
-            <version>0.9.23</version>
-        </dependency>
-        <dependency>
-            <groupId>com.owlike</groupId>
-            <artifactId>genson</artifactId>
-            <version>1.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -113,18 +63,21 @@
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.wizzardo</groupId>
-            <artifactId>http</artifactId>
-            <version>0.4</version>
-            <scope>compile</scope>
-        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.wizzardo/http -->
+        <!-- Native libs does not support Windows -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.wizzardo</groupId>-->
+        <!--            <artifactId>http</artifactId>-->
+        <!--            <version>0.4</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.takes</groupId>
             <artifactId>takes</artifactId>
             <version>1.19</version>
-            <scope>compile</scope>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -223,7 +176,6 @@
         </pluginManagement>
 
     </build>
-
 
 
 </project>

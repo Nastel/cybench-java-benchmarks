@@ -153,6 +153,16 @@
             </modules>
         </profile>
         <profile>
+            <id>pack-jvm-httpServers</id>
+            <properties>
+                <skip.httpServers.assembly>false</skip.httpServers.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-httpServers</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>x-distribution</id>
             <activation>
                 <file><exists>.</exists></file>
