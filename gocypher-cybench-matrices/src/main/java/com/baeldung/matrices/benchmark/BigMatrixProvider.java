@@ -1,13 +1,10 @@
 package com.baeldung.matrices.benchmark;
 
-import org.openjdk.jmh.annotations.Param;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.BenchmarkParams;
 
 import java.util.Random;
-import java.util.stream.DoubleStream;
 
 @State(Scope.Benchmark)
 public class BigMatrixProvider {
@@ -36,6 +33,10 @@ public class BigMatrixProvider {
             }
         }
         return result;
+    }
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
     }
 
     public double[][] getFirstMatrix() {

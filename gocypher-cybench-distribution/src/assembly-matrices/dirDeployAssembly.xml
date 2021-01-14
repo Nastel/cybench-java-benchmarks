@@ -28,6 +28,6 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <baseDirectory>${release.deploy.finalName}</baseDirectory>
     <componentDescriptors>
-        <componentDescriptor>src/assembly-string/deployComponentDir.xml</componentDescriptor>
+        <componentDescriptor>src/assembly-matrices/deployComponentDir.xml</componentDescriptor>
     </componentDescriptors>
 </assembly>
