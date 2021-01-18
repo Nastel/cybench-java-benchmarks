@@ -105,6 +105,16 @@ public class HttpServerBenchmark {
         get();
     }
 
+    @Benchmark
+    @BenchmarkMode(value = Mode.Throughput)
+    @BenchmarkMetaData(key = "libVendor", value = "org.sparkjava")
+    @BenchmarkMetaData(key = "libUrl", value = "http://sparkjava.com/")
+    @BenchmarkMetaData(key = "libDescription", value = "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort.")
+    public // @OperationsPerInvocation(value = 1000000)
+    void sparkHttpdBenchmark(SparkHttpd server) {
+        get();
+    }
+
     private void get() {
         HttpURLConnection con = null;
         try {
