@@ -113,8 +113,8 @@ public class HttpServerBenchmark {
             con.setRequestMethod("GET");
             InputStream inputStream = con.getInputStream();
             StringBuffer content = getString(inputStream);
-            if (!content.equals(responseString)) {
-                throw new RuntimeException();
+            if (!content.toString().equals(responseString)) {
+                throw new RuntimeException("Response Error");
             }
         } catch (IOException e) {
             System.out.println(getString(con.getErrorStream()));
@@ -124,6 +124,7 @@ public class HttpServerBenchmark {
 
     private StringBuffer getString(InputStream inputStream) {
         StringBuffer content = new StringBuffer();
+        if (inputStream == null) return null;
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
             String inputLine;
@@ -216,13 +217,29 @@ public class HttpServerBenchmark {
     @State(Scope.Benchmark)
     public static class JettyWebServer extends org.eclipse.jetty.server.handler.AbstractHandler {
 
+        private Server server;
+
         @Setup
         public void setup() {
-            Server server = new org.eclipse.jetty.server.Server();
+            server = new Server();
             ServerConnector connector = new ServerConnector(server);
             connector.setPort(8080);
             server.setConnectors(new Connector[] { connector });
             server.setHandler(new JettyWebServer());
+            try {
+                server.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @TearDown
+        public void stopS() {
+            try {
+                server.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
@@ -233,6 +250,11 @@ public class HttpServerBenchmark {
             out.println(responseString);
             request.setHandled(true);
         }
+    }
+
+    public static void main(String[] args) {
+        new SparkHttpd().setup();
+        new HttpServerBenchmark().get();
     }
 
     @State(Scope.Benchmark)
@@ -251,7 +273,34 @@ public class HttpServerBenchmark {
         public Response serve(IHTTPSession session) {
             return newFixedLengthResponse(responseString);
         }
+
+        @TearDown
+        @Override
+        public void stop() {
+            super.stop();
+        }
     }
+
+
+    @State(Scope.Benchmark)
+    public static class SparkHttpd {
+        @Setup
+        public void setup() {
+            spark.Spark.port(8080);
+            spark.Spark.get("/test", (req, res) -> responseString);
+        }
+
+        @TearDown
+        public void shutdown() {
+            spark.Spark.stop();
+        }
+    }
+//    public static void main(String[] args) {
+//        NanoHTTPD nanoHTTPD = new NanoHTTPD();
+//        new HttpServerBenchmark().get();
+//    }
+
+
     // @State(Scope.Benchmark)
     // public static class NettyWebServer {
     // 
