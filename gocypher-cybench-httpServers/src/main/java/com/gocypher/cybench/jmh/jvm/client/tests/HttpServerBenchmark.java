@@ -23,6 +23,9 @@ import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import io.undertow.Undertow;
+import io.undertow.server.HttpServerExchange;
+import io.undertow.util.Headers;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
@@ -31,7 +34,8 @@ import org.openjdk.jmh.annotations.*;
 import org.takes.facets.fork.FkRegex;
 import org.takes.facets.fork.TkFork;
 import org.takes.http.Exit;
-import org.takes.http.FtBasic;
+import org.takes.http.FtCli;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,8 +52,13 @@ import java.net.URL;
 @BenchmarkMetaData(key = "description", value = "HttpServers implementation benchmark")
 public class HttpServerBenchmark {
 
-    @Param({ "<p>This is response</p>" })
-    private static String responseString = "\"This is response\"";
+    @Param({"<p>This is response</p>", "<p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p>"})
+    private static String responseString = "This is response";
+
+//    public static void main(String[] args) {
+//        new TakesWebServer().setup();
+//        new HttpServerBenchmark().get();
+//    }
 
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
@@ -110,10 +119,23 @@ public class HttpServerBenchmark {
     @BenchmarkMetaData(key = "libVendor", value = "org.sparkjava")
     @BenchmarkMetaData(key = "libUrl", value = "http://sparkjava.com/")
     @BenchmarkMetaData(key = "libDescription", value = "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort.")
+    @BenchmarkTag(tag = "218fe99c-2196-46d9-8f82-21ed2142d0f2")
     public // @OperationsPerInvocation(value = 1000000)
     void sparkHttpdBenchmark(SparkHttpd server) {
         get();
     }
+
+    @Benchmark
+    @BenchmarkMode(value = Mode.Throughput)
+    @BenchmarkMetaData(key = "libVendor", value = "io.undertow")
+    @BenchmarkMetaData(key = "libUrl", value = "https://undertow.io/")
+    @BenchmarkMetaData(key = "libDescription", value = "Undertow is a flexible performant web server written in java, providing both blocking and non-blocking API’s based on NIO.")
+    @BenchmarkTag(tag = "218fe99c-2196-46d9-8f82-21ed2142d0f2")
+    public // @OperationsPerInvocation(value = 1000000)
+    void undertowHttpdBenchmark(UndertowHttpd server) {
+        get();
+    }
+
 
     private void get() {
         HttpURLConnection con = null;
@@ -134,7 +156,8 @@ public class HttpServerBenchmark {
 
     private StringBuffer getString(InputStream inputStream) {
         StringBuffer content = new StringBuffer();
-        if (inputStream == null) return null;
+        if (inputStream == null)
+            return null;
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
             String inputLine;
@@ -184,11 +207,11 @@ public class HttpServerBenchmark {
     // @WebServiceProvider
     // @ServiceMode(value = Service.Mode.PAYLOAD)
     // public static class JavaWebServiceProvider implements Provider<Source> {
-    // 
+    //
     // public Source invoke(Source request) {
     // return new StreamSource(new StringReader(responseString));
     // }
-    // 
+    //
     // @Setup
     // public void setup() {
     // String address = "http://localhost:8080/test";
@@ -212,16 +235,23 @@ public class HttpServerBenchmark {
     @State(Scope.Benchmark)
     public static class TakesWebServer {
 
+
         @Setup
         public void setup() {
+
             new Thread(() -> {
                 try {
-                    new FtBasic(new TkFork(new FkRegex("/test", responseString)), 8080).start(Exit.NEVER);
+                    FtCli ftCli = new FtCli(new TkFork(new FkRegex("/test", responseString)),
+                            "--port=8080",
+                            "--threads=10");
+                    ftCli.start(Exit.NEVER);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }).start();
+
         }
+
     }
 
     @State(Scope.Benchmark)
@@ -234,7 +264,7 @@ public class HttpServerBenchmark {
             server = new Server();
             ServerConnector connector = new ServerConnector(server);
             connector.setPort(8080);
-            server.setConnectors(new Connector[] { connector });
+            server.setConnectors(new Connector[]{connector});
             server.setHandler(new JettyWebServer());
             try {
                 server.start();
@@ -262,15 +292,10 @@ public class HttpServerBenchmark {
         }
     }
 
-    public static void main(String[] args) {
-        new SparkHttpd().setup();
-        new HttpServerBenchmark().get();
-    }
-
     @State(Scope.Benchmark)
     public static class NanoHTTPD extends fi.iki.elonen.NanoHTTPD {
 
-        public NanoHTTPD()  {
+        public NanoHTTPD() {
             super(8080);
             try {
                 start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
@@ -291,9 +316,9 @@ public class HttpServerBenchmark {
         }
     }
 
-
     @State(Scope.Benchmark)
     public static class SparkHttpd {
+
         @Setup
         public void setup() {
             spark.Spark.port(8080);
@@ -305,15 +330,39 @@ public class HttpServerBenchmark {
             spark.Spark.stop();
         }
     }
-//    public static void main(String[] args) {
-//        NanoHTTPD nanoHTTPD = new NanoHTTPD();
-//        new HttpServerBenchmark().get();
-//    }
 
+    @State(Scope.Benchmark)
+    public static class UndertowHttpd {
 
+        private Undertow server;
+
+        @Setup
+        public void setup() {
+            server = Undertow.builder()
+                    .addHttpListener(8080, "localhost")
+                    .setHandler(new io.undertow.server.HttpHandler() {
+                        @Override
+                        public void handleRequest(HttpServerExchange exchange) throws Exception {
+                            exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
+                            exchange.getResponseSender().send(responseString);
+                        }
+
+                    }).build();
+            server.start();
+        }
+
+        @TearDown
+        public void shutdown() {
+            server.stop();
+        }
+    }
+    // public static void main(String[] args) {
+    // NanoHTTPD nanoHTTPD = new NanoHTTPD();
+    // new HttpServerBenchmark().get();
+    // }
     // @State(Scope.Benchmark)
     // public static class NettyWebServer {
-    // 
+    //
     // @Setup
     // public void setup() {
     // // Configure the server.
@@ -325,9 +374,9 @@ public class HttpServerBenchmark {
     // .channel(NioServerSocketChannel.class)
     // .handler(new LoggingHandler(LogLevel.INFO))
     // .childHandler(new HttpSnoopServerInitializer());
-    // 
+    //
     // Channel ch = b.bind(8080).sync().channel();
-    // 
+    //
     // ch.closeFuture().sync();
     // } catch (InterruptedException e) {
     // e.printStackTrace();
@@ -335,19 +384,19 @@ public class HttpServerBenchmark {
     // bossGroup.shutdownGracefully();
     // workerGroup.shutdownGracefully();
     // }
-    // 
+    //
     // }
-    // 
+    //
     // public static class HttpSnoopServerInitializer extends ChannelInitializer<SocketChannel> {
-    // 
-    // 
+    //
+    //
     // public HttpSnoopServerInitializer() {
     // }
-    // 
+    //
     // @Override
     // public void initChannel(SocketChannel ch) {
     // ChannelPipeline p = ch.pipeline();
-    // 
+    //
     // p.addLast(new HttpRequestDecoder());
     // // Uncomment the following line if you don't want to handle HttpChunks.
     // //p.addLast(new HttpObjectAggregator(1048576));
@@ -357,8 +406,8 @@ public class HttpServerBenchmark {
     // p.addLast(new HttpSnoopServerHandler());
     // }
     // }
-    // 
-    // 
+    //
+    //
     // public static class HttpSnoopServerHandler extends SimpleChannelInboundHandler<Object> {
     // private HttpRequest request;
     // private final StringBuilder buf = new StringBuilder();
@@ -366,15 +415,15 @@ public class HttpServerBenchmark {
     // protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
     // if (msg instanceof HttpRequest) {
     // HttpRequest request = this.request = (HttpRequest) msg;
-    // 
+    //
     // buf.setLength(0);
     // buf.append("WELCOME TO THE WILD WILD WEB SERVER\r\n");
     // buf.append("===================================\r\n");
-    // 
+    //
     // buf.append("VERSION: ").append(request.protocolVersion()).append("\r\n");
     // buf.append("HOSTNAME: ").append(request.headers().get(HttpHeaderNames.HOST, "unknown")).append("\r\n");
     // buf.append("REQUEST_URI: ").append(request.uri()).append("\r\n\r\n");
-    // 
+    //
     // HttpHeaders headers = request.headers();
     // if (!headers.isEmpty()) {
     // for (Map.Entry<CharSequence, CharSequence> h: headers) {
@@ -384,13 +433,13 @@ public class HttpServerBenchmark {
     // }
     // buf.append("\r\n");
     // }
-    // 
+    //
     // appendDecoderResult(buf, request);
     // }
-    // 
+    //
     // if (msg instanceof HttpContent) {
     // HttpContent httpContent = (HttpContent) msg;
-    // 
+    //
     // ByteBuf content = httpContent.content();
     // if (content.isReadable()) {
     // buf.append("CONTENT: ");
@@ -398,10 +447,10 @@ public class HttpServerBenchmark {
     // buf.append("\r\n");
     // appendDecoderResult(buf, request);
     // }
-    // 
+    //
     // if (msg instanceof LastHttpContent) {
     // buf.append("END OF CONTENT\r\n");
-    // 
+    //
     // LastHttpContent trailer = (LastHttpContent) msg;
     // if (!trailer.trailingHeaders().isEmpty()) {
     // buf.append("\r\n");
@@ -413,7 +462,7 @@ public class HttpServerBenchmark {
     // }
     // buf.append("\r\n");
     // }
-    // 
+    //
     // if (!writeResponse(trailer, ctx)) {
     // // If keep-alive is off, close the connection once the content is fully written.
     // ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
@@ -421,7 +470,7 @@ public class HttpServerBenchmark {
     // }
     // }
     // }
-    // 
+    //
     // }
     // }
     // }
