@@ -33,8 +33,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <release.deploy.name>gocypher-cybench-java</release.deploy.name>
-        <release.deploy.finalName>${release.deploy.name}-${project.version}</release.deploy.finalName>
+        <release.deploy.name>gocypher-cybench</release.deploy.name>
+        <release.deploy.finalName>${release.deploy.name}</release.deploy.finalName>
         <release.deploy.zip.assembly>zipDeployAssembly.xml</release.deploy.zip.assembly>
         <release.deploy.gz.assembly>gzDeployAssembly.xml</release.deploy.gz.assembly>
         <release.deploy.dir.assembly>dirDeployAssembly.xml</release.deploy.dir.assembly>
@@ -69,50 +69,57 @@
                         <fileset>
                             <directory>${release.deploy.dir.string}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-strings-${project.version}/</include>
+                                <include>${release.deploy.finalName}-strings-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.json}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-json-${project.version}/</include>
+                                <include>${release.deploy.finalName}-json-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.io}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-io-${project.version}/</include>
+                                <include>${release.deploy.finalName}-io-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.list}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-lists-${project.version}/</include>
+                                <include>${release.deploy.finalName}-lists-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.number}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-numbers-${project.version}/</include>
+                                <include>${release.deploy.finalName}-numbers-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.matrices}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-matrices-${project.version}/</include>
+                                <include>${release.deploy.finalName}-matrices-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
                             <directory>${release.deploy.dir.httpServers}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}/</include>
-                                <include>${release.deploy.finalName}.*</include>
+                                <include>${release.deploy.finalName}-http-servers-${project.version}/</include>
+                                <include>${release.deploy.finalName}-http-servers-${project.version}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.security.crypto}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}-security-${project.version}/</include>
+                                <include>${release.deploy.finalName}-security-${project.version}.*</include>
                             </includes>
                         </fileset>
                     </filesets>
@@ -139,7 +146,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.string}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-strings-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -158,7 +165,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.number}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-numbers-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -177,7 +184,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.json}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-json-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -196,7 +203,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.io}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-io-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -215,7 +222,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.list}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-lists-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -234,7 +241,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.matrices}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-matrices-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -253,7 +260,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.httpServers}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-http-servers-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -272,7 +279,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.security.crypto}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}</finalName>
+                            <finalName>${release.deploy.finalName}-security-${project.version}</finalName>
                         </configuration>
                     </execution>
                 </executions>

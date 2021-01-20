@@ -73,6 +73,7 @@
         <skip.number.assembly>true</skip.number.assembly>
         <skip.matrices.assembly>true</skip.matrices.assembly>
         <skip.httpServers.assembly>true</skip.httpServers.assembly>
+        <skip.security.crypto.assembly>true</skip.security.crypto.assembly>
         <!-- Properties for different assembly modules -->
         <release.string>src/assembly-string</release.string>
         <target.deploy.string.jar>../gocypher-cybench-jvm/target/gocypher-cybench-string.jar</target.deploy.string.jar>
