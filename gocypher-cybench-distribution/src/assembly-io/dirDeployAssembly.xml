@@ -26,7 +26,7 @@
         <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <baseDirectory>${release.deploy.finalName}</baseDirectory>
+    <baseDirectory>${release.deploy.finalName}-io</baseDirectory>
     <componentDescriptors>
         <componentDescriptor>src/assembly-io/deployComponentDir.xml</componentDescriptor>
     </componentDescriptors>
