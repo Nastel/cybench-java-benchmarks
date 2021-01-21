@@ -50,6 +50,13 @@
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.58</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -92,6 +99,11 @@
                         </goals>
                         <configuration>
                             <finalName>${jvm.jar.name}</finalName>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.bouncycastle:*:*:*</exclude>
+                                </excludes>
+                            </artifactSet>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>
@@ -102,7 +114,11 @@
                                         <exclude>LICENSE*</exclude>
                                         <exclude>NOTICE*</exclude>
                                         <exclude>THIRD-PARTY*</exclude>
+                                                    <exclude>META-INF/*.SF</exclude>
+                                                    <exclude>META-INF/*.DSA</exclude>
+                                                    <exclude>META-INF/*.RSA</exclude>
                                     </excludes>
+
                                 </filter>
                             </filters>
                         </configuration>

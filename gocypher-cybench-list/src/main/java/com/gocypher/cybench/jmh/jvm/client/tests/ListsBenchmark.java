@@ -178,8 +178,6 @@ public class ListsBenchmark extends BaseScoreConverter {
     @State(value = Scope.Thread)
     public static class ArrayList implements LST {
         java.util.ArrayList collection = null;
-        @Param({"2555", "3666"})
-        private int PRECOMPILED_LIST_SIZ;
         public ArrayList() {
             fill();
         }

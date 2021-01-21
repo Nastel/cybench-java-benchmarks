@@ -18,7 +18,8 @@
   ~
   -->
 
-<component xmlns="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<component xmlns="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0 http://maven.apache.org/xsd/assembly-component-2.0.0.xsd">
     <files>
         <file>
@@ -48,4 +49,35 @@
             <outputDirectory></outputDirectory>
         </fileSet>
     </fileSets>
+
+    <moduleSets>
+        <moduleSet>
+
+            <useAllReactorProjects>true</useAllReactorProjects>
+            <includeSubModules>true</includeSubModules>
+            <includes>
+                <include>com.gocypher.cybench.client:gocypher-cybench-security-crypto</include>
+            </includes>
+
+            <binaries>
+                <dependencySets>
+                    <dependencySet>
+                        <useProjectArtifact>false</useProjectArtifact>
+                        <useTransitiveDependencies>true</useTransitiveDependencies>
+                        <useProjectAttachments>false</useProjectAttachments>
+                        <unpack>false</unpack>
+                        <outputDirectory>benchmarks/</outputDirectory>
+                        <includes>
+                            <include>org.bouncycastle:*</include>
+                        </includes>
+                    </dependencySet>
+                </dependencySets>
+                <!-- SEE note bellow -->
+                <outputDirectory>benchmarks/</outputDirectory>
+                <unpack>false</unpack>
+                <outputFileNameMapping>${module.artifactId}.${module.extension}</outputFileNameMapping>
+                <!--KEEP OUT. Workaround. Binary produces artifact package, this would be overridden by shaded archive. -->
+            </binaries>
+        </moduleSet>
+    </moduleSets>
 </component>
