@@ -26,7 +26,7 @@
         <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <baseDirectory>${release.deploy.finalName}</baseDirectory>
+    <baseDirectory>${release.deploy.finalName}-httpServers</baseDirectory>
     <componentDescriptors>
         <componentDescriptor>src/assembly-httpServers/deployComponentDir.xml</componentDescriptor>
     </componentDescriptors>
