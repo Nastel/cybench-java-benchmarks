@@ -19,8 +19,7 @@ import java.util.stream.Stream;
 @BenchmarkMetaData(key="context", value="core_list")
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
-@ScoreConverter(converter = ListsBenchmark.class)
-public class ListsBenchmark extends BaseScoreConverter {
+public class ListsBenchmark {
 
     public static final int PRECOMPILED_LIST_SIZE = 1000000;
 
@@ -147,21 +146,6 @@ public class ListsBenchmark extends BaseScoreConverter {
     @TearDown(Level.Iteration)
     public void clearIteration(CyBenchCounters.ProfileCounters counters) {
         CyBenchCounters.registerProfileInformation(counters);
-    }
-
-    @Override
-    public Double convertScore(Double score, Map<String, Object> metaData) {
-        return 1/score;
-    }
-
-    @Override
-    public Double getOperationTimeMilliseconds(Double score, Map<String, Object> metaData) {
-        return convertScore(score, metaData);
-    }
-
-    @Override
-    public String getUnits() {
-        return "op/s";
     }
 
     interface IMPL {
