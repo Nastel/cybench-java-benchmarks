@@ -19,6 +19,12 @@ import java.util.regex.Pattern;
 //import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 @State(Scope.Benchmark)
+@BenchmarkMetaData(key = "actionName", value = "encrypt")
+@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
+@BenchmarkMetaData(key = "context", value = "JAVA security")
+@BenchmarkMetaData(key = "domain", value = "java")
+@BenchmarkMetaData(key = "version", value = "1.0.0")
+@BenchmarkMetaData(key = "description", value = "Signing with various algorithms")
 public class EncryptBenchmarks {
 
     @Param({"SunJCE", "BC"})
@@ -71,7 +77,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "AES/CBC/NoPadding (128)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "772da461-0aeb-479d-af86-fdcf79a157db")
     public void AES_CBC_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("AES/CBC/NoPadding (128)");
@@ -91,7 +96,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "AES/ECB/NoPadding (128)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "caf457f7-69b0-4bc5-92e1-49f3bc7207ff")
     public void AES_ECB_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("AES/ECB/NoPadding (128)");
@@ -101,7 +105,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "AES/ECB/PKCS5Padding (128)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "b30895f0-33a6-4f7f-b847-3cfcc39d9e2a")
     public void AES_ECB_PKCS5Padding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("AES/ECB/PKCS5Padding (128)");
@@ -111,7 +114,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DES/CBC/NoPadding (56)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "2d79a168-7376-4e6c-baeb-6b649e8189da")
     public void DES_CBC_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/CBC/NoPadding (56)");
@@ -121,7 +123,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DES/CBC/PKCS5Padding (56)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "29c479a1-4b71-4934-9b70-7e85f6b63dde")
     public void DES_CBC_PKCS5Padding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/CBC/PKCS5Padding (56)");
@@ -131,7 +132,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DES/EBC/NoPadding (56)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "8017f276-5a25-4f27-8144-fe21001424a1")
     public void DES_EBC_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/ECB/NoPadding (56)");
@@ -141,7 +141,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DES/EBC/PKCS5Padding (56)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "7cc0cf8e-446c-45ff-ba7a-2ebb774606c0")
     public void DES_EBC_PKCS5Padding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/ECB/PKCS5Padding (56)");
@@ -151,7 +150,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DESede/CBC/NoPadding (168)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "d30810f9-19e6-4c08-bc73-a8c89152481f")
     public void DESede_CBS_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DESede/CBC/NoPadding (168)");
@@ -161,7 +159,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DESede/CBC/PKCS5Padding (168)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "a5a880b9-901b-48ad-9d2d-c43e4b0779b5")
     public void DESede_CBC_PKCS5Padding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DESede/CBC/PKCS5Padding (168)");
@@ -171,7 +168,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DESede/ECB/NoPadding (168)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "318bd149-b213-4f87-b586-2add4d49b025")
     public void DESede_ECB_NoPadding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DESede/ECB/NoPadding (168)");
@@ -181,7 +177,6 @@ public class EncryptBenchmarks {
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "DESede/ECB/PKCS5Padding (168)")
     @BenchmarkMetaData(key = "libVendor", value = "javax.crypto")
-    @BenchmarkMetaData(key = "actionName", value = "encrypt")
     @BenchmarkTag(tag = "549b8eb6-31e9-4b09-a56d-07a37c8c225d")
     public void DESede_ECB_PKCS5Padding(Blackhole bh) throws Exception {
         CipherDescription cipherDescription = new CipherDescription().invoke("DESede/ECB/PKCS5Padding (168)");
