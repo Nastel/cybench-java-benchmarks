@@ -8,7 +8,6 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
-
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.security.Security;
@@ -28,7 +27,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "AES")
     @BenchmarkMetaData(key = "size", value = "128")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "6ac49e4f-3f8e-401b-96c9-2e701ef62890")
     public void generateAES_BC_128(Blackhole bh) {
         bh.consume(generateKey("BC", "AES", 128));
     }
@@ -40,7 +39,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "AES")
     @BenchmarkMetaData(key = "size", value = "128")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "ec31191c-cf65-42b0-9126-bff9ad4f7e16")
     public void generateAES_JCE_128(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "AES", 128));
     }
@@ -93,11 +92,7 @@ public class KeyGenerationBenchmarks {
         bh.consume(generateKey("SunJCE", "AES", 256));
     }
 
-    
-    
-    //*****
-
-
+    // *****
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "BouncyCastle")
     @BenchmarkMetaData(key = "libVendor", value = "org.bouncycastle")
@@ -105,7 +100,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "DES")
     @BenchmarkMetaData(key = "size", value = "56")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "aaf66887-0793-4460-8258-04428ddaf434")
     public void generateDES_BC_56(Blackhole bh) {
         bh.consume(generateKey("BC", "DES", 56));
     }
@@ -117,15 +112,14 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "DES")
     @BenchmarkMetaData(key = "size", value = "56")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "af31c269-154c-457a-b9d8-446e86d6dce8")
     public void generateDES_JCE_56(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DES", 56));
     }
 
-    /*******/
-
-
-
+    /**
+     * ***
+     */
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "BouncyCastle")
     @BenchmarkMetaData(key = "libVendor", value = "org.bouncycastle")
@@ -133,7 +127,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "size", value = "112")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "50a2d237-06a7-4c4a-9c8f-840f5c91fa99")
     public void generateDESEDE_BC_112(Blackhole bh) {
         bh.consume(generateKey("BC", "DESEDE", 112));
     }
@@ -145,7 +139,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "size", value = "112")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "579c8328-1107-4034-92aa-4276d28aec22")
     public void generateDESEDE_JCE_112(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DESEDE", 112));
     }
@@ -157,7 +151,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "size", value = "168")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "b55acc52-3c95-431e-bd72-d7f3ead3de2c")
     public void generateDESEDE_BC_168(Blackhole bh) {
         bh.consume(generateKey("BC", "DESEDE", 168));
     }
@@ -169,7 +163,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "size", value = "168")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "fd664bbf-a2a5-4254-9b9f-234c121aad7d")
     public void generateDESEDE_JCE_168(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DESEDE", 168));
     }
@@ -181,7 +175,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "RC2")
     @BenchmarkMetaData(key = "size", value = "40")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "86cd39f7-7e6b-4f77-a83e-4950c138c4b4")
     public void generateRC2_BC_40(Blackhole bh) {
         bh.consume(generateKey("BC", "RC2", 40));
     }
@@ -193,7 +187,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "RC2")
     @BenchmarkMetaData(key = "size", value = "40")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "781f2408-6889-4bf7-8b94-70a44f2f2e80")
     public void generateRC2_JCE_40(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "RC2", 40));
     }
@@ -205,7 +199,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "1.58")
     @BenchmarkMetaData(key = "algorithm", value = "RC2")
     @BenchmarkMetaData(key = "size", value = "128")
-    @BenchmarkTag(tag = "962a3aef-6504-423b-8cc3-fc61803b6c23")
+    @BenchmarkTag(tag = "d94a8681-7790-4c78-ab22-f58ff6a14c59")
     public void generateRC2_BC_128(Blackhole bh) {
         bh.consume(generateKey("BC", "RC2", 128));
     }
@@ -217,7 +211,7 @@ public class KeyGenerationBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
     @BenchmarkMetaData(key = "algorithm", value = "RC2")
     @BenchmarkMetaData(key = "size", value = "40")
-    @BenchmarkTag(tag = "624cbaad-73a3-4580-8be0-4a8ccfcc240b")
+    @BenchmarkTag(tag = "aa55ebad-5e41-4cac-be1c-bbd4ffec8e07")
     public void generateRC2_JCE_128(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "RC2", 128));
     }
