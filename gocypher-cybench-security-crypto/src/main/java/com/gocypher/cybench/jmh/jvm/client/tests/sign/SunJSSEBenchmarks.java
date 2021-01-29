@@ -8,6 +8,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "api", value = "SunJSSE")
 @BenchmarkMetaData(key = "libVendor", value = "com.sun")
 @BenchmarkMetaData(key = "libDescription", value = "Java Secure Socket Extension (JSSE)")
+@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 public class SunJSSEBenchmarks extends SignBenchmarks {
 
 

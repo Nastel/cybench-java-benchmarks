@@ -8,6 +8,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "api", value = "SunMSCAPI")
 @BenchmarkMetaData(key = "libVendor", value = "com.sun")
 @BenchmarkMetaData(key = "libDescription", value = "Standard JCA/JCE APIs to access the native cryptographic libraries, certificates stores and key containers on the Microsoft Windows platform")
+@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 public class SunMSCAPIBenchmarks extends SignBenchmarks{
     @Benchmark
 
