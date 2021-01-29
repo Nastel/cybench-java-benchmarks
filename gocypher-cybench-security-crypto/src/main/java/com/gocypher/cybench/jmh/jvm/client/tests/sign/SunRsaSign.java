@@ -5,11 +5,14 @@ import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
+@BenchmarkMetaData(key = "api", value = "SunRsaSign")
+@BenchmarkMetaData(key = "libVendor", value = "com.sun")
+@BenchmarkMetaData(key = "libDescription", value = "The SunRsaSign provider was introduced in JDK 1.3 as an enhanced replacement for the RSA signatures in the SunJSSE provider.")
+@BenchmarkMetaData(key = "libVersion", value = "JAVA_VERSION")
 public class SunRsaSign extends SignBenchmarks{
 
 
     @Benchmark
-
     @BenchmarkMetaData(key = "algorithm", value = "MD2")
     @BenchmarkMetaData(key = "key", value = "RSA")
     @BenchmarkMetaData(key = "size", value = "2048")
@@ -19,7 +22,6 @@ public class SunRsaSign extends SignBenchmarks{
     }
 
     @Benchmark
-
     @BenchmarkMetaData(key = "algorithm", value = "MD5")
     @BenchmarkMetaData(key = "key", value = "RSA")
     @BenchmarkMetaData(key = "size", value = "2048")
@@ -29,7 +31,6 @@ public class SunRsaSign extends SignBenchmarks{
     }
 
     @Benchmark
-
     @BenchmarkMetaData(key = "algorithm", value = "SHA1")
     @BenchmarkMetaData(key = "key", value = "RSA")
     @BenchmarkMetaData(key = "size", value = "2048")
@@ -39,7 +40,6 @@ public class SunRsaSign extends SignBenchmarks{
     }
 
     @Benchmark
-
     @BenchmarkMetaData(key = "algorithm", value = "SHA384")
     @BenchmarkMetaData(key = "key", value = "RSA")
     @BenchmarkMetaData(key = "size", value = "2048")
