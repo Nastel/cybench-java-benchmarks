@@ -1,5 +1,6 @@
 package com.gocypher.cybench.jmh.jvm.client.tests;
 
+import com.gocypher.cybench.jmh.jvm.client.tests.sign.SignBenchmarks;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.annotations.Benchmark;
