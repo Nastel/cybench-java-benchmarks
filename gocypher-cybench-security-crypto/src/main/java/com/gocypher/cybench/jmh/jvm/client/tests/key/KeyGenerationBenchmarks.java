@@ -11,11 +11,11 @@ import javax.crypto.SecretKey;
 import java.security.Security;
 
 @State(Scope.Benchmark)
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-@BenchmarkMetaData(key = "context", value = "JAVA security")
 @BenchmarkMetaData(key = "domain", value = "java")
+@BenchmarkMetaData(key = "context", value = "security")
+@BenchmarkMetaData(key = "actionName", value = "generateKey")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
-@BenchmarkMetaData(key = "description", value = "Key Generation")
+@BenchmarkMetaData(key = "description", value = "Key generation.")
 public class KeyGenerationBenchmarks {
 
     @Setup
