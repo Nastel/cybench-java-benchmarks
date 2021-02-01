@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
 @BenchmarkMetaData(key="context", value="core_strings")
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
+@BenchmarkMetaData(key="libVersion", value="-")
 public class StringBenchmarks {
 
     private String label1 = "for a real test, make this big and this big,for a real test, make this big and this big,for a real test, make this big and this big";
