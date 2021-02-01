@@ -18,12 +18,11 @@ import java.util.regex.Pattern;
 //import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 @State(Scope.Benchmark)
-@BenchmarkMetaData(key = "actionName", value = "encrypt")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-@BenchmarkMetaData(key = "context", value = "JAVA security")
 @BenchmarkMetaData(key = "domain", value = "java")
+@BenchmarkMetaData(key = "context", value = "security")
+@BenchmarkMetaData(key = "actionName", value = "encrypt")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
-@BenchmarkMetaData(key = "description", value = "Signing with various algorithms")
+@BenchmarkMetaData(key = "description", value = "Text message encrypt.")
 public class EncryptBenchmarks {
 
     @Setup
