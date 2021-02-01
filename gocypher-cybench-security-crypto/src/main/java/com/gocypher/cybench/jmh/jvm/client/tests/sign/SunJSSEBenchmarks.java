@@ -6,9 +6,9 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
 @BenchmarkMetaData(key = "api", value = "SunJSSE")
-@BenchmarkMetaData(key = "libSymbolicName", value = "-")
+@BenchmarkMetaData(key = "libSymbolicName", value = "SunJSSE")
 @BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "Java Secure Socket Extension (JSSE)")
+@BenchmarkMetaData(key = "libDescription", value = "Java Secure Socket Extension (JSSE)  provides a set of packages that enable secure Internet communications.")
 @BenchmarkMetaData(key = "libVendor", value = "Oracle")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
@@ -63,11 +63,14 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
         bh.consume(sign("SHA384withRSA", "SunJSSE", "RSA", textToSign));
     }
 
+
+
+
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "SunEC")
     @BenchmarkMetaData(key = "libVendor", value = "Oracle")
     @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-    @BenchmarkMetaData(key = "libSymbolicName", value = "-")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
     @BenchmarkMetaData(key = "libVersion", value = "-")
     @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
@@ -85,7 +88,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkMetaData(key = "api", value = "SunEC")
     @BenchmarkMetaData(key = "libVendor", value = "Oracle")
     @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-    @BenchmarkMetaData(key = "libSymbolicName", value = "-")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
     @BenchmarkMetaData(key = "libVersion", value = "-")
     @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
@@ -97,5 +100,23 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkTag(tag = "3da80786-b88a-4126-905a-72f41a2e01df")
     public void SunJSSE_SHA512withECDSA(Blackhole bh) {
         bh.consume(sign("SHA512withECDSA", "SunEC", "EC", textToSign));
+    }
+
+    @Benchmark
+    @BenchmarkMetaData(key = "api", value = "SunEC")
+    @BenchmarkMetaData(key = "libVendor", value = "Oracle")
+    @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
+    @BenchmarkMetaData(key = "libVersion", value = "-")
+    @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
+
+    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA224withECDSA")
+    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA224withECDSA")
+    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA224")
+    @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
+    @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
+    @BenchmarkTag(tag = "2bfff1bd-6681-4c8f-af91-ce972495c869")
+    public void SunEC_SHA224withECDSA(Blackhole bh) {
+        bh.consume(sign("SHA224withECDSA", "SunEC", "EC", textToSign));
     }
 }
