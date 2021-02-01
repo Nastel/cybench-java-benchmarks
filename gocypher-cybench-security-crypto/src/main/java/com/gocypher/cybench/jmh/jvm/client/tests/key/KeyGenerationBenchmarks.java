@@ -15,7 +15,7 @@ import java.security.Security;
 @BenchmarkMetaData(key = "context", value = "security")
 @BenchmarkMetaData(key = "actionName", value = "generateKey")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
-@BenchmarkMetaData(key = "description", value = "Key generation.")
+@BenchmarkMetaData(key = "description", value = "Symmetric key generation benchmarks.")
 public class KeyGenerationBenchmarks {
 
     @Setup

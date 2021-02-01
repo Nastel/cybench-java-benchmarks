@@ -11,11 +11,11 @@ import java.security.KeyPairGenerator;
 import java.security.Security;
 
 @State(Scope.Benchmark)
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-@BenchmarkMetaData(key = "context", value = "JAVA security")
 @BenchmarkMetaData(key = "domain", value = "java")
+@BenchmarkMetaData(key = "context", value = "security")
+@BenchmarkMetaData(key = "actionName", value = "generateKeyPair")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
-@BenchmarkMetaData(key = "description", value = "KeyPair Generation")
+@BenchmarkMetaData(key = "description", value = "Asymmetric key pair generation benchmarks.")
 public class KeyPairGenerationBenchmarks {
 
     @Setup
