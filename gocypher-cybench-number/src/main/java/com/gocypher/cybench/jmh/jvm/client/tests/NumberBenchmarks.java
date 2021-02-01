@@ -56,6 +56,7 @@ public class NumberBenchmarks {
     @BenchmarkTag(tag = "e57460e6-9589-4d64-92e1-8e6a36ecc93c")
     @BenchmarkMetaData(key="title", value="Add random double numbers")
     @BenchmarkMetaData(key="api", value="java.lang.Double")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.Double")
     @BenchmarkMetaData(key="actionName", value="generateAddNumbers")
     @BenchmarkMetaData(key="description", value="Generate two double numbers with ThreadLocalRandom multiple them and add them into the final double sum")
     public void generateAndAddDoubleNumbers(Blackhole blackHole) {
@@ -75,6 +76,7 @@ public class NumberBenchmarks {
     @BenchmarkTag(tag = "d55b00f0-cdb6-46e9-8b74-3c575e5f1e5a")
     @BenchmarkMetaData(key="title", value="Add random atomic numbers")
     @BenchmarkMetaData(key="api", value="java.util.concurrent.atomic.AtomicLong")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.concurrent.atomic.AtomicLong")
     @BenchmarkMetaData(key="actionName", value="generateAddNumbers")
     @BenchmarkMetaData(key="description", value="Generate two int type numbers create an AtomicLong number object and add both numbers into it.")
     public void generateAndAddAtomicNumbers(Blackhole blackHole) {
@@ -97,6 +99,7 @@ public class NumberBenchmarks {
     @BenchmarkTag(tag = "4eb23d57-1d6a-4eb9-8d52-0b0a82de92d5")
     @BenchmarkMetaData(key="title", value="Add random big decimal numbers")
     @BenchmarkMetaData(key="api", value="java.math.BigDecimal")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.math.BigDecimal")
     @BenchmarkMetaData(key="actionName", value="generateAddNumbers")
     @BenchmarkMetaData(key="description", value="Generate two int numbers and add them while converting to BigDecimal.")
     public void generateAndAddBigDecimalNumbers(Blackhole blackHole) {
@@ -118,6 +121,7 @@ public class NumberBenchmarks {
     @BenchmarkTag(tag = "3085ca56-8f30-4b2d-add8-b86258f63f6e")
     @BenchmarkMetaData(key="title", value="Logarithm double numbers")
     @BenchmarkMetaData(key="api", value="java.lang.Double")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.Double")
     @BenchmarkMetaData(key="actionName", value="generateLogarithmNumbers")
     @BenchmarkMetaData(key="description", value="Generate a double number and do Math.log10.")
     public void generateAndLogarithmDoubleNumbers(Blackhole blackHole) {
@@ -135,6 +139,7 @@ public class NumberBenchmarks {
     @BenchmarkTag(tag = "4fcd4596-3dbf-492b-9602-c66a1c26d648")
     @BenchmarkMetaData(key="title", value="Power double numbers")
     @BenchmarkMetaData(key="api", value="java.lang.Double")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.Double")
     @BenchmarkMetaData(key="actionName", value="generatePowerNumbers")
     @BenchmarkMetaData(key="description", value="Generate a double number and Power by 10.")
     public void generateAndPowerDoubleNumbers(Blackhole blackHole) {

@@ -32,6 +32,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "7e179230-5c62-4a5a-8344-03e723bad434")
     @BenchmarkMetaData(key="title", value="Add data into ArrayList")
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="insertData")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into ArrayList")
     public void arrayListAdd(ArrayList ar, Add action, Blackhole bh) {
@@ -44,6 +45,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "f2435ab8-5e21-4fe2-bcf1-f97f89987ccd")
     @BenchmarkMetaData(key="title", value="Add data into Stack")
     @BenchmarkMetaData(key="api", value="java.util.Stack")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="insertData")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into Stack")
     public void stackAdd(Stack ar, Add action, Blackhole bh) {
@@ -56,6 +58,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "b9608d8d-b8dc-4195-9272-9213281af253")
     @BenchmarkMetaData(key="title", value="Add data into LinkedList")
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="insertData")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into LinkedList")
     public void linkedListAdd(LinkedList ar, Add action, Blackhole bh) {
@@ -68,6 +71,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "23ae5f95-0ffa-40a0-9559-d6c74e938e61")
     @BenchmarkMetaData(key="title", value="Remove data from ArrayList")
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="removeData")
     @BenchmarkMetaData(key="description", value="Removing of objects from ArrayList")
     public void arrayListRemove(ArrayList ar, Delete action, Blackhole bh) {
@@ -80,6 +84,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "42a03e62-3fe8-4ee6-a5ff-e3d6d44bb02b")
     @BenchmarkMetaData(key="title", value="Remove data from Stack")
     @BenchmarkMetaData(key="api", value="java.util.Stack")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="removeData")
     @BenchmarkMetaData(key="description", value="Removing of objects from Stack")
     public void stackRemove(Stack ar, Delete action, Blackhole bh) {
@@ -93,6 +98,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "1d5c9229-4d21-4ce5-a7fd-362fcfc7e965")
     @BenchmarkMetaData(key="title", value="Remove data from LinkedList")
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="removeData")
     @BenchmarkMetaData(key="description", value="Removing of objects from LinkedList")
     public void linkedListRemove(LinkedList ar, Delete action, Blackhole bh) {
@@ -104,6 +110,7 @@ public class ListsBenchmark {
     @BenchmarkMode(Mode.SingleShotTime)
     @BenchmarkTag(tag = "e0eb5644-69fb-42ad-b55c-4ccaa156a5c4")
     @BenchmarkMetaData(key="title", value="Update data in ArrayList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="updateData")
     @BenchmarkMetaData(key="description", value="Updating the ArrayList data.")
@@ -118,6 +125,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "ac45b531-2f10-4068-acfc-8bd1c65124dc")
     @BenchmarkMetaData(key="title", value="Update data in Stack")
     @BenchmarkMetaData(key="api", value="java.util.Stack")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="updateData")
     @BenchmarkMetaData(key="description", value="Updating the Stack data.")
     public void stackUpdate(Stack ar, Update action, Blackhole bh) {
@@ -131,6 +139,7 @@ public class ListsBenchmark {
     @BenchmarkTag(tag = "90bf9c67-961f-4e0d-aaf9-f89fe34cad5b")
     @BenchmarkMetaData(key="title", value="Update data in LinkedList")
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="updateData")
     @BenchmarkMetaData(key="description", value="Updating the LinkedList data.")
     public void linkedListUpdate(LinkedList ar, Update action, Blackhole bh) {

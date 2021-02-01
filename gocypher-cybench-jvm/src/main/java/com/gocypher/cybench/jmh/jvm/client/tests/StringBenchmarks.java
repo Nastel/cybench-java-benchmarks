@@ -67,6 +67,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "ff3ed9f5-bed9-40f2-b64f-5cd049ae29b5")
     @BenchmarkMetaData(key="title", value="String and number concatenation")
     @BenchmarkMetaData(key="api", value="java.lang.String")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.String")
     @BenchmarkMetaData(key="actionName", value="concatString")
     @BenchmarkMetaData(key="description", value="Concatenating String from multiple numbers and other String text.")
     public String stringConcatMultiChars() {
@@ -93,6 +94,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "175e9abd-fbb0-4eef-ac97-293ca7347f8b")
     @BenchmarkMetaData(key="title", value="String and number concatenation")
     @BenchmarkMetaData(key="api", value="java.lang.StringBuffer")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="actionName", value="concatString")
     @BenchmarkMetaData(key="description", value="Appending StringBuffer with multiple numbers and other String text.")
     public StringBuffer stringBufferConcatMultiChars() {
@@ -119,6 +121,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "971ed476-bfc7-432c-bbba-a2f833ee35da")
     @BenchmarkMetaData(key="title", value="String replace all")
     @BenchmarkMetaData(key="api", value="java.lang.String")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.String")
     @BenchmarkMetaData(key="actionName", value="replaceAll")
     @BenchmarkMetaData(key="description", value="Replacing all occurrences found in String with other Strings and then replacing them back to initial value.")
     public String stringReplaceAll() {
@@ -138,6 +141,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "693ceffb-6843-4157-b1eb-9abcf078eab9")
     @BenchmarkMetaData(key="title", value="String replace all")
     @BenchmarkMetaData(key="api", value="java.lang.StringBuffer")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="actionName", value="replaceAll")
     @BenchmarkMetaData(key="description", value="Replacing all occurrences found in StringBuffer with other Strings and then replacing them back to initial value.")
     public StringBuffer stringBufferReplaceAll() {
@@ -157,6 +161,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "2f75e07b-bd24-455f-8aaf-a1930d11a8eb")
     @BenchmarkMetaData(key="title", value="Compiled Regex patter matcher")
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternCompiled")
     @BenchmarkMetaData(key="description", value="Using a compiled Regex pattern to find if it exists in given String.")
     public boolean findRegexCompiled() {
@@ -174,6 +179,7 @@ public class StringBenchmarks {
     @BenchmarkTag(tag = "5b0f8faa-e740-401e-85b3-6e0ec3714510")
     @BenchmarkMetaData(key="title", value="Not Compiled Regex patter matcher")
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
+    @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternUnCompiled")
     @BenchmarkMetaData(key="description", value="Using a not compiled Regex pattern to find if it exists in given String.")
     public boolean findRegexUnCompiled() {
