@@ -35,6 +35,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMetaData(key="context", value="core_IO")
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
+@BenchmarkMetaData(key="libVersion", value="-")
 public class IOSyncFileSeekBenchmarks {
 
     private static Logger LOG = LoggerFactory.getLogger(IOSyncFileSeekBenchmarks.class);
