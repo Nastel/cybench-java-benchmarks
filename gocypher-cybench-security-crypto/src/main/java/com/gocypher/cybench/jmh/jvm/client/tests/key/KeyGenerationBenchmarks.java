@@ -1,10 +1,9 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.key;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -33,5 +32,11 @@ public class KeyGenerationBenchmarks {
             throw new RuntimeException(e);
         }
     }
+
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
+    }
+
 }
 

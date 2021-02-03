@@ -44,6 +44,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMetaData(key="title", value="Copy file Sync")
 @BenchmarkMetaData(key="version", value="1.0.0")
 @BenchmarkMetaData(key="libVersion", value="-")
+@BenchmarkMetaData(key="libVendor", value="-")
 public class IOSyncAPIComparisonBenchmarks {
 
     private static Logger LOG = LoggerFactory.getLogger(IOSyncAPIComparisonBenchmarks.class);

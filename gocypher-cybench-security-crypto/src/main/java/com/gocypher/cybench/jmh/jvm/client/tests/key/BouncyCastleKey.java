@@ -2,18 +2,12 @@ package com.gocypher.cybench.jmh.jvm.client.tests.key;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.BouncyCastleLibDefinition;
 import com.gocypher.cybench.jmh.jvm.client.tests.keyPair.KeyPairGenerationBenchmarks;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "BouncyCastle")
-@BenchmarkMetaData(key = "libSymbolicName", value = "org.bouncycastle.bcprovider")
-@BenchmarkMetaData(key = "libVersion", value = "1.58")
-@BenchmarkMetaData(key = "libDescription", value = "Bouncy Castle Java cryptography APIs")
-@BenchmarkMetaData(key = "libVendor", value = "BouncyCastle.org")
-@BenchmarkMetaData(key = "libUrl", value = "https://www.bouncycastle.org/")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-public class BouncyCastleKey extends KeyGenerationBenchmarks {
+public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCastleLibDefinition {
 
     /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (128)")

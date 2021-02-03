@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
 @BenchmarkMetaData(key="libVersion", value="-")
+@BenchmarkMetaData(key="libVendor", value="-")
 public class ListsBenchmark {
 
     public static final int PRECOMPILED_LIST_SIZE = 1000000;

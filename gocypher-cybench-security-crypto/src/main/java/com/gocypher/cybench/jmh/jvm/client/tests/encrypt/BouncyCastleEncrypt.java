@@ -1,20 +1,14 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.encrypt;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.BouncyCastleLibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.infra.Blackhole;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
 
-@BenchmarkMetaData(key = "api", value = "BouncyCastle")
-@BenchmarkMetaData(key = "libSymbolicName", value = "org.bouncycastle.bcprovider")
-@BenchmarkMetaData(key = "libVersion", value = "1.58")
-@BenchmarkMetaData(key = "libDescription", value = "Bouncy Castle Java cryptography APIs")
-@BenchmarkMetaData(key = "libVendor", value = "BouncyCastle.org")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-@BenchmarkMetaData(key = "libUrl", value = "https://www.bouncycastle.org/")
-public class BouncyCastleEncrypt extends EncryptBenchmarks {
+public class BouncyCastleEncrypt extends EncryptBenchmarks implements BouncyCastleLibDefinition {
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Encrypt using AES/CBC/NoPadding (128)")

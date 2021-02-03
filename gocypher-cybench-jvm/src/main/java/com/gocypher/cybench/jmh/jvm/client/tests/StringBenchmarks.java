@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
 @BenchmarkMetaData(key="libVersion", value="-")
+@BenchmarkMetaData(key="libVendor", value="-")
 public class StringBenchmarks {
 
     private String label1 = "for a real test, make this big and this big,for a real test, make this big and this big,for a real test, make this big and this big";
@@ -142,7 +143,7 @@ public class StringBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "693ceffb-6843-4157-b1eb-9abcf078eab9")
-    @BenchmarkMetaData(key="title", value="String replace all")
+    @BenchmarkMetaData(key="title", value="String Buffer replace all")
     @BenchmarkMetaData(key="api", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="libSymbolicName", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="actionName", value="replaceAll")
@@ -163,7 +164,7 @@ public class StringBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "2f75e07b-bd24-455f-8aaf-a1930d11a8eb")
-    @BenchmarkMetaData(key="title", value="Compiled Regex patter matcher")
+    @BenchmarkMetaData(key="title", value="Compiled Regex pattern matcher")
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternCompiled")
@@ -182,7 +183,7 @@ public class StringBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "5b0f8faa-e740-401e-85b3-6e0ec3714510")
-    @BenchmarkMetaData(key="title", value="Not Compiled Regex patter matcher")
+    @BenchmarkMetaData(key="title", value="Not compiled Regex pattern matcher")
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternUnCompiled")

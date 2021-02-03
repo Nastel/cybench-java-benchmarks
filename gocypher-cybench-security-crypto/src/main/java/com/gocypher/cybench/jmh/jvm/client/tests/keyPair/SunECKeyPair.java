@@ -2,17 +2,11 @@ package com.gocypher.cybench.jmh.jvm.client.tests.keyPair;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunECLibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "SunEC")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunEC")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-public class SunECKeyPair extends KeyPairGenerationBenchmarks{
+public class SunECKeyPair extends KeyPairGenerationBenchmarks implements SunECLibDefinition {
 
     /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key EC (224)")

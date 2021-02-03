@@ -1,6 +1,7 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.sign;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.gocypher.cybench.launcher.utils.Constants;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.openjdk.jmh.annotations.*;
@@ -52,4 +53,10 @@ public class SignBenchmarks  {
             throw new RuntimeException(e);
         }
     }
+
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
+    }
+
 }

@@ -2,18 +2,13 @@ package com.gocypher.cybench.jmh.jvm.client.tests.keyPair;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunMSCAPILibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
 
-@BenchmarkMetaData(key = "api", value = "SunMSCAPI")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunMSCAPI")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "Standard JCA/JCE APIs to access the native cryptographic libraries, certificates stores and key containers on the Microsoft Windows platform")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunMSCAPI")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-public class SunMSCAPI extends KeyPairGenerationBenchmarks{
+
+public class SunMSCAPI extends KeyPairGenerationBenchmarks implements SunMSCAPILibDefinition {
 
     /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (1024)")
