@@ -69,6 +69,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.lang.String")
     @BenchmarkMetaData(key="libSymbolicName", value="java.lang.String")
     @BenchmarkMetaData(key="actionName", value="concatString")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html")
     @BenchmarkMetaData(key="description", value="Concatenating String from multiple numbers and other String text.")
     public String stringConcatMultiChars() {
         String buff = "";
@@ -96,6 +97,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="libSymbolicName", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="actionName", value="concatString")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html")
     @BenchmarkMetaData(key="description", value="Appending StringBuffer with multiple numbers and other String text.")
     public StringBuffer stringBufferConcatMultiChars() {
         StringBuffer buff = new StringBuffer();
@@ -123,6 +125,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.lang.String")
     @BenchmarkMetaData(key="libSymbolicName", value="java.lang.String")
     @BenchmarkMetaData(key="actionName", value="replaceAll")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html")
     @BenchmarkMetaData(key="description", value="Replacing all occurrences found in String with other Strings and then replacing them back to initial value.")
     public String stringReplaceAll() {
         String s = labelForReplacement;
@@ -143,6 +146,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="libSymbolicName", value="java.lang.StringBuffer")
     @BenchmarkMetaData(key="actionName", value="replaceAll")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html")
     @BenchmarkMetaData(key="description", value="Replacing all occurrences found in StringBuffer with other Strings and then replacing them back to initial value.")
     public StringBuffer stringBufferReplaceAll() {
         StringBuffer buff = new StringBuffer(labelForReplacement);
@@ -163,6 +167,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternCompiled")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html")
     @BenchmarkMetaData(key="description", value="Using a compiled Regex pattern to find if it exists in given String.")
     public boolean findRegexCompiled() {
         boolean flag = matcher.reset(labelForReplacement).matches();
@@ -181,6 +186,7 @@ public class StringBenchmarks {
     @BenchmarkMetaData(key="api", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.regex.Matcher")
     @BenchmarkMetaData(key="actionName", value="matchPatternUnCompiled")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html")
     @BenchmarkMetaData(key="description", value="Using a not compiled Regex pattern to find if it exists in given String.")
     public boolean findRegexUnCompiled() {
         boolean flag = labelForReplacement.matches(REGEX);

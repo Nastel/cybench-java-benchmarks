@@ -2,15 +2,12 @@ package com.gocypher.cybench.jmh.jvm.client.tests;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
-import com.gocypher.cybench.core.model.BaseScoreConverter;
-import com.gocypher.cybench.core.model.ScoreConverter;
 import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,6 +31,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="insertData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into ArrayList")
     public void arrayListAdd(ArrayList ar, Add action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -47,6 +45,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.Stack")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="insertData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into Stack")
     public void stackAdd(Stack ar, Add action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -60,6 +59,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="insertData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html")
     @BenchmarkMetaData(key="description", value="Iterative adding of elements from an Object array into LinkedList")
     public void linkedListAdd(LinkedList ar, Add action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -73,6 +73,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="removeData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html")
     @BenchmarkMetaData(key="description", value="Removing of objects from ArrayList")
     public void arrayListRemove(ArrayList ar, Delete action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -86,6 +87,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.Stack")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="removeData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html")
     @BenchmarkMetaData(key="description", value="Removing of objects from Stack")
     public void stackRemove(Stack ar, Delete action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -100,6 +102,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="removeData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html")
     @BenchmarkMetaData(key="description", value="Removing of objects from LinkedList")
     public void linkedListRemove(LinkedList ar, Delete action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -113,6 +116,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.ArrayList")
     @BenchmarkMetaData(key="api", value="java.util.ArrayList")
     @BenchmarkMetaData(key="actionName", value="updateData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html")
     @BenchmarkMetaData(key="description", value="Updating the ArrayList data.")
     public void arrayListUpdate(ArrayList ar, Update action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -127,6 +131,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.Stack")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.Stack")
     @BenchmarkMetaData(key="actionName", value="updateData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html")
     @BenchmarkMetaData(key="description", value="Updating the Stack data.")
     public void stackUpdate(Stack ar, Update action, Blackhole bh) {
         bh.consume(action.doJob(ar));
@@ -141,6 +146,7 @@ public class ListsBenchmark {
     @BenchmarkMetaData(key="api", value="java.util.LinkedList")
     @BenchmarkMetaData(key="libSymbolicName", value="java.util.LinkedList")
     @BenchmarkMetaData(key="actionName", value="updateData")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html")
     @BenchmarkMetaData(key="description", value="Updating the LinkedList data.")
     public void linkedListUpdate(LinkedList ar, Update action, Blackhole bh) {
         bh.consume(action.doJob(ar));

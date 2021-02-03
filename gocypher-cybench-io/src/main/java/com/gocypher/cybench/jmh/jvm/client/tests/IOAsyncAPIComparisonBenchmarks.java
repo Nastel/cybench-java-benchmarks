@@ -106,6 +106,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="libSymbolicName", value="java.io.MappedByteBuffer")
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/nio/MappedByteBuffer.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using Mapped Byte Buffer to read/write a generated 1GB binary file.")
     public void copyFileUsingMappedByteBuffer() throws Exception {
         IOUtils.rwFileUsingMappedByteBuffer(readFileChannel, writeFileChannel, isSyncWrite);
@@ -124,6 +125,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="4096")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using FileInputStream and FileOutputStream with 4KB chunks to copy 1GB binary file.")
     public void copyFileUsingFileStreamAndSmallChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, smallChunk, isSyncWrite);
@@ -143,6 +145,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="67108864")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using FileInputStream and FileOutputStream with 64MB chunks to copy 1GB binary file.")
     public void copyFileUsingFileStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingFileStreams(srcFile, targetFile, hugeChunk, isSyncWrite);
@@ -162,6 +165,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="4096")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using BufferedInputStream and BufferedOutputStream with 4KB chunks to copy 1GB binary file.")
     public void copyFileUsingBufferedStreamAndSmallChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
@@ -181,6 +185,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="67108864")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using BufferedInputStream and BufferedOutputStream with 64MB chunks to copy 1GB binary file.")
     public void copyFileUsingBufferedStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingBufferedStreams(srcFile, targetFile, hugeChunk, isSyncWrite);
@@ -200,6 +205,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="4096")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using direct BufferedInputStream and BufferedOutputStream with 4KB chunks to copy 1GB binary file.")
     public void copyFileUsingDirectBufferedStreamAndSmallChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, smallChunk, isSyncWrite);
@@ -219,6 +225,7 @@ public class IOAsyncAPIComparisonBenchmarks {
     @BenchmarkMetaData(key="dataSize", value="1073741824")
     @BenchmarkMetaData(key="chunkSize", value="67108864")
     @BenchmarkMetaData(key="actionName", value="readWriteAsync")
+    @BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedInputStream.html")
     @BenchmarkMetaData(key="description", value="Asynchronous file copying using direct BufferedInputStream and BufferedOutputStream with 64MB chunks to copy 1GB binary file.")
     public void copyFileUsingDirectBufferedStreamAndHugeChunks() throws Exception {
         long bytesCopied = IOUtils.copyFileUsingDirectBufferedStreams(srcFile, targetFile, hugeChunk, isSyncWrite);

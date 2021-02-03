@@ -38,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMetaData(key="libVersion", value="-")
 @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
 @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
+@BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/RandomAccessFile.html")
 public class IOSyncFileSeekBenchmarks {
 
     private static Logger LOG = LoggerFactory.getLogger(IOSyncFileSeekBenchmarks.class);
