@@ -10,6 +10,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libVersion", value = "-")
 @BenchmarkMetaData(key = "libDescription", value = "The SunRsaSign provider was introduced in JDK 1.3 as an enhanced replacement for the RSA signatures in the SunJSSE provider.")
 @BenchmarkMetaData(key = "libVendor", value = "Oracle")
+@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunRsaSignProvider")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 public class SunRsaKeyPair extends KeyPairGenerationBenchmarks{
 

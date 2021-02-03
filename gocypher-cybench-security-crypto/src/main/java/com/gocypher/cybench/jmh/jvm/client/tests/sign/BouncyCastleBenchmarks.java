@@ -11,6 +11,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libDescription", value = "Bouncy Castle Java cryptography APIs")
 @BenchmarkMetaData(key = "libVendor", value = "BouncyCastle.org")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
+@BenchmarkMetaData(key = "libUrl", value = "https://www.bouncycastle.org/")
 public class BouncyCastleBenchmarks extends SignBenchmarks{
 
     @Benchmark

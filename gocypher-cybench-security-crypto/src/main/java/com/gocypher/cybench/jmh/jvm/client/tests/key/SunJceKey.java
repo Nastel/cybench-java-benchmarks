@@ -10,6 +10,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libVersion", value = "-")
 @BenchmarkMetaData(key = "libDescription", value = "The Java Cryptography Extension (JCE) from Sun Microsystems.It is a framework for implementing encryption, key generation and key agreement, and Message Authentication Code (MAC) algorithms.")
 @BenchmarkMetaData(key = "libVendor", value = "Oracle")
+@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunJCEProvider")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
 public class SunJceKey extends KeyGenerationBenchmarks {

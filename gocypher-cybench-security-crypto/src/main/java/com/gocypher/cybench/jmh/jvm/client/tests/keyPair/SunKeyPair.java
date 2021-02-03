@@ -10,6 +10,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libVersion", value = "-")
 @BenchmarkMetaData(key = "libVendor", value = "Oracle")
 @BenchmarkMetaData(key = "libDescription", value = "The first JDK provider was named SUN, and contained two types of cryptographic services (MessageDigests, Signatures, SecureRandom number generators, KeyPairGenerators, KeyFactories, and so on).")
+@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SUNProvider")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 public class SunKeyPair extends KeyPairGenerationBenchmarks {
 
