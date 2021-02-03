@@ -88,12 +88,12 @@ set resConfig=F
 	IF ["%JAVA_PATH%"] EQU [""] set JAVA_PATH=java
 	:: Execute the benchmarks with set default or user defined properties
 	IF ["%JAVA_PATH%"] EQU ["java"] (
-		echo EXECUTE: java %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;%CYB_LIBS%;%CYB_LIBS_FOLDER% com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
-		java %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;%CYB_LIBS%;%CYB_LIBS_FOLDER% com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+		echo EXECUTE: java %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+		java %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
 	)
 	IF NOT ["%JAVA_PATH%"] EQU ["java"] (
-		echo EXECUTE: "%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;%CYB_LIBS%;%CYB_LIBS_FOLDER% com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
-		"%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;%CYB_LIBS%;%CYB_LIBS_FOLDER% com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+		echo EXECUTE: "%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+		"%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
 	)
 @endlocal
 cmd /k
