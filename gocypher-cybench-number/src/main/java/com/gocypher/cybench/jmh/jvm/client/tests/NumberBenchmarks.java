@@ -36,6 +36,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
 @BenchmarkMetaData(key="libVersion", value="-")
+@BenchmarkMetaData(key="libVendor", value="-")
 public class NumberBenchmarks {
 
     public List<Integer> testList;
