@@ -48,7 +48,7 @@ public class SunRsaSign extends SignBenchmarks implements SunRsaSignLibDefinitio
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "0fac5c39-f4ad-46a3-be0d-3b515e87abb3")
-    public void sunRsaSign_SHA384withRSA(Blackhole bh) {
+    public void sunRsaSign_SHA256withRSA(Blackhole bh) {
         bh.consume(sign("SHA256withRSA", "SunRsaSign", "RSA", textToSign));
     }
 }
