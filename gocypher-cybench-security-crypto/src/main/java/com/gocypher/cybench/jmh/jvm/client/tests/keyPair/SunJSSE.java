@@ -16,7 +16,7 @@ public class SunJSSE extends KeyPairGenerationBenchmarks{
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key RSA (1024)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (1024)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "keySize", value = "1024")
     @BenchmarkTag(tag = "89397433-4d49-4e87-ad3a-352a1f731cd2")
@@ -25,7 +25,7 @@ public class SunJSSE extends KeyPairGenerationBenchmarks{
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key RSA (4096)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (4096)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "keySize", value = "4096")
     @BenchmarkTag(tag = "fd3f092b-4993-42ac-9ea2-fe61b7af21b3")

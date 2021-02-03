@@ -17,7 +17,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
 
     @Benchmark
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using MD2withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD2withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD2")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -29,7 +29,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
 
     @Benchmark
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using MD5withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD5withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD5")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -41,7 +41,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
 
     @Benchmark
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA1withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA1withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA1withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA1")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -53,7 +53,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
 
     @Benchmark
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA384withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA384withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA384withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA384")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -74,7 +74,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "-")
     @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA256withECDSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withECDSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withECDSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
@@ -92,7 +92,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "-")
     @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA512withECDSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA512withECDSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA512withECDSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA512")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
@@ -110,7 +110,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkMetaData(key = "libVersion", value = "-")
     @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA224withECDSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA224withECDSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA224withECDSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA224")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")

@@ -14,7 +14,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunMSCAPIBenchmarks extends SignBenchmarks{
     @Benchmark
 
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using MD2withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD2withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD2")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -25,7 +25,7 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using MD5withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD5withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD5")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -36,7 +36,7 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA1withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA1withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA1withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA1")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
@@ -47,7 +47,7 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Sign and verify using SHA384withRSA")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA384withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA384withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA384")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")

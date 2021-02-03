@@ -14,7 +14,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunRsaKeyPair extends KeyPairGenerationBenchmarks{
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key RSA (1024)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (1024)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "keySize", value = "1024")
     @BenchmarkTag(tag = "05e75a55-4c8c-47a2-83ac-009fe381b6e2")
@@ -24,7 +24,7 @@ public class SunRsaKeyPair extends KeyPairGenerationBenchmarks{
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key RSA (4096)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (4096)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "keySize", value = "4096")
     @BenchmarkTag(tag = "4c53c58a-469a-4883-8b36-135a7c912485")

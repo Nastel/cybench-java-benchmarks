@@ -15,7 +15,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunJceKey extends KeyGenerationBenchmarks {
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key AES (128)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
     @BenchmarkMetaData(key = "keySize", value = "128")
     @BenchmarkTag(tag = "ec31191c-cf65-42b0-9126-bff9ad4f7e16")
@@ -24,7 +24,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key AES (192)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (192)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
     @BenchmarkMetaData(key = "keySize", value = "192")
     @BenchmarkTag(tag = "8268d8a9-f303-48e4-a960-13ebb228a509")
@@ -33,7 +33,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key AES (256)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (256)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
     @BenchmarkMetaData(key = "keySize", value = "256")
     @BenchmarkTag(tag = "066ac890-1965-4901-b176-b6e38bdd2caa")
@@ -43,7 +43,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key DES (56)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DES (56)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DES")
     @BenchmarkMetaData(key = "keySize", value = "56")
     @BenchmarkTag(tag = "af31c269-154c-457a-b9d8-446e86d6dce8")
@@ -53,7 +53,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key DESEDE (112)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (112)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "keySize", value = "112")
     @BenchmarkTag(tag = "579c8328-1107-4034-92aa-4276d28aec22")
@@ -63,7 +63,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key DESEDE (168)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (168)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "keySize", value = "168")
     @BenchmarkTag(tag = "fd664bbf-a2a5-4254-9b9f-234c121aad7d")
@@ -72,7 +72,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key RC2 (40)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (40)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
     @BenchmarkMetaData(key = "keySize", value = "40")
     @BenchmarkTag(tag = "781f2408-6889-4bf7-8b94-70a44f2f2e80")
@@ -81,7 +81,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     }
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of symmetric key RC2 (128)")
+    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
     @BenchmarkMetaData(key = "keySize", value = "128")
     @BenchmarkTag(tag = "aa55ebad-5e41-4cac-be1c-bbd4ffec8e07")

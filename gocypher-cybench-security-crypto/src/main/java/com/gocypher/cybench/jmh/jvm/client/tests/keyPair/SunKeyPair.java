@@ -14,7 +14,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunKeyPair extends KeyPairGenerationBenchmarks {
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key DSA (512)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key DSA (512)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DSA")
     @BenchmarkMetaData(key = "keySize", value = "512")
     @BenchmarkTag(tag = "18b03312-2e40-4c69-8efb-b07898c2c2ac")
@@ -24,7 +24,7 @@ public class SunKeyPair extends KeyPairGenerationBenchmarks {
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key DSA (1024)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key DSA (1024)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DSA")
     @BenchmarkMetaData(key = "keySize", value = "1024")
     @BenchmarkTag(tag = "ccddb700-fa11-4b49-b74a-84d55ee7e83e")
@@ -34,7 +34,7 @@ public class SunKeyPair extends KeyPairGenerationBenchmarks {
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key DSA (2048)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key DSA (2048)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DSA")
     @BenchmarkMetaData(key = "keySize", value = "2048")
     @BenchmarkTag(tag = "f956957a-1556-4dbd-b4b2-9fbe885ef08b")

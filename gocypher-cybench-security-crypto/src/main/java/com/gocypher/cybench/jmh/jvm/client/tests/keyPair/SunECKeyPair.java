@@ -14,7 +14,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunECKeyPair extends KeyPairGenerationBenchmarks{
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key EC (224)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key EC (224)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "keySize", value = "224")
     @BenchmarkTag(tag = "b0eb841e-cf43-4512-b7e8-cfdae5c766a1")
@@ -24,7 +24,7 @@ public class SunECKeyPair extends KeyPairGenerationBenchmarks{
 
 
     @Benchmark
-    @BenchmarkMetaData(key = "benchTitle", value = "Generation of asymmetric key EC (521)")
+    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key EC (521)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "keySize", value = "521")
     @BenchmarkTag(tag = "a435c3e3-1295-4cf4-8808-6c370ab80b7a")
