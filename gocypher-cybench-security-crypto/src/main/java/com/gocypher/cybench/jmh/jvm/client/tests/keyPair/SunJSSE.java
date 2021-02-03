@@ -2,18 +2,10 @@ package com.gocypher.cybench.jmh.jvm.client.tests.keyPair;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunJSSELibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
-
-@BenchmarkMetaData(key = "api", value = "SunJSSE")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunJSSE")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "Java Secure Socket Extension (JSSE)  provides a set of packages that enable secure Internet communications.")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-
-public class SunJSSE extends KeyPairGenerationBenchmarks{
+public class SunJSSE extends KeyPairGenerationBenchmarks implements SunJSSELibDefinition {
 
 
     /*@Benchmark

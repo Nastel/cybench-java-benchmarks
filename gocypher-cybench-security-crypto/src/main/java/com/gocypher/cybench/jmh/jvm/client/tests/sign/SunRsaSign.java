@@ -2,17 +2,12 @@ package com.gocypher.cybench.jmh.jvm.client.tests.sign;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunRsaSignLibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "SunRsaSign")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunRsaSign")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "The SunRsaSign provider was introduced in JDK 1.3 as an enhanced replacement for the RSA signatures in the SunJSSE provider.")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunRsaSignProvider")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-public class SunRsaSign extends SignBenchmarks {
+
+public class SunRsaSign extends SignBenchmarks implements SunRsaSignLibDefinition {
 /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")

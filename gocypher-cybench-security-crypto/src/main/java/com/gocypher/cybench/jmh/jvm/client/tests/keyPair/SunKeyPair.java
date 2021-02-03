@@ -2,17 +2,11 @@ package com.gocypher.cybench.jmh.jvm.client.tests.keyPair;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunLibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "SUN")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SUN")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libDescription", value = "The first JDK provider was named SUN, and contained two types of cryptographic services (MessageDigests, Signatures, SecureRandom number generators, KeyPairGenerators, KeyFactories, and so on).")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SUNProvider")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-public class SunKeyPair extends KeyPairGenerationBenchmarks {
+public class SunKeyPair extends KeyPairGenerationBenchmarks implements SunLibDefinition {
 
     /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key DSA (512)")

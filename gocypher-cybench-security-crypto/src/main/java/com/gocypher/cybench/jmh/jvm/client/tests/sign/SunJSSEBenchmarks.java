@@ -2,18 +2,11 @@ package com.gocypher.cybench.jmh.jvm.client.tests.sign;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunJSSELibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "SunJSSE")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunJSSE")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "Java Secure Socket Extension (JSSE)  provides a set of packages that enable secure Internet communications.")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-
-public class SunJSSEBenchmarks extends SignBenchmarks {
+public class SunJSSEBenchmarks extends SignBenchmarks implements SunJSSELibDefinition {
 
 /*
     @Benchmark
@@ -64,63 +57,5 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
 
 
 
-    @Benchmark
-    @BenchmarkMetaData(key = "api", value = "SunEC")
-    @BenchmarkMetaData(key = "libVendor", value = "Oracle")
-    @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
-    @BenchmarkMetaData(key = "libVersion", value = "-")
-    @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunEC")
-    @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withECDSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withECDSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
-    @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
-    @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
-    @BenchmarkTag(tag = "9f3e2339-c82e-45a9-8388-f3c74cf4fb81")
-    public void sunJSSE_SHA256withECDSA(Blackhole bh) {
-        bh.consume(sign("SHA256withECDSA", "SunEC", "EC", textToSign));
-    }
-    /*
-    @Benchmark
-    @BenchmarkMetaData(key = "api", value = "SunEC")
-    @BenchmarkMetaData(key = "libVendor", value = "Oracle")
-    @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
-    @BenchmarkMetaData(key = "libVersion", value = "-")
-    @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunEC")
-    @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA512withECDSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA512withECDSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA512")
-    @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
-    @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
-    @BenchmarkTag(tag = "3da80786-b88a-4126-905a-72f41a2e01df")
-    public void SunJSSE_SHA512withECDSA(Blackhole bh) {
-        bh.consume(sign("SHA512withECDSA", "SunEC", "EC", textToSign));
-    }
-*/
-
-    /*
-    @Benchmark
-    @BenchmarkMetaData(key = "api", value = "SunEC")
-    @BenchmarkMetaData(key = "libVendor", value = "Oracle")
-    @BenchmarkMetaData(key = "libDescription", value = "The SunEC provider implements Elliptical Curve Cryptography (ECC). ECC is emerging as an attractive public-key cryptosystem for mobile/wireless and other environments. Compared to traditional cryptosystems like RSA, ECC offers equivalent security with smaller key sizes, which results in faster computations, lower power consumption, as well as memory and bandwidth savings.")
-    @BenchmarkMetaData(key = "libSymbolicName", value = "SunEC")
-    @BenchmarkMetaData(key = "libVersion", value = "-")
-    @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunEC")
-    @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA224withECDSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA224withECDSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA224")
-    @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
-    @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
-    @BenchmarkTag(tag = "2bfff1bd-6681-4c8f-af91-ce972495c869")
-    public void SunEC_SHA224withECDSA(Blackhole bh) {
-        bh.consume(sign("SHA224withECDSA", "SunEC", "EC", textToSign));
-    }
-    */
 }

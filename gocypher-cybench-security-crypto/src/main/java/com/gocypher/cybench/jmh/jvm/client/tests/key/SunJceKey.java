@@ -2,18 +2,11 @@ package com.gocypher.cybench.jmh.jvm.client.tests.key;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.client.tests.definitions.SunJCELibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "SunJCE")
-@BenchmarkMetaData(key = "libSymbolicName", value = "SunJCE")
-@BenchmarkMetaData(key = "libVersion", value = "-")
-@BenchmarkMetaData(key = "libDescription", value = "The Java Cryptography Extension (JCE) from Sun Microsystems.It is a framework for implementing encryption, key generation and key agreement, and Message Authentication Code (MAC) algorithms.")
-@BenchmarkMetaData(key = "libVendor", value = "Oracle")
-@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunJCEProvider")
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
-
-public class SunJceKey extends KeyGenerationBenchmarks {
+public class SunJceKey extends KeyGenerationBenchmarks implements SunJCELibDefinition {
 
     /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (128)")
