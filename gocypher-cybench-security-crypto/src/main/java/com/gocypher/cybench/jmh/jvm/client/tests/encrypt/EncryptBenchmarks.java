@@ -1,10 +1,9 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.encrypt;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
 import javax.crypto.*;
@@ -89,4 +88,10 @@ public class EncryptBenchmarks {
             return "CipherDescription{" + "cipherName='" + cipherName + '\'' + ", keyType='" + keyType + '\'' + ", keySize=" + keySize + '}';
         }
     }
+
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
+    }
+
 }

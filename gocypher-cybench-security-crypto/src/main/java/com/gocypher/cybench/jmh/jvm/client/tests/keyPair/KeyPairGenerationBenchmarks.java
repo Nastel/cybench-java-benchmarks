@@ -1,10 +1,9 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.keyPair;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -31,6 +30,10 @@ public class KeyPairGenerationBenchmarks {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
     }
 
 }
