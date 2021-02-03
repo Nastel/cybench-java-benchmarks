@@ -13,8 +13,8 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunMSCAPI")
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
 public class SunMSCAPIBenchmarks extends SignBenchmarks{
+    /*
     @Benchmark
-
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD2withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD2")
@@ -24,7 +24,7 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     public void SunMSCAPI_MD2withRSA(Blackhole bh) {
         bh.consume(sign("MD2WITHRSA", "SunMSCAPI", "RSA_W", textToSign));
     }
-
+*/
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD5withRSA")
@@ -32,10 +32,10 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "444b9dd4-521c-4670-974b-08f117ede922")
-    public void SunMSCAPI_MD5withRSA(Blackhole bh) {
+    public void sunMSCAPI_MD5withRSA(Blackhole bh) {
         bh.consume(sign("MD5withRSA", "SunMSCAPI", "RSA_W", textToSign));
     }
-
+/*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA1withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA1withRSA")
@@ -46,15 +46,15 @@ public class SunMSCAPIBenchmarks extends SignBenchmarks{
     public void SunMSCAPI_SHA1withRSA(Blackhole bh) {
         bh.consume(sign("SHA1withRSA", "SunMSCAPI", "RSA_W", textToSign));
     }
-
+*/
     @Benchmark
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA384withRSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA384withRSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA384")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withRSA")
+    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withRSA")
+    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "c209a190-c6b6-4ef0-8fd5-14ef5384e736")
-    public void SunMSCAPI_SHA384withRSA(Blackhole bh) {
-        bh.consume(sign("SHA384withRSA", "SunMSCAPI", "RSA_W", textToSign));
+    public void sunMSCAPI_SHA256withRSA(Blackhole bh) {
+        bh.consume(sign("SHA256withRSA", "SunMSCAPI", "RSA_W", textToSign));
     }
 }

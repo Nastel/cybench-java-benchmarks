@@ -15,7 +15,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
 public class BouncyCastleKey extends KeyGenerationBenchmarks {
 
-    @Benchmark
+    /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
     @BenchmarkMetaData(key = "keySize", value = "128")
@@ -32,7 +32,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks {
     public void generateAES_BC_192(Blackhole bh) {
         bh.consume(generateKey("BC", "AES", 192));
     }
-
+    */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (256)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
@@ -41,7 +41,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks {
     public void generateAES_BC_256(Blackhole bh) {
         bh.consume(generateKey("BC", "AES", 256));
     }
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DES (56)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DES")
@@ -59,7 +59,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks {
     public void generateDESEDE_BC_112(Blackhole bh) {
         bh.consume(generateKey("BC", "DESEDE", 112));
     }
-
+    */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (168)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
@@ -68,7 +68,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks {
     public void generateDESEDE_BC_168(Blackhole bh) {
         bh.consume(generateKey("BC", "DESEDE", 168));
     }
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (40)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
@@ -77,7 +77,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks {
     public void generateRC2_BC_40(Blackhole bh) {
         bh.consume(generateKey("BC", "RC2", 40));
     }
-
+    */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")

@@ -15,9 +15,8 @@ import org.openjdk.jmh.infra.Blackhole;
 
 public class SunJSSEBenchmarks extends SignBenchmarks {
 
-
+/*
     @Benchmark
-
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD2withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD2")
@@ -27,21 +26,21 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     public void SunJSSE_MD2withRSA(Blackhole bh) {
         bh.consume(sign("MD2WITHRSA", "SunJSSE", "RSA", textToSign));
     }
+*/
 
     @Benchmark
-
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD5withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "MD5")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "3167bec7-b6d5-4d9f-9742-4f576b178a03")
-    public void SunJSSE_MD5withRSA(Blackhole bh) {
+    public void sunJSSE_MD5withRSA(Blackhole bh) {
         bh.consume(sign("MD5withRSA", "SunJSSE", "RSA", textToSign));
     }
 
+    /*
     @Benchmark
-
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA1withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA1withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA1")
@@ -51,19 +50,17 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     public void SunJSSE_SHA1withRSA(Blackhole bh) {
         bh.consume(sign("SHA1withRSA", "SunJSSE", "RSA", textToSign));
     }
-
+*/
     @Benchmark
-
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA384withRSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA384withRSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA384")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withRSA")
+    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withRSA")
+    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "f7271b7f-b7a1-4099-802d-ab9aaf89c2d0")
-    public void SunJSSE_SHA384withRSA(Blackhole bh) {
-        bh.consume(sign("SHA384withRSA", "SunJSSE", "RSA", textToSign));
+    public void sunJSSE_SHA256withRSA(Blackhole bh) {
+        bh.consume(sign("SHA256withRSA", "SunJSSE", "RSA", textToSign));
     }
-
 
 
 
@@ -82,10 +79,10 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
     @BenchmarkTag(tag = "9f3e2339-c82e-45a9-8388-f3c74cf4fb81")
-    public void SunJSSE_SHA256withECDSA(Blackhole bh) {
+    public void sunJSSE_SHA256withECDSA(Blackhole bh) {
         bh.consume(sign("SHA256withECDSA", "SunEC", "EC", textToSign));
     }
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "SunEC")
     @BenchmarkMetaData(key = "libVendor", value = "Oracle")
@@ -104,7 +101,9 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     public void SunJSSE_SHA512withECDSA(Blackhole bh) {
         bh.consume(sign("SHA512withECDSA", "SunEC", "EC", textToSign));
     }
+*/
 
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "api", value = "SunEC")
     @BenchmarkMetaData(key = "libVendor", value = "Oracle")
@@ -123,4 +122,5 @@ public class SunJSSEBenchmarks extends SignBenchmarks {
     public void SunEC_SHA224withECDSA(Blackhole bh) {
         bh.consume(sign("SHA224withECDSA", "SunEC", "EC", textToSign));
     }
+    */
 }

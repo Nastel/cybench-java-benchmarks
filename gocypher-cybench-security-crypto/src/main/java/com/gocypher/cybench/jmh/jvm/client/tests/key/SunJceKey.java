@@ -15,7 +15,7 @@ import org.openjdk.jmh.infra.Blackhole;
 
 public class SunJceKey extends KeyGenerationBenchmarks {
 
-    @Benchmark
+    /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
     @BenchmarkMetaData(key = "keySize", value = "128")
@@ -32,7 +32,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     public void generateAES_JCE_192(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "AES", 192));
     }
-
+    */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (256)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
@@ -42,7 +42,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
         bh.consume(generateKey("SunJCE", "AES", 256));
     }
 
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DES (56)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DES")
@@ -51,8 +51,8 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     public void generateDES_JCE_56(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DES", 56));
     }
-
-
+    */
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (112)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
@@ -61,7 +61,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     public void generateDESEDE_JCE_112(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DESEDE", 112));
     }
-
+    */
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (168)")
@@ -71,7 +71,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     public void generateDESEDE_JCE_168(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "DESEDE", 168));
     }
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (40)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
@@ -80,7 +80,7 @@ public class SunJceKey extends KeyGenerationBenchmarks {
     public void generateRC2_JCE_40(Blackhole bh) {
         bh.consume(generateKey("SunJCE", "RC2", 40));
     }
-
+    */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")

@@ -52,6 +52,7 @@ public class BouncyCastleEncrypt extends EncryptBenchmarks {
         encrypt(bh, cipherDescription, "BC", testString);
     }
 
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Encrypt using DES/CBC/NoPadding (56)")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "DES/CBC/NoPadding (56)")
@@ -87,7 +88,7 @@ public class BouncyCastleEncrypt extends EncryptBenchmarks {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/ECB/PKCS5Padding (56)");
         encrypt(bh, cipherDescription, "BC", testString);
     }
-
+*/
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Encrypt using DESede/CBC/NoPadding (168)")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "DESede/CBC/NoPadding (168)")

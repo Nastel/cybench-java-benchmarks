@@ -14,6 +14,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "libUrl", value = "https://www.bouncycastle.org/")
 public class BouncyCastleBenchmarks extends SignBenchmarks{
 
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD2withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "MD2withRSA")
@@ -24,6 +25,7 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     public void BC_MD2withRSA(Blackhole bh) {
         bh.consume(sign("MD2WITHRSA", "BC", "RSA", textToSign));
     }
+    */
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
@@ -32,11 +34,11 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "4857d113-2bdf-437c-b538-200f1ad7dac2")
-    public void BC_MD5withRSA(Blackhole bh) {
+    public void bc_MD5withRSA(Blackhole bh) {
         bh.consume(sign("MD5WITHRSA", "BC", "RSA", textToSign));
     }
 
-    @Benchmark
+    /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA1withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA1withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA1")
@@ -46,19 +48,20 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     public void BC_SHA1withRSA(Blackhole bh) {
         bh.consume(sign("SHA1WITHRSA", "BC", "RSA", textToSign));
     }
+    */
 
     @Benchmark
-    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA384withRSA")
-    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA384withRSA")
-    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA384")
+    @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withRSA")
+    @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withRSA")
+    @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "RSA")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "2048")
     @BenchmarkTag(tag = "36fa169e-7025-41a8-9afa-8f34d019fce4")
-    public void BC_SHA384withRSA(Blackhole bh) {
-        bh.consume(sign("SHA384withRSA", "BC", "RSA", textToSign));
+    public void bc_SHA256withRSA(Blackhole bh) {
+        bh.consume(sign("SHA256withRSA", "BC", "RSA", textToSign));
     }
 
-    @Benchmark
+    /*@Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA224withECDSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA224withECDSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA224")
@@ -68,6 +71,7 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     public void BC_SHA224withECDSA(Blackhole bh) {
         bh.consume(sign("SHA224withECDSA", "BC", "EC", textToSign));
     }
+    */
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withECDSA")
@@ -76,10 +80,11 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
     @BenchmarkTag(tag = "fd2da744-afbe-4d22-8dbf-022809a4ddeb")
-    public void BC_SHA256withECDSA(Blackhole bh) {
+    public void bc_SHA256withECDSA(Blackhole bh) {
         bh.consume(sign("SHA256withECDSA", "BC", "EC", textToSign));
     }
 
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA512withECDSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA512withECDSA")
@@ -90,4 +95,5 @@ public class BouncyCastleBenchmarks extends SignBenchmarks{
     public void BC_SHA512withECDSA(Blackhole bh) {
         bh.consume(sign("SHA512withECDSA", "BC", "EC", textToSign));
     }
+    */
 }

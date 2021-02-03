@@ -53,7 +53,7 @@ public class SunJceEncrypt extends EncryptBenchmarks {
         CipherDescription cipherDescription = new CipherDescription().invoke("AES/ECB/PKCS5Padding (128)");
         encrypt(bh, cipherDescription, "SunJCE", testString);
     }
-
+    /*
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Encrypt using DES/CBC/NoPadding (56)")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "DES/CBC/NoPadding (56)")
@@ -89,7 +89,7 @@ public class SunJceEncrypt extends EncryptBenchmarks {
         CipherDescription cipherDescription = new CipherDescription().invoke("DES/ECB/PKCS5Padding (56)");
         encrypt(bh, cipherDescription, "SunJCE", testString);
     }
-
+*/
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Encrypt using DESede/CBC/NoPadding (168)")
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "DESede/CBC/NoPadding (168)")
