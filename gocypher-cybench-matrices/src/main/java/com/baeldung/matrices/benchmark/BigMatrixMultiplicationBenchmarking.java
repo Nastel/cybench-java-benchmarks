@@ -20,7 +20,6 @@ import com.gocypher.cybench.core.annotation.BenchmarkTag;
 @BenchmarkMetaData(key="context", value="matrices")
 @BenchmarkMetaData(key="domain", value="java")
 @BenchmarkMetaData(key="version", value="1.0.0")
-@BenchmarkMetaData(key="title", value="Matrices multiplication")
 @BenchmarkMetaData(key="actionName", value="multiply")
 @BenchmarkMetaData(key="description", value="Multiplying double numbers matrices with different libraries")
 public class BigMatrixMultiplicationBenchmarking {
@@ -34,6 +33,7 @@ public class BigMatrixMultiplicationBenchmarking {
     @BenchmarkMetaData(key="libUrl", value="http://ejml.org/wiki/index.php?title=Main_Page")
     @BenchmarkMetaData(key="libVersion", value="0.30")
     @BenchmarkMetaData(key="libDescription", value="Efficient Java Matrix Library")
+    @BenchmarkMetaData(key="title", value="EJML Matrices multiplication")
     public Object ejmlMatrixMultiplication(BigMatrixProvider matrixProvider) {
         SimpleMatrix firstMatrix = new SimpleMatrix(matrixProvider.getFirstMatrix());
         SimpleMatrix secondMatrix = new SimpleMatrix(matrixProvider.getSecondMatrix());
@@ -47,6 +47,7 @@ public class BigMatrixMultiplicationBenchmarking {
     @BenchmarkMetaData(key="libUrl", value="https://commons.apache.org/proper/commons-math/")
     @BenchmarkMetaData(key="libVersion", value="3.6.1")
     @BenchmarkMetaData(key="libDescription", value="Apache Commons Math3 module")
+    @BenchmarkMetaData(key="title", value="Apache commons Matrices multiplication")
     public Object apacheCommonsMatrixMultiplication(BigMatrixProvider matrixProvider) {
         RealMatrix firstMatrix = new Array2DRowRealMatrix(matrixProvider.getFirstMatrix());
         RealMatrix secondMatrix = new Array2DRowRealMatrix(matrixProvider.getSecondMatrix());
@@ -60,6 +61,7 @@ public class BigMatrixMultiplicationBenchmarking {
     @BenchmarkMetaData(key="libUrl", value="http://la4j.org/")
     @BenchmarkMetaData(key="libVersion", value="0.6.0")
     @BenchmarkMetaData(key="libDescription", value="Linear Algebra for Java")
+    @BenchmarkMetaData(key="title", value="LA4J Matrices multiplication")
     public Object la4jMatrixMultiplication(BigMatrixProvider matrixProvider) {
         Matrix firstMatrix = new Basic2DMatrix(matrixProvider.getFirstMatrix());
         Matrix secondMatrix = new Basic2DMatrix(matrixProvider.getSecondMatrix());
@@ -73,6 +75,7 @@ public class BigMatrixMultiplicationBenchmarking {
     @BenchmarkMetaData(key="libUrl", value="https://deeplearning4j.org/docs/latest/nd4j-overview")
     @BenchmarkMetaData(key="libVersion", value="1.0.0-beta7")
     @BenchmarkMetaData(key="libDescription", value="Eclipse Deeplearning4j")
+    @BenchmarkMetaData(key="title", value="ND4J Matrices multiplication")
     public Object nd4jMatrixMultiplication(BigMatrixProvider matrixProvider) {
         INDArray firstMatrix = Nd4j.create(matrixProvider.getFirstMatrix());
         INDArray secondMatrix = Nd4j.create(matrixProvider.getSecondMatrix());
@@ -86,6 +89,7 @@ public class BigMatrixMultiplicationBenchmarking {
     @BenchmarkMetaData(key="libUrl", value="https://dst.lbl.gov/ACSSoftware/colt/")
     @BenchmarkMetaData(key="libVersion", value="1.2.0")
     @BenchmarkMetaData(key="libDescription", value="Colt scientific and technical computing library")
+    @BenchmarkMetaData(key="title", value="Colt Matrices multiplication")
     public Object coltMatrixMultiplication(BigMatrixProvider matrixProvider) {
         DoubleFactory2D doubleFactory2D = DoubleFactory2D.dense;
         DoubleMatrix2D firstMatrix = doubleFactory2D.make(matrixProvider.getFirstMatrix());
