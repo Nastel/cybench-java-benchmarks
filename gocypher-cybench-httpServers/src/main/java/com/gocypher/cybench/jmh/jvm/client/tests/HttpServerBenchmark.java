@@ -62,6 +62,7 @@ public class HttpServerBenchmark {
     @BenchmarkMode(value = Mode.Throughput)
     // @OperationsPerInvocation(value = 1000000)
     @BenchmarkTag(tag = "76ca1ef3-aa04-4aaf-865f-1b4a1f1267cc")
+    @BenchmarkMetaData(key = "title", value ="Embedded java server benchmark")
     @BenchmarkMetaData(key = "libVendor", value = "com.sun")
     @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html")
     @BenchmarkMetaData(key = "libDescription", value = "Embedded simple HTTP server")
@@ -82,9 +83,12 @@ public class HttpServerBenchmark {
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkTag(tag = "6198f242-6081-4351-980c-64f74c6ab855")
+    @BenchmarkMetaData(key = "title", value ="org.takes java server benchmark")
     @BenchmarkMetaData(key = "libVendor", value = "org.takes")
     @BenchmarkMetaData(key = "libUrl", value = "https://www.takes.org/")
+    @BenchmarkMetaData(key = "libVersion", value = "1.19")
     @BenchmarkMetaData(key = "libDescription", value = "Takes is a true object-oriented and immutable Java web framework.")
+
     public // @OperationsPerInvocation(value = 1000000)
     void takesBenchmark(TakesWebServer server) {
         get();
@@ -94,7 +98,9 @@ public class HttpServerBenchmark {
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkMetaData(key = "libVendor", value = "org.eclipse")
     @BenchmarkMetaData(key = "libUrl", value = "https://www.eclipse.org/jetty/")
+    @BenchmarkMetaData(key = "title", value ="Jetty embedded java server benchmark")
     @BenchmarkMetaData(key = "libDescription", value = "Jetty provides a web server and servlet container.")
+    @BenchmarkMetaData(key = "libVersion", value = "9.4.35.v20201120")
     @BenchmarkTag(tag = "7a1b6382-be4c-4c1f-a7fc-067e1bd7bb7c")
     public // @OperationsPerInvocation(value = 1000000)
     void jettyBenchmark(JettyWebServer server) {
@@ -104,8 +110,10 @@ public class HttpServerBenchmark {
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkMetaData(key = "libVendor", value = "org.nanohttpd")
+    @BenchmarkMetaData(key = "title", value ="NanoHTTPD embedded java server benchmark")
     @BenchmarkMetaData(key = "libUrl", value = "https://github.com/NanoHttpd/nanohttpd")
     @BenchmarkMetaData(key = "libDescription", value = "NanoHTTPD is a light-weight HTTP server designed for embedding in other applications.")
+    @BenchmarkMetaData(key = "libVersion", value = "2.2.0")
     @BenchmarkTag(tag = "77fc8228-9352-45c3-b960-68cc08ff11d8")
     public // @OperationsPerInvocation(value = 1000000)
     void nanoHttpdBenchmark(NanoHTTPD server) {
@@ -115,8 +123,10 @@ public class HttpServerBenchmark {
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkMetaData(key = "libVendor", value = "org.sparkjava")
+    @BenchmarkMetaData(key = "title", value ="Spark java server benchmark")
     @BenchmarkMetaData(key = "libUrl", value = "http://sparkjava.com/")
     @BenchmarkMetaData(key = "libDescription", value = "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort.")
+    @BenchmarkMetaData(key = "libVersion", value = "2.9.3")
     @BenchmarkTag(tag = "5a3f98fd-dcf9-47ab-aa9a-24070ea18d92")
     public // @OperationsPerInvocation(value = 1000000)
     void sparkHttpdBenchmark(SparkHttpd server) {
@@ -126,7 +136,9 @@ public class HttpServerBenchmark {
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkMetaData(key = "libVendor", value = "io.undertow")
+    @BenchmarkMetaData(key = "title", value ="Undertow java server benchmark")
     @BenchmarkMetaData(key = "libUrl", value = "https://undertow.io/")
+    @BenchmarkMetaData(key = "libVersion", value = "2.2.3.Final")
     @BenchmarkMetaData(key = "libDescription", value = "Undertow is a flexible performant web server written in java, providing both blocking and non-blocking API’s based on NIO.")
     @BenchmarkTag(tag = "83bd20e4-ca1c-442d-83b6-a47d6d1f3686")
     public // @OperationsPerInvocation(value = 1000000)
