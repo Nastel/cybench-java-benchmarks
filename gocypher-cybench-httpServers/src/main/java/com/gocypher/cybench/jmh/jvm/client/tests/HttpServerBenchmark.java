@@ -44,16 +44,17 @@ import java.net.InetSocketAddress;
 import java.net.URL;
 
 @State(Scope.Benchmark)
-@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
-@BenchmarkMetaData(key = "context", value = "HttpServers")
 @BenchmarkMetaData(key = "domain", value = "java")
-@BenchmarkMetaData(key = "version", value = "1.0")
-@BenchmarkMetaData(key = "description", value = "HttpServers implementation benchmark")
+@BenchmarkMetaData(key = "context", value = "JAVA_WEB_Containers")
+@BenchmarkMetaData(key = "actionName", value = "sendHTTPGet")
+@BenchmarkMetaData(key = "version", value = "1.0.0")
+@BenchmarkMetaData(key = "description", value = "JAVA WEB container benchmark by sending lots of HTTP GET requests.")
+@BenchmarkMetaData(key = "isLibraryBenchmark", value = "true")
 public class HttpServerBenchmark {
 
-    @Param({ "<p>This is response</p>", "<p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p>" })
-    private static String responseString = "This is response";
+    private static String responseString = "<p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p><p>This is response</p>";
 
+    public static final int port = 25555 ;
     // public static void main(String[] args) {
     // new TakesWebServer().setup();
     // new HttpServerBenchmark().get();
@@ -62,10 +63,13 @@ public class HttpServerBenchmark {
     @BenchmarkMode(value = Mode.Throughput)
     // @OperationsPerInvocation(value = 1000000)
     @BenchmarkTag(tag = "76ca1ef3-aa04-4aaf-865f-1b4a1f1267cc")
-    @BenchmarkMetaData(key = "title", value ="Embedded java server benchmark")
-    @BenchmarkMetaData(key = "libVendor", value = "com.sun")
+    @BenchmarkMetaData(key = "api", value = "com.sun.net.httpserver.HttpServer")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "com.sun.net.httpserver.HttpServer")
+    @BenchmarkMetaData(key = "libVersion", value = "-")
+    @BenchmarkMetaData(key = "libDescription", value = "Embedded simple JAVA based HTTP server provided by JDK which was used to launch benchmark.")
+    @BenchmarkMetaData(key = "libVendor", value = "-")
     @BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html")
-    @BenchmarkMetaData(key = "libDescription", value = "Embedded simple HTTP server")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to com.sun.net.httpserver.HttpServer")
     public void javaServerBenchmark(JavaServer server) {
         get();
     }
@@ -83,11 +87,13 @@ public class HttpServerBenchmark {
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
     @BenchmarkTag(tag = "6198f242-6081-4351-980c-64f74c6ab855")
-    @BenchmarkMetaData(key = "title", value ="org.takes java server benchmark")
-    @BenchmarkMetaData(key = "libVendor", value = "org.takes")
-    @BenchmarkMetaData(key = "libUrl", value = "https://www.takes.org/")
+    @BenchmarkMetaData(key = "api", value = "Takes")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "org.takes")
     @BenchmarkMetaData(key = "libVersion", value = "1.19")
     @BenchmarkMetaData(key = "libDescription", value = "Takes is a true object-oriented and immutable Java web framework.")
+    @BenchmarkMetaData(key = "libVendor", value = "org.takes")
+    @BenchmarkMetaData(key = "libUrl", value = "https://www.takes.org/")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to Takes")
 
     public // @OperationsPerInvocation(value = 1000000)
     void takesBenchmark(TakesWebServer server) {
@@ -149,7 +155,7 @@ public class HttpServerBenchmark {
     private void get() {
         HttpURLConnection con = null;
         try {
-            URL url = new URL("http://127.0.0.1:8080/test");
+            URL url = new URL("http://127.0.0.1:"+port+"/test");
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             InputStream inputStream = con.getInputStream();
@@ -190,7 +196,7 @@ public class HttpServerBenchmark {
         public void setup() {
             HttpServer server = null;
             try {
-                server = HttpServer.create(new InetSocketAddress(8080), 0);
+                server = HttpServer.create(new InetSocketAddress(port), 0);
                 server.createContext("/test", new MyHandler());
                 // creates a default executor
                 server.setExecutor(null);
@@ -248,7 +254,7 @@ public class HttpServerBenchmark {
         public void setup() {
             new Thread(() -> {
                 try {
-                    FtCli ftCli = new FtCli(new TkFork(new FkRegex("/test", responseString)), "--port=8080", "--threads=10");
+                    FtCli ftCli = new FtCli(new TkFork(new FkRegex("/test", responseString)), "--port="+port, "--threads=10");
                     ftCli.start(Exit.NEVER);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -266,7 +272,7 @@ public class HttpServerBenchmark {
         public void setup() {
             server = new Server();
             ServerConnector connector = new ServerConnector(server);
-            connector.setPort(8080);
+            connector.setPort(port);
             server.setConnectors(new Connector[] { connector });
             server.setHandler(new JettyWebServer());
             try {
@@ -299,7 +305,7 @@ public class HttpServerBenchmark {
     public static class NanoHTTPD extends fi.iki.elonen.NanoHTTPD {
 
         public NanoHTTPD() {
-            super(8080);
+            super(port);
             try {
                 start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
             } catch (IOException e) {
@@ -324,7 +330,7 @@ public class HttpServerBenchmark {
 
         @Setup
         public void setup() {
-            spark.Spark.port(8080);
+            spark.Spark.port(port);
             spark.Spark.get("/test", (req, res) -> responseString);
         }
 
@@ -341,7 +347,7 @@ public class HttpServerBenchmark {
 
         @Setup
         public void setup() {
-            server = Undertow.builder().addHttpListener(8080, "localhost").setHandler(new io.undertow.server.HttpHandler() {
+            server = Undertow.builder().addHttpListener(port, "localhost").setHandler(new io.undertow.server.HttpHandler() {
 
                 @Override
                 public void handleRequest(HttpServerExchange exchange) throws Exception {
