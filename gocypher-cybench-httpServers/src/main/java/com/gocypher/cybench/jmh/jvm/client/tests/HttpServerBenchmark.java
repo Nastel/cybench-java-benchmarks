@@ -20,6 +20,7 @@ package com.gocypher.cybench.jmh.jvm.client.tests;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -102,11 +103,13 @@ public class HttpServerBenchmark {
 
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
-    @BenchmarkMetaData(key = "libVendor", value = "org.eclipse")
-    @BenchmarkMetaData(key = "libUrl", value = "https://www.eclipse.org/jetty/")
-    @BenchmarkMetaData(key = "title", value ="Jetty embedded java server benchmark")
-    @BenchmarkMetaData(key = "libDescription", value = "Jetty provides a web server and servlet container.")
+    @BenchmarkMetaData(key = "api", value = "Jetty")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "org.eclipse.jetty.server")
     @BenchmarkMetaData(key = "libVersion", value = "9.4.35.v20201120")
+    @BenchmarkMetaData(key = "libDescription", value = "Jetty provides a web server and servlet container.")
+    @BenchmarkMetaData(key = "libVendor", value = "Eclipse Jetty Project")
+    @BenchmarkMetaData(key = "libUrl", value = "https://www.eclipse.org/jetty/")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to Jetty")
     @BenchmarkTag(tag = "7a1b6382-be4c-4c1f-a7fc-067e1bd7bb7c")
     public // @OperationsPerInvocation(value = 1000000)
     void jettyBenchmark(JettyWebServer server) {
@@ -115,11 +118,13 @@ public class HttpServerBenchmark {
 
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
-    @BenchmarkMetaData(key = "libVendor", value = "org.nanohttpd")
-    @BenchmarkMetaData(key = "title", value ="NanoHTTPD embedded java server benchmark")
-    @BenchmarkMetaData(key = "libUrl", value = "https://github.com/NanoHttpd/nanohttpd")
-    @BenchmarkMetaData(key = "libDescription", value = "NanoHTTPD is a light-weight HTTP server designed for embedding in other applications.")
+    @BenchmarkMetaData(key = "api", value = "NanoHTTPD")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "org.nanohttpd")
     @BenchmarkMetaData(key = "libVersion", value = "2.2.0")
+    @BenchmarkMetaData(key = "libDescription", value = "NanoHTTPD is a light-weight HTTP server designed for embedding in other applications.")
+    @BenchmarkMetaData(key = "libVendor", value = "org.nanohttpd")
+    @BenchmarkMetaData(key = "libUrl", value = "https://github.com/NanoHttpd/nanohttpd")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to NanoHTTPD")
     @BenchmarkTag(tag = "77fc8228-9352-45c3-b960-68cc08ff11d8")
     public // @OperationsPerInvocation(value = 1000000)
     void nanoHttpdBenchmark(NanoHTTPD server) {
@@ -128,11 +133,13 @@ public class HttpServerBenchmark {
 
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
-    @BenchmarkMetaData(key = "libVendor", value = "org.sparkjava")
-    @BenchmarkMetaData(key = "title", value ="Spark java server benchmark")
-    @BenchmarkMetaData(key = "libUrl", value = "http://sparkjava.com/")
-    @BenchmarkMetaData(key = "libDescription", value = "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort.")
+    @BenchmarkMetaData(key = "api", value = "SparkJava")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "com.sparkjava.spark-core")
     @BenchmarkMetaData(key = "libVersion", value = "2.9.3")
+    @BenchmarkMetaData(key = "libDescription", value = "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort.")
+    @BenchmarkMetaData(key = "libVendor", value = "Spark")
+    @BenchmarkMetaData(key = "libUrl", value = "http://www.sparkjava.com")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to SparkJava")
     @BenchmarkTag(tag = "5a3f98fd-dcf9-47ab-aa9a-24070ea18d92")
     public // @OperationsPerInvocation(value = 1000000)
     void sparkHttpdBenchmark(SparkHttpd server) {
@@ -141,17 +148,23 @@ public class HttpServerBenchmark {
 
     @Benchmark
     @BenchmarkMode(value = Mode.Throughput)
-    @BenchmarkMetaData(key = "libVendor", value = "io.undertow")
-    @BenchmarkMetaData(key = "title", value ="Undertow java server benchmark")
-    @BenchmarkMetaData(key = "libUrl", value = "https://undertow.io/")
+    @BenchmarkMetaData(key = "api", value = "Undertow")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "io.undertow.undertow-core")
     @BenchmarkMetaData(key = "libVersion", value = "2.2.3.Final")
     @BenchmarkMetaData(key = "libDescription", value = "Undertow is a flexible performant web server written in java, providing both blocking and non-blocking API’s based on NIO.")
+    @BenchmarkMetaData(key = "libVendor", value = "JBoss by Red Hat")
+    @BenchmarkMetaData(key = "libUrl", value = "https://undertow.io/")
+    @BenchmarkMetaData(key = "title", value ="HTTP GET Request to Undertow")
     @BenchmarkTag(tag = "83bd20e4-ca1c-442d-83b6-a47d6d1f3686")
     public // @OperationsPerInvocation(value = 1000000)
     void undertowHttpdBenchmark(UndertowHttpd server) {
         get();
     }
 
+    @TearDown(Level.Iteration)
+    public void clearIteration(CyBenchCounters.ProfileCounters counters) {
+        CyBenchCounters.registerProfileInformation(counters);
+    }
     private void get() {
         HttpURLConnection con = null;
         try {
