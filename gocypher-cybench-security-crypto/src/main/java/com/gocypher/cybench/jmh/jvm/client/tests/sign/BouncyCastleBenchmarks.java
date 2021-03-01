@@ -74,6 +74,7 @@ public class BouncyCastleBenchmarks extends SignBenchmarks implements BouncyCast
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
     @BenchmarkTag(tag = "fd2da744-afbe-4d22-8dbf-022809a4ddeb")
+    @BenchmarkMetaData(key = "api", value = "BouncyCastle_")
     public void bc_SHA256withECDSA(Blackhole bh) {
         bh.consume(sign("SHA256withECDSA", "BC", "EC", textToSign));
     }

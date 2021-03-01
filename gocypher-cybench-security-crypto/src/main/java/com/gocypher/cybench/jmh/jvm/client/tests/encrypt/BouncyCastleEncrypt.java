@@ -1,13 +1,12 @@
 package com.gocypher.cybench.jmh.jvm.client.tests.encrypt;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
 import com.gocypher.cybench.jmh.jvm.client.tests.definitions.BouncyCastleLibDefinition;
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.infra.Blackhole;
-import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
-
+@BenchmarkMetaData(key = "api", value = "BouncyCastle_")
 public class BouncyCastleEncrypt extends EncryptBenchmarks implements BouncyCastleLibDefinition {
 
     @Benchmark

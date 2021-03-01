@@ -2,7 +2,7 @@ package com.gocypher.cybench.jmh.jvm.client.tests.definitions;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 
-@BenchmarkMetaData(key = "api", value = "SUN")
+@BenchmarkMetaData(key = "api", value = "Sun")
 @BenchmarkMetaData(key = "libSymbolicName", value = "SUN")
 @BenchmarkMetaData(key = "libVersion", value = "-")
 @BenchmarkMetaData(key = "libVendor", value = "-")

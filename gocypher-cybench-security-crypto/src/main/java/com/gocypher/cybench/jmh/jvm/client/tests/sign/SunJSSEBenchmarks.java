@@ -45,7 +45,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks implements SunJSSELibDefin
     }
 */
 
-    /*@Benchmark
+    @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using SHA256withRSA")
     @BenchmarkMetaData(key = "signAlgorithm", value = "SHA256withRSA")
     @BenchmarkMetaData(key = "hashAlgorithm", value = "SHA256")
@@ -55,7 +55,7 @@ public class SunJSSEBenchmarks extends SignBenchmarks implements SunJSSELibDefin
     public void sunJSSE_SHA256withRSA(Blackhole bh) {
         bh.consume(sign("SHA256withRSA", "SunJSSE", "RSA", textToSign));
     }
-    */
+
 
 
 

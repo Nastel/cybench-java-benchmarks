@@ -33,6 +33,7 @@ public class BouncyCastleKeyPair extends KeyPairGenerationBenchmarks implements 
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DSA")
     @BenchmarkMetaData(key = "keySize", value = "2048")
     @BenchmarkTag(tag = "c14ba059-ade7-49ce-be89-e249332e173d")
+    @BenchmarkMetaData(key = "api", value = "BouncyCastle_")
     public void generateDSA_BC_2048(Blackhole bh) {
         bh.consume(generateKey("BC", "DSA", 2048));
     }
@@ -52,6 +53,7 @@ public class BouncyCastleKeyPair extends KeyPairGenerationBenchmarks implements 
     @BenchmarkMetaData(key = "keyAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "keySize", value = "521")
     @BenchmarkTag(tag = "2cfe0800-e033-4648-9555-e98eaf620656")
+    @BenchmarkMetaData(key = "api", value = "BouncyCastle_")
     public void generateEC_BC_521(Blackhole bh) {
         bh.consume(generateKey("BC", "EC", 521));
     }

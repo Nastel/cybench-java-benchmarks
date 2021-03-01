@@ -15,7 +15,7 @@ public class SunECBenchmarks extends SignBenchmarks implements SunECLibDefinitio
     @BenchmarkMetaData(key = "encryptionAlgorithm", value = "EC")
     @BenchmarkMetaData(key = "encryptionKeySize", value = "512")
     @BenchmarkTag(tag = "9f3e2339-c82e-45a9-8388-f3c74cf4fb81")
-    public void sunJSSE_SHA256withECDSA(Blackhole bh) {
+    public void sunEC_SHA256withECDSA(Blackhole bh) {
         bh.consume(sign("SHA256withECDSA", "SunEC", "EC", textToSign));
     }
     /*

@@ -26,14 +26,14 @@ public class SunJceKey extends KeyGenerationBenchmarks implements SunJCELibDefin
         bh.consume(generateKey("SunJCE", "AES", 192));
     }
     */
-    @Benchmark
-    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (256)")
-    @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
-    @BenchmarkMetaData(key = "keySize", value = "256")
-    @BenchmarkTag(tag = "066ac890-1965-4901-b176-b6e38bdd2caa")
-    public void generateDSA_JCE_256(Blackhole bh) {
-        bh.consume(generateKey("SunJCE", "AES", 256));
-    }
+//    @Benchmark
+//    @BenchmarkMetaData(key = "title", value = "Generation of symmetric key AES (256)")
+//    @BenchmarkMetaData(key = "keyAlgorithm", value = "AES")
+//    @BenchmarkMetaData(key = "keySize", value = "256")
+//    @BenchmarkTag(tag = "066ac890-1965-4901-b176-b6e38bdd2caa")
+//    public void generateDSA_JCE_256(Blackhole bh) {
+//        bh.consume(generateKey("SunJCE", "AES", 256));
+//    }
 
     /*
     @Benchmark
