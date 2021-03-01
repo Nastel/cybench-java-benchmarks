@@ -8,10 +8,8 @@ import java.util.Random;
 
 @State(Scope.Benchmark)
 public class BigMatrixProvider {
-    @Param({"2", "3"})
+    @Param({"100", "1000"})
     private int matrixSize;
-    @Param({"2", "3"})
-    private int matrixSize2;
     private double[][] firstMatrix;
     private double[][] secondMatrix;
 

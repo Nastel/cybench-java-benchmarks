@@ -33,7 +33,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
 //     * use a different key for each of the two processes. Asymmetric keys are best for external file transfers,
 //     * whereas symmetric keys are better suited to internal encryption. The advantage of symmetric systems like
 //     * AES is their speed. Because a symmetric key algorithm requires less computational power than an asymmetric
-//     * one, itâ€™s faster and more efficient to run.
+//     * one, it’s faster and more efficient to run.
 //     * <p>
 //     * AES is also characterized as a block cipher. In this type of cipher, the information to be encrypted
 //     * (known as plaintext) is divided into sections called blocks. AES uses a 128-bit block size, in which data
@@ -72,23 +72,6 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
     }
     */
 
-    /**
-     * What we all call <strong>Triple DES</strong> operates in three steps: Encrypt-Decrypt-Encrypt (EDE). It works by taking three
-     * 56-bit keys (K1, K2 and K3), and encrypting first with K1, decrypting next with K2 and encrypting a last time
-     * with K3.
-     * <p>
-     * 3DES has two-key and three-key versions. In the two-key version, the same algorithm runs three times, but uses
-     * K1 for the first and last steps. In other words, K1 = K3. Note that if K1 = K2 = K3, then Triple DES is
-     * really Single DES.
-     * <p>
-     * Triple DES was created back when DES was becoming weaker than users accepted. As a result, they sought an
-     * easy way to get more strength. In a system that is dependent on DES, making a composite function out of
-     * multiple passes of DES is likely to be easier than bolting in a new symmetric cipher. This has the added
-     * benefit of sidestepping the political issues that arise from arguing about the relative strength of a new
-     * cipher versus DES.
-     *
-     * @see <a href="https://searchsecurity.techtarget.com/tip/Expert-advice-Encryption-101-Triple-DES-explained">Source</a>
-     */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key DESEDE (168)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
@@ -110,21 +93,6 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
     }
     */
 
-    /**
-     * <strong>RC2</strong> is a block cipher, and the block size is 8 bytes (64 bits). This means that the input data is first divided
-     * into blocks of 8 bytes and then each of them is processed separately.
-     * <p>
-     * Each data block is treated as four words, each word has 16 bits (2 bytes). The array of four words is
-     * presented as R[0] R[1] R[2] R[3]. Both encryption and decryption take this array as input and modify the
-     * four words. The output is returned in the same array.
-     * <p>
-     * Apart from the data, the RC2 cipher takes as input a secret user key. The key provided by the user may be
-     * of size from one byte up to 128 bytes. Let us denote the key size (in bytes) as Keysize. The first
-     * operation which RC2 then performs is to expand the key, to receive new 128 key bytes which will be
-     * used for encryption of decryption of all data bytes.
-     *
-     * @see <a href="http://www.crypto-it.net/eng/symmetric/rc2.html">Source</a>
-     */
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of symmetric key RC2 (128)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
