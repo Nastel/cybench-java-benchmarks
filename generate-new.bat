@@ -21,7 +21,7 @@ for /f "tokens=* delims=" %%a in (pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="		<!--PROPERTIES PALCEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProperties >>pom.updated
+   if "%%a"=="		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProperties >>pom.updated
    >>pom.updated echo(!write!
    endlocal
 )
@@ -35,7 +35,7 @@ for /f "tokens=* delims=" %%a in (pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="        <!--PROFILES PALCEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProfiles >>pom.updated
+   if "%%a"=="        <!--PROFILES PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProfiles >>pom.updated
    >>pom.updated echo(!write!
    endlocal
 )
@@ -49,7 +49,7 @@ for /f "tokens=* delims=" %%a in (gocypher-cybench-distribution\pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="                        <!--FILESET PALCEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionFilesets >>gocypher-cybench-distribution\pom.updated
+   if "%%a"=="                        <!--FILESET PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionFilesets >>gocypher-cybench-distribution\pom.updated
    >>gocypher-cybench-distribution\pom.updated echo(!write!
    endlocal
 )
@@ -64,7 +64,7 @@ for /f "tokens=* delims=" %%a in (gocypher-cybench-distribution\pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="                    <!--EXECUTION PALCEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionExecution >>gocypher-cybench-distribution\pom.updated
+   if "%%a"=="                    <!--EXECUTION PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionExecution >>gocypher-cybench-distribution\pom.updated
    >>gocypher-cybench-distribution\pom.updated echo(!write!
    endlocal
 )
