@@ -122,6 +122,7 @@
                                 <include>${release.deploy.finalName}-security-${project.version}.*</include>
                             </includes>
                         </fileset>
+                        <!--FILESET PALCEHOLDER DO NOT DELETE -->
                     </filesets>
                 </configuration>
             </plugin>

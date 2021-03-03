@@ -113,8 +113,9 @@
         <release.security.crypto>src/assembly-security-crypto</release.security.crypto>
         <target.deploy.security.crypto.jar>../gocypher-cybench-security-crypto/target/gocypher-cybench-security-crypto.jar</target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
-    </properties>
 
+		<!--PROPERTIES PALCEHOLDER DO NOT DELETE -->
+    </properties>
     <profiles>
         <profile>
             <id>pack-jvm-string</id>
@@ -188,7 +189,7 @@
                 <module>gocypher-cybench-security-crypto</module>
             </modules>
         </profile>
-
+        <!--PROFILES PALCEHOLDER DO NOT DELETE -->
         <profile>
             <id>x-distribution</id>
             <activation>
