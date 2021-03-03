@@ -4,6 +4,8 @@ import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.gocypher.cybench.launcher.utils.Constants;
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.Blackhole;
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
 
 @State(Scope.Benchmark)
@@ -17,6 +19,7 @@ public class MyBenchmark implements MyBenchmarkInterface
 {
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Simple benchmark from archetype")
+    @BenchmarkTag(tag = "2128e15a-974f-4a01-99b9-a499279a9dbd") // REPLACE or DELETE this
     public void simpleBenchmark(Blackhole bh) {
         bh.consume("AA".concat("BB"));
     }

@@ -1,4 +1,5 @@
 package $package;
+import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 
 @BenchmarkMetaData(key = "api", value = "CyBench")
 @BenchmarkMetaData(key = "libSymbolicName", value = "CyBenchArchetype")
