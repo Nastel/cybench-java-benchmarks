@@ -114,7 +114,7 @@
         <target.deploy.security.crypto.jar>../gocypher-cybench-security-crypto/target/gocypher-cybench-security-crypto.jar</target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
 
-		<!--PROPERTIES PALCEHOLDER DO NOT DELETE -->
+		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->
     </properties>
     <profiles>
         <profile>
@@ -189,7 +189,7 @@
                 <module>gocypher-cybench-security-crypto</module>
             </modules>
         </profile>
-        <!--PROFILES PALCEHOLDER DO NOT DELETE -->
+        <!--PROFILES PLACEHOLDER DO NOT DELETE -->
         <profile>
             <id>x-distribution</id>
             <activation>

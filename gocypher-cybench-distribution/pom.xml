@@ -122,7 +122,7 @@
                                 <include>${release.deploy.finalName}-security-${project.version}.*</include>
                             </includes>
                         </fileset>
-                        <!--FILESET PALCEHOLDER DO NOT DELETE -->
+                        <!--FILESET PLACEHOLDER DO NOT DELETE -->
                     </filesets>
                 </configuration>
             </plugin>
@@ -283,6 +283,7 @@
                             <finalName>${release.deploy.finalName}-security-${project.version}</finalName>
                         </configuration>
                     </execution>
+                    <!--EXECUTION PLACEHOLDER DO NOT DELETE -->
                 </executions>
             </plugin>
         </plugins>
