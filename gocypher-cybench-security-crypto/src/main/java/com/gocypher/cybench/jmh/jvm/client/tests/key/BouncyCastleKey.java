@@ -33,7 +33,7 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
 //     * use a different key for each of the two processes. Asymmetric keys are best for external file transfers,
 //     * whereas symmetric keys are better suited to internal encryption. The advantage of symmetric systems like
 //     * AES is their speed. Because a symmetric key algorithm requires less computational power than an asymmetric
-//     * one, it’s faster and more efficient to run.
+//     * one, its faster and more efficient to run.
 //     * <p>
 //     * AES is also characterized as a block cipher. In this type of cipher, the information to be encrypted
 //     * (known as plaintext) is divided into sections called blocks. AES uses a 128-bit block size, in which data
