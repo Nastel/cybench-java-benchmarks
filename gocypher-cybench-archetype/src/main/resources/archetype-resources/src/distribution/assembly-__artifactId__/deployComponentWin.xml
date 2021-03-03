@@ -1,3 +1,5 @@
+#set($prefix = '${target.deploy.')
+#set($sufix = '.jar}')
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (C) 2020, K2N.IO.
@@ -35,7 +37,7 @@
             <outputDirectory>conf</outputDirectory>
         </file>
         <file>
-            <source>${target.deploy.number.jar}</source>
+            <source>${prefix}${shortName}${sufix}</source>
             <outputDirectory>benchmarks/</outputDirectory>
         </file>
     </files>

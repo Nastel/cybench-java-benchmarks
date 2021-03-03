@@ -26,8 +26,8 @@
         <format>tar.gz</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
-    <baseDirectory>${release.deploy.finalName}-number</baseDirectory>
+    <baseDirectory>${release.deploy.finalName}-${shortName}</baseDirectory>
     <componentDescriptors>
-        <componentDescriptor>src/assembly-number/deployComponentUnix.xml</componentDescriptor>
+        <componentDescriptor>src/assembly-${shortName}/deployComponentUnix.xml</componentDescriptor>
     </componentDescriptors>
 </assembly>

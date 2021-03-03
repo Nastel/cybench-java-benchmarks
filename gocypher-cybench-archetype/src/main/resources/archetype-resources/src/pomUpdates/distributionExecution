@@ -1,0 +1,25 @@
+#set($prefix = '${release.')
+#set($sufix = '}')
+#set($prefix0 = '${skip.')
+#set($sufix0 = '.assembly}')
+#set($prefix2 = '${release.deploy.dir.')
+#set($sufix2 = '.assembly}')
+                    <execution>
+                        <id>security-${shortName}-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${prefix0}${shortName}${sufix0}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${prefix}${shortName}${sufix}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${prefix}${shortName}${sufix}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${prefix}${shortName}${sufix}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${prefix2}${shortName}${sufix2}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}-${shortName}-${project.version}</finalName>
+                        </configuration>
+                    </execution>

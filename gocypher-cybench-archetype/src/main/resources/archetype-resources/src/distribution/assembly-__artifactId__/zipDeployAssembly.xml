@@ -26,8 +26,8 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
-    <baseDirectory>${release.deploy.finalName}-number</baseDirectory>
+    <baseDirectory>${release.deploy.finalName}-${shortName}</baseDirectory>
     <componentDescriptors>
-        <componentDescriptor>src/assembly-number/deployComponentWin.xml</componentDescriptor>
+        <componentDescriptor>src/assembly-${shortName}/deployComponentWin.xml</componentDescriptor>
     </componentDescriptors>
 </assembly>

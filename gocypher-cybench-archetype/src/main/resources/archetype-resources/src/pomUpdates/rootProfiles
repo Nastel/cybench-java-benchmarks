@@ -1,0 +1,9 @@
+        <profile>
+            <id>pack-jvm-security-${shortName}</id>
+            <properties>
+                <skip.${shortName}.assembly>false</skip.${shortName}.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-${shortName}</module>
+            </modules>
+        </profile>

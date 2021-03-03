@@ -26,8 +26,8 @@
         <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <baseDirectory>${release.deploy.finalName}-number</baseDirectory>
+    <baseDirectory>${release.deploy.finalName}-${shortName}</baseDirectory>
     <componentDescriptors>
-        <componentDescriptor>src/assembly-number/deployComponentDir.xml</componentDescriptor>
+        <componentDescriptor>src/assembly-${shortName}/deployComponentDir.xml</componentDescriptor>
     </componentDescriptors>
 </assembly>

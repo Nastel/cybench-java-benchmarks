@@ -23,6 +23,30 @@ under the License.
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
   name="${artifactId}">
 
+    <requiredProperties>
+        <requiredProperty key="shortName">
+            <validationRegex>^[a-z][a-zA-Z0-9_-]*</validationRegex>
+            <defaultValue>${artifactId.replaceAll("gocypher-cybench-", "")}</defaultValue>
+        </requiredProperty>
+        <requiredProperties>
+            <requiredProperty key="groupId">
+                <defaultValue>com.gocypher.cybench.client</defaultValue>
+            </requiredProperty>
+        </requiredProperties>
+        <requiredProperties>
+            <requiredProperty key="version">
+                <defaultValue>1.0.0</defaultValue>
+            </requiredProperty>
+        </requiredProperties>
+        <requiredProperties>
+            <requiredProperty key="artifactId">
+                <defaultValue>gocypher-cybench-${shortName}</defaultValue>
+            </requiredProperty>
+        </requiredProperties>
+
+    </requiredProperties>
+
+
   <fileSets>
     <fileSet filtered="true" packaged="true">
       <directory>src/main/java</directory>
@@ -30,5 +54,8 @@ under the License.
       <fileSet filtered="true" packaged="false">
           <directory>src/distribution</directory>
       </fileSet>
+    <fileSet filtered="true" packaged="false">
+        <directory>src/pomUpdates</directory>
+    </fileSet>
   </fileSets>
 </archetype-descriptor>

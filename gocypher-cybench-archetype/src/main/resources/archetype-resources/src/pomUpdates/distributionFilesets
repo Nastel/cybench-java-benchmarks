@@ -1,0 +1,9 @@
+#set($prefix = '${release.deploy.dir.')
+#set($sufix = '}')
+                        <fileset>
+                            <directory>${prefix}${shortName}${sufix}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}-${shortName}-${project.version}/</include>
+                                <include>${release.deploy.finalName}-${shortName}-${project.version}.*</include>
+                            </includes>
+                        </fileset>
