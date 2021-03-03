@@ -3,7 +3,7 @@
 #set($prefix0 = '${skip.')
 #set($sufix0 = '.assembly}')
 #set($prefix2 = '${release.deploy.dir.')
-#set($sufix2 = '.assembly}')
+#set($sufix2 = '}')
                     <execution>
                         <id>security-${shortName}-deploy</id>
                         <phase>package</phase>
