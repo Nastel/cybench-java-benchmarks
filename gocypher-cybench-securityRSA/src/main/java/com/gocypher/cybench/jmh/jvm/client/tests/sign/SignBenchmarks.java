@@ -2,7 +2,6 @@ package com.gocypher.cybench.jmh.jvm.client.tests.sign;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
-import com.gocypher.cybench.launcher.utils.Constants;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.openjdk.jmh.annotations.*;
 
@@ -11,7 +10,7 @@ import java.util.HashMap;
 
 @State(Scope.Benchmark)
 @BenchmarkMetaData(key = "domain", value = "java")
-@BenchmarkMetaData(key = "context", value = "security")
+@BenchmarkMetaData(key = "context", value = "securityRSA")
 @BenchmarkMetaData(key = "actionName", value = "sign")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
 @BenchmarkMetaData(key = "dataSize", value = "4144")
