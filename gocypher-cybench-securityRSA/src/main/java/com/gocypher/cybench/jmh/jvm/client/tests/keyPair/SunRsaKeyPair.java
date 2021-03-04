@@ -7,16 +7,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
 public class SunRsaKeyPair extends KeyPairGenerationBenchmarks implements SunRsaSignLibDefinition {
-    /*
-    @Benchmark
-    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (1024)")
-    @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
-    @BenchmarkMetaData(key = "keySize", value = "1024")
-    @BenchmarkTag(tag = "05e75a55-4c8c-47a2-83ac-009fe381b6e2")
-    public void generateRSA_SunRsaSign_1024(Blackhole bh) {
-        bh.consume(generateKey("SunRsaSign", "RSA", 1024));
-    }
-    */
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (2048)")

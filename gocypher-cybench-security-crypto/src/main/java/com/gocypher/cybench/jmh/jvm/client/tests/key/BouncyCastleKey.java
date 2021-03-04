@@ -77,7 +77,6 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
     @BenchmarkMetaData(key = "keyAlgorithm", value = "DESEDE")
     @BenchmarkMetaData(key = "keySize", value = "168")
     @BenchmarkTag(tag = "b55acc52-3c95-431e-bd72-d7f3ead3de2c")
-    @BenchmarkMetaData(key = "api", value = "BouncyCastle_")
     public void generateDESEDE_BC_168(Blackhole bh) {
         bh.consume(generateKey("BC", "DESEDE", 168));
     }
@@ -98,7 +97,6 @@ public class BouncyCastleKey extends KeyGenerationBenchmarks implements BouncyCa
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RC2")
     @BenchmarkMetaData(key = "keySize", value = "128")
     @BenchmarkTag(tag = "d94a8681-7790-4c78-ab22-f58ff6a14c59")
-    @BenchmarkMetaData(key = "api", value = "BouncyCastle_")
     public void generateRC2_BC_128(Blackhole bh) {
         bh.consume(generateKey("BC", "RC2", 128));
     }

@@ -18,10 +18,7 @@ public class SignBenchmarksTest {
     public void testAllBenchmarkMethods() throws Exception {
         Blackhole bh = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         List<SignBenchmarks> tests = new ArrayList();
-        tests.add(SunJSSEBenchmarks.class.getDeclaredConstructor(null).newInstance());
         tests.add(BouncyCastleBenchmarks.class.getDeclaredConstructor(null).newInstance());
-        tests.add(SunMSCAPIBenchmarks.class.getDeclaredConstructor(null).newInstance());
-        tests.add(SunRsaSign.class.getDeclaredConstructor(null).newInstance());
 
         tests.forEach(t -> {
             try {

@@ -17,21 +17,17 @@
   ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
   ~
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.gocypher.cybench.client</groupId>
         <artifactId>gocypher-cybench-java-core</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <artifactId>gocypher-cybench-distribution</artifactId>
     <packaging>pom</packaging>
-
     <properties>
         <release.deploy.name>gocypher-cybench</release.deploy.name>
         <release.deploy.finalName>${release.deploy.name}</release.deploy.finalName>
@@ -41,7 +37,6 @@
         <build.assemblies.attach>false</build.assemblies.attach>
         <assembly.line.endings>unix</assembly.line.endings>
     </properties>
-
     <profiles>
         <profile>
             <id>win-ln</id>
@@ -55,7 +50,6 @@
             </properties>
         </profile>
     </profiles>
-
     <build>
         <defaultGoal>clean install</defaultGoal>
         <plugins>
@@ -120,6 +114,13 @@
                             <includes>
                                 <include>${release.deploy.finalName}-security-${project.version}/</include>
                                 <include>${release.deploy.finalName}-security-${project.version}.*</include>
+                            </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.securityRSA}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}-securityRSA-${project.version}/</include>
+                                <include>${release.deploy.finalName}-securityRSA-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <!--FILESET PLACEHOLDER DO NOT DELETE -->
@@ -281,6 +282,25 @@
                             <outputDirectory>${release.deploy.dir.security.crypto}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
                             <finalName>${release.deploy.finalName}-security-${project.version}</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>security-securityRSA-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skip.securityRSA.assembly}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${release.securityRSA}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.securityRSA}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.securityRSA}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${release.deploy.dir.securityRSA}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}-securityRSA-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <!--EXECUTION PLACEHOLDER DO NOT DELETE -->

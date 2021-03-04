@@ -17,11 +17,7 @@ class KeyPairGenerationBenchmarksTest {
         List<KeyPairGenerationBenchmarks> tests = new ArrayList();
         tests.add(BouncyCastleKeyPair.class.getDeclaredConstructor(null).newInstance());
         tests.add(SunECKeyPair.class.getDeclaredConstructor(null).newInstance());
-        tests.add(SunJSSE.class.getDeclaredConstructor(null).newInstance());
         tests.add(SunKeyPair.class.getDeclaredConstructor(null).newInstance());
-        tests.add(SunMSCAPI.class.getDeclaredConstructor(null).newInstance());
-        tests.add(SunRsaKeyPair.class.getDeclaredConstructor(null).newInstance());
-
         tests.forEach(t -> {
             try {
                 t.setup();

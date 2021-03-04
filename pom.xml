@@ -16,28 +16,21 @@
   ~ License along with this library; if not, write to the Free Software
   ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
   ~
-  -->
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.gocypher.cybench.client</groupId>
     <artifactId>gocypher-cybench-java-core</artifactId>
     <version>1.0.0</version>
     <modules>
         <module>gocypher-cybench-number</module>
-    </modules>
-
+  </modules>
     <name>gocypher-cybench-java-core</name>
-
     <dependencies>
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
             <artifactId>gocypher-cybench-runner</artifactId>
             <version>1.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
@@ -57,9 +50,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <packaging>pom</packaging>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.target>1.8</javac.target>
@@ -70,7 +61,6 @@
         <jackson.version>2.11.2</jackson.version>
         <log4j.version>1.2.17</log4j.version>
         <org.slf4j.version>1.7.30</org.slf4j.version>
-
         <!-- All assembly modules set to skip by default and not to skip when the profile is enabled -->
         <skip.string.assembly>true</skip.string.assembly>
         <skip.json.assembly>true</skip.json.assembly>
@@ -84,36 +74,30 @@
         <release.string>src/assembly-string</release.string>
         <target.deploy.string.jar>../gocypher-cybench-jvm/target/gocypher-cybench-string.jar</target.deploy.string.jar>
         <release.deploy.dir.string>../deploy/string</release.deploy.dir.string>
-
         <release.json>src/assembly-json</release.json>
         <target.deploy.json.jar>../gocypher-cybench-json/target/gocypher-cybench-json.jar</target.deploy.json.jar>
         <release.deploy.dir.json>../deploy/json</release.deploy.dir.json>
-
         <release.io>src/assembly-io</release.io>
         <target.deploy.io.jar>../gocypher-cybench-io/target/gocypher-cybench-io.jar</target.deploy.io.jar>
         <release.deploy.dir.io>../deploy/io</release.deploy.dir.io>
-
         <release.list>src/assembly-list</release.list>
         <target.deploy.list.jar>../gocypher-cybench-list/target/gocypher-cybench-list.jar</target.deploy.list.jar>
         <release.deploy.dir.list>../deploy/list</release.deploy.dir.list>
-
         <release.number>src/assembly-number</release.number>
         <target.deploy.number.jar>../gocypher-cybench-number/target/gocypher-cybench-number.jar</target.deploy.number.jar>
         <release.deploy.dir.number>../deploy/number</release.deploy.dir.number>
-
         <release.matrices>src/assembly-matrices</release.matrices>
         <target.deploy.matrices.jar>../gocypher-cybench-matrices/target/gocypher-cybench-matrices.jar</target.deploy.matrices.jar>
         <release.deploy.dir.matrices>../deploy/matrices</release.deploy.dir.matrices>
-
-
         <release.httpServers>src/assembly-httpServers</release.httpServers>
         <target.deploy.httpServers.jar>../gocypher-cybench-httpServers/target/gocypher-cybench-httpServers.jar</target.deploy.httpServers.jar>
         <release.deploy.dir.httpServers>../deploy/httpServers</release.deploy.dir.httpServers>
-
         <release.security.crypto>src/assembly-security-crypto</release.security.crypto>
         <target.deploy.security.crypto.jar>../gocypher-cybench-security-crypto/target/gocypher-cybench-security-crypto.jar</target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
-
+        <release.securityRSA>src/assembly-securityRSA</release.securityRSA>
+        <target.deploy.securityRSA.jar>../gocypher-cybench-securityRSA/target/gocypher-cybench-securityRSA.jar</target.deploy.securityRSA.jar>
+        <release.deploy.dir.securityRSA>../deploy/securityRSA</release.deploy.dir.securityRSA>
 		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->
     </properties>
     <profiles>
@@ -189,6 +173,15 @@
                 <module>gocypher-cybench-security-crypto</module>
             </modules>
         </profile>
+        <profile>
+            <id>pack-jvm-security-securityRSA</id>
+            <properties>
+                <skip.securityRSA.assembly>false</skip.securityRSA.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-securityRSA</module>
+            </modules>
+        </profile>
         <!--PROFILES PLACEHOLDER DO NOT DELETE -->
         <profile>
             <id>x-distribution</id>
@@ -201,10 +194,8 @@
             </modules>
         </profile>
     </profiles>
-
     <build>
         <defaultGoal>clean package</defaultGoal>
-
         <resources>
             <resource>
                 <directory>../</directory>
@@ -223,5 +214,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

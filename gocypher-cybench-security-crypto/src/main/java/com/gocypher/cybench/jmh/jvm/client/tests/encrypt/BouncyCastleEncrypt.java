@@ -6,7 +6,6 @@ import com.gocypher.cybench.jmh.jvm.client.tests.definitions.BouncyCastleLibDefi
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-@BenchmarkMetaData(key = "api", value = "BouncyCastle_")
 public class BouncyCastleEncrypt extends EncryptBenchmarks implements BouncyCastleLibDefinition {
 
     @Benchmark

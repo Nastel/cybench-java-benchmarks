@@ -8,16 +8,6 @@ import org.openjdk.jmh.infra.Blackhole;
 public class SunJSSE extends KeyPairGenerationBenchmarks implements SunJSSELibDefinition {
 
 
-    /*@Benchmark
-    @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (1024)")
-    @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
-    @BenchmarkMetaData(key = "keySize", value = "1024")
-    @BenchmarkTag(tag = "89397433-4d49-4e87-ad3a-352a1f731cd2")
-    public void generateRSA_SunJSSE_1024(Blackhole bh) {
-        bh.consume(generateKey("SunJSSE", "RSA", 1024));
-    }
-    */
-
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (2048)")
     @BenchmarkMetaData(key = "keyAlgorithm", value = "RSA")
