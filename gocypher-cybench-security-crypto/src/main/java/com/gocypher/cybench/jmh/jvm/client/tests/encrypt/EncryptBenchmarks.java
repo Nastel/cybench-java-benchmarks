@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 @State(Scope.Benchmark)
 @BenchmarkMetaData(key = "domain", value = "java")
-@BenchmarkMetaData(key = "context", value = "security")
+@BenchmarkMetaData(key = "context", value = "securityCrypto")
 @BenchmarkMetaData(key = "actionName", value = "encrypt")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
 @BenchmarkMetaData(key = "description", value = "Text message encrypt.")
