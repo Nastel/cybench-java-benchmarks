@@ -98,6 +98,9 @@
         <release.securityRSA>src/assembly-securityRSA</release.securityRSA>
         <target.deploy.securityRSA.jar>../gocypher-cybench-securityRSA/target/gocypher-cybench-securityRSA.jar</target.deploy.securityRSA.jar>
         <release.deploy.dir.securityRSA>../deploy/securityRSA</release.deploy.dir.securityRSA>
+        <release.trace>src/assembly-trace</release.trace>
+        <target.deploy.trace.jar>../gocypher-cybench-trace/target/gocypher-cybench-trace.jar</target.deploy.trace.jar>
+        <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
 		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->
     </properties>
     <profiles>
@@ -174,12 +177,21 @@
             </modules>
         </profile>
         <profile>
-            <id>pack-jvm-security-securityRSA</id>
+            <id>pack-jvm-securityRSA</id>
             <properties>
                 <skip.securityRSA.assembly>false</skip.securityRSA.assembly>
             </properties>
             <modules>
                 <module>gocypher-cybench-securityRSA</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>pack-jvm-trace</id>
+            <properties>
+                <skip.trace.assembly>false</skip.trace.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-trace</module>
             </modules>
         </profile>
         <!--PROFILES PLACEHOLDER DO NOT DELETE -->
