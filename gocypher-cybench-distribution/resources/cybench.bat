@@ -56,7 +56,7 @@ set resConfig=F
 :setConfigurationProperties
 	:: Read properties file to set JVM properties for .jar run
   echo.
-	for /f "eol=# delims== tokens=1,2" %%A in (%CONFIGURATION_PATH%) do (
+	for /f "eol=# delims== tokens=1,*" %%A in (%CONFIGURATION_PATH%) do (
 		Echo."%%A" | findstr /C:"javaOptions">nul && (
 			set JVM_PROPERTIES=!JVM_PROPERTIES!%%B
 			set JVM_PROPERTIES=!JVM_PROPERTIES!
