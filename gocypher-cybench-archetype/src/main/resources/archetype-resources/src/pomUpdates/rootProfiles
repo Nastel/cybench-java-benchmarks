@@ -1,5 +1,5 @@
         <profile>
-            <id>pack-jvm-security-${shortName}</id>
+            <id>pack-jvm-${shortName}</id>
             <properties>
                 <skip.${shortName}.assembly>false</skip.${shortName}.assembly>
             </properties>
