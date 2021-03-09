@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 @State(Scope.Benchmark)
 @BenchmarkMetaData(key = "domain", value = "java")
-@BenchmarkMetaData(key = "context", value = "securityRSA")
+@BenchmarkMetaData(key = "context", value = "security_RSA")
 @BenchmarkMetaData(key = "actionName", value = "sign")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
 @BenchmarkMetaData(key = "dataSize", value = "4144")

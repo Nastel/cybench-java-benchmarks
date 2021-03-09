@@ -6,7 +6,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
-public class SunJSSEBenchmarks extends SignBenchmarks implements SunJSSELibDefinition {
+public class SunJSSESignRSA extends SignBenchmarks implements SunJSSELibDefinition {
 
     /*
     @Benchmark

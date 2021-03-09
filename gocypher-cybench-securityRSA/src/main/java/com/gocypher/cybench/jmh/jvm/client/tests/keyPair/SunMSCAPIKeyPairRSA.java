@@ -6,7 +6,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
-public class SunMSCAPI extends KeyPairGenerationBenchmarks implements SunMSCAPILibDefinition {
+public class SunMSCAPIKeyPairRSA extends KeyPairGenerationBenchmarks implements SunMSCAPILibDefinition {
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Generation of asymmetric key RSA (2048)")

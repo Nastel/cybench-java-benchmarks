@@ -79,7 +79,7 @@
                 <version>3.8.0</version>
                 <configuration>
                     <release>11</release>
-                    <!--                    annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors-->
+<!--                    <annotationProcessors>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessors>-->
                 </configuration>
             </plugin>
             <plugin>

@@ -6,7 +6,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
 
-public class BouncyCastleBenchmarks extends SignBenchmarks implements BouncyCastleLibDefinition {
+public class BouncyCastleSignRSA extends SignBenchmarks implements BouncyCastleLibDefinition {
 
     @Benchmark
     @BenchmarkMetaData(key = "title", value = "Sign and verify using MD5withRSA")
