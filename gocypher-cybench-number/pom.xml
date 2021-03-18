@@ -30,7 +30,7 @@
 
     <artifactId>gocypher-cybench-number</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>${project.number.version}</version>
     <name>gocypher-cybench-number</name>
 
     <properties>

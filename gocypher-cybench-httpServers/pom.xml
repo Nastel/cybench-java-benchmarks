@@ -30,7 +30,7 @@
 
     <artifactId>gocypher-cybench-httpServers</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>${project.httpServers.version}</version>
     <name>gocypher-cybench-httpServers</name>
 
     <properties>

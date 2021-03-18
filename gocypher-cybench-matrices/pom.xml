@@ -14,7 +14,7 @@
 
 
     <artifactId>gocypher-cybench-matrices</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.matrices.version}</version>
     <name>gocypher-cybench-matrices</name>
 
     <repositories>

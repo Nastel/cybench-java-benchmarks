@@ -32,7 +32,7 @@
 
 
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>${project.list.version}</version>
     <name>gocypher-cybench-list</name>
 
     <properties>

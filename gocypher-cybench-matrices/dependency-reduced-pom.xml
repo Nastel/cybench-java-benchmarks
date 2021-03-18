@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.gocypher.cybench.client</groupId>
-  <artifactId>gocypher-cybench-jvm</artifactId>
+  <artifactId>gocypher-cybench-string</artifactId>
   <name>gocypher-cybench-matrices</name>
   <version>0.0.1-SNAPSHOT</version>
   <build>

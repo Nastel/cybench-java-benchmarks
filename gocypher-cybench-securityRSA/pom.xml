@@ -6,13 +6,13 @@
 
     <parent>
         <groupId>com.gocypher.cybench.client</groupId>
-        <artifactId>gocypher-cybench-java-core</artifactId>
         <version>1.0.0</version>
+        <artifactId>gocypher-cybench-java-core</artifactId>
     </parent>
 
     <groupId>com.gocypher.cybench.client</groupId>
     <artifactId>gocypher-cybench-securityRSA</artifactId>
-    <version>1.0.0</version>
+    <version>${project.securityRSA.version}</version>
 
 
     <properties>

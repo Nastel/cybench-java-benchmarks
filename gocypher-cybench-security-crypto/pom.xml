@@ -6,7 +6,7 @@
 
     <groupId>com.gocypher.cybench.client</groupId>
     <artifactId>gocypher-cybench-security-crypto</artifactId>
-    <version>1.0.0</version>
+    <version>${project.security.crypto.version}</version>
 
     <parent>
         <groupId>com.gocypher.cybench.client</groupId>

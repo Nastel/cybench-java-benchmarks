@@ -12,7 +12,7 @@
 
     <groupId>com.gocypher.cybench.client</groupId>
     <artifactId>gocypher-cybench-trace</artifactId>
-    <version>1.0.0</version>
+    <version>${project.trace.version}</version>
 
 
     <properties>
