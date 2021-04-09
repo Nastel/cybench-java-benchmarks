@@ -73,7 +73,8 @@ move gocypher-cybench-distribution\pom.updated gocypher-cybench-distribution\pom
 move gocypher-cybench-distribution\pom.updated gocypher-cybench-distribution\pom.xml
 
 setlocal EnableDelayedExpansion
-move /y gocypher-cybench-!PROJECT_NAME!\src\distribution\assembly-!PROJECT_NAME!\*.* gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!
-rd /s /q gocypher-cybench-!PROJECT_NAME!\src\distribution 
-rd /s /q gocypher-cybench-!PROJECT_NAME!\src\pomUpdates  
+if not exist gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\ mkdir gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\
+move /y gocypher-cybench-!PROJECT_NAME!\src\distribution\assembly-!PROJECT_NAME!\*.* gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\
+rem rd /s /q gocypher-cybench-!PROJECT_NAME!\src\distribution 
+rem rd /s /q gocypher-cybench-!PROJECT_NAME!\src\pomUpdates  
 endlocal
