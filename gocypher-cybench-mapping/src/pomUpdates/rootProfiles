@@ -1,0 +1,9 @@
+        <profile>
+            <id>pack-jvm-mapping</id>
+            <properties>
+                <skip.mapping.assembly>false</skip.mapping.assembly>
+            </properties>
+            <modules>
+                <module>gocypher-cybench-mapping</module>
+            </modules>
+        </profile>

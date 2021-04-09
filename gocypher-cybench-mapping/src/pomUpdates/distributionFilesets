@@ -1,0 +1,7 @@
+                        <fileset>
+                            <directory>${release.deploy.dir.mapping}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}-mapping-${project.version}/</include>
+                                <include>${release.deploy.finalName}-mapping-${project.version}.*</include>
+                            </includes>
+                        </fileset>

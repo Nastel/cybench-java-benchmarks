@@ -130,6 +130,13 @@
                                 <include>${release.deploy.finalName}-trace-${project.version}.*</include>
                             </includes>
                         </fileset>
+                        <fileset>
+                            <directory>${release.deploy.dir.mapping}</directory>
+                            <includes>
+                                <include>${release.deploy.finalName}-mapping-${project.version}/</include>
+                                <include>${release.deploy.finalName}-mapping-${project.version}.*</include>
+                            </includes>
+                        </fileset>
                         <!--FILESET PLACEHOLDER DO NOT DELETE -->
                     </filesets>
                 </configuration>
@@ -327,6 +334,25 @@
                             <outputDirectory>${release.deploy.dir.trace}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
                             <finalName>${release.deploy.finalName}-trace-${project.trace.version}</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>security-mapping-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skip.mapping.assembly}</skipAssembly>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>${release.mapping}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.mapping}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.mapping}/${release.deploy.dir.assembly}</descriptor>
+                            </descriptors>
+                            <outputDirectory>${release.deploy.dir.mapping}</outputDirectory>
+                            <attach>${build.assemblies.attach}</attach>
+                            <finalName>${release.deploy.finalName}-mapping-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <!--EXECUTION PLACEHOLDER DO NOT DELETE -->
