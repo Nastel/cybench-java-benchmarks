@@ -1,6 +1,6 @@
 package io.cybench.jmh.jvm.client.tests;
 
-import com.gocypher.cybench.jmh.jvm.client.tests.sign.*;
+import io.cybench.jmh.jvm.client.tests.sign.*;
 import io.cybench.jmh.jvm.client.tests.sign.BouncyCastleBenchmarks;
 import io.cybench.jmh.jvm.client.tests.sign.SignBenchmarks;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;

@@ -1,6 +1,6 @@
 package io.cybench.jmh.jvm.client.tests;
 
-import com.gocypher.cybench.jmh.jvm.client.tests.keyPair.*;
+import io.cybench.jmh.jvm.client.tests.keyPair.*;
 import io.cybench.jmh.jvm.client.tests.keyPair.BouncyCastleKeyPair;
 import io.cybench.jmh.jvm.client.tests.keyPair.KeyPairGenerationBenchmarks;
 import io.cybench.jmh.jvm.client.tests.keyPair.SunECKeyPair;
