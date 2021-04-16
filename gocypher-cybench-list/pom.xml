@@ -29,9 +29,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>gocypher-cybench-list</artifactId>
-
-
     <packaging>jar</packaging>
+
     <version>${project.list.version}</version>
     <name>gocypher-cybench-list</name>
 
@@ -40,29 +39,6 @@
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.gocypher.cybench.client</groupId>
-            <artifactId>gocypher-cybench-runner</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
             <artifactId>gocypher-cybench-utils</artifactId>
@@ -72,7 +48,6 @@
     </dependencies>
 
     <build>
-        <defaultGoal>clean package</defaultGoal>
         <resources>
             <resource>
                 <directory>./</directory>
@@ -86,22 +61,12 @@
                 <targetPath>${project.build.directory}/classes</targetPath>
             </resource>
         </resources>
+        
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <compilerVersion>${javac.target}</compilerVersion>
-                    <source>${javac.target}</source>
-                    <target>${javac.target}</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.1</version>
-
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -109,6 +74,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                             <finalName>${jvm.jar.name}</finalName>
                             <filters>
                                 <filter>
@@ -128,43 +94,5 @@
                 </executions>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.5</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.9.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>2.2.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
     </build>
-
 </project>
