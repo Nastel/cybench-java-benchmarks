@@ -1,6 +1,0 @@
-        <release.mapping>src/assembly-mapping</release.mapping>
-        <target.deploy.mapping.jar>../gocypher-cybench-mapping/target/gocypher-cybench-mapping.jar</target.deploy.mapping.jar>
-        <release.deploy.dir.mapping>../deploy/mapping</release.deploy.dir.mapping>
-
-        <project.mapping.version>1.0.0<project.mapping.version>
-        <skip.mapping.assembly>true</skip.mapping.assembly>
