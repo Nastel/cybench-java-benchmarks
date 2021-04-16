@@ -19,13 +19,6 @@
         <jvm.jar.name>cybench-java-benchmark-matrices</jvm.jar.name>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://jcenter.bintray.com</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -40,11 +33,11 @@
             <exclusions>
                 <exclusion>
                     <groupId>com.github.oshi</groupId>
-                    <artifactId>*</artifactId>
+                    <artifactId>oshi-core</artifactId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>commons-codec</artifactId>
-                    <groupId>commons-codec</groupId>
+                    <artifactId>guava</artifactId>
+                    <groupId>org.nd4j</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -57,7 +50,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>30.1-jre</version>
+            <version>30.1.1-jre</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>listenablefuture</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.la4j</groupId>
@@ -66,14 +65,14 @@
         </dependency>
         <dependency>
             <groupId>org.ejml</groupId>
-            <artifactId>all</artifactId>
-            <version>0.30</version>
+            <artifactId>ejml-all</artifactId>
+            <version>0.40</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.dpaukov</groupId>
             <artifactId>combinatoricslib3</artifactId>
-            <version>3.3.0</version>
+            <version>3.3.1</version>
         </dependency>
         <!-- Benchmarking -->
         <dependency>

@@ -58,12 +58,18 @@
         <dependency>
             <groupId>com.squareup.moshi</groupId>
             <artifactId>moshi</artifactId>
-            <version>1.11.0</version>
+            <version>1.12.0</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus.qson</groupId>
             <artifactId>qson-generator</artifactId>
             <version>1.0.Final</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-jboss-logmanager</artifactId>
+                    <groupId>org.jboss.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.jsoniter</groupId>
@@ -79,18 +85,6 @@
             <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
             <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.wizzardo</groupId>
-            <artifactId>http</artifactId>
-            <version>0.4</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.takes</groupId>
-            <artifactId>takes</artifactId>
-            <version>1.19</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
