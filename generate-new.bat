@@ -5,14 +5,14 @@ set LF=^
 
 rem TWO empty lines are required
 
-cd gocypher-cybench-archetype 
+cd cybench-java-benchmark-archetype
 call mvn install
 cd ..
 
-echo "Enter the name. The ^"atifactId^" becomes gocypher-cybench-[name]"
+echo "Enter the name. The ^"atifactId^" becomes cybench-java-benchmark-[name]"
 set /P PROJECT_NAME=Benchmark module name:
 
-call mvn archetype:generate -DarchetypeGroupId=com.gocypher.cybench  -DarchetypeArtifactId=gocypher-cybench-archetype -DarchetypeVersion=1.0.0 -DartifactId=gocypher-cybench-%PROJECT_NAME% -DgroupId=com.gocypher.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
+call mvn archetype:generate -DarchetypeGroupId=com.gocypher.cybench  -DarchetypeArtifactId=cybench-java-benchmark-archetype -DarchetypeVersion=1.0.0 -DartifactId=cybench-java-benchmark-%PROJECT_NAME% -DgroupId=com.gocypher.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
 
 copy pom.xml pom.tmp
 if exist pom.updated del pom.updated
@@ -21,7 +21,7 @@ for /f "tokens=* delims=" %%a in (pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProperties >>pom.updated
+   if "%%a"=="		<!--PROPERTIES PLACEHOLDER DO NOT DELETE -->"  type cybench-java-benchmark-!PROJECT_NAME!\src\pomUpdates\rootProperties >>pom.updated
    >>pom.updated echo(!write!
    endlocal
 )
@@ -35,46 +35,46 @@ for /f "tokens=* delims=" %%a in (pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="        <!--PROFILES PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\rootProfiles >>pom.updated
+   if "%%a"=="        <!--PROFILES PLACEHOLDER DO NOT DELETE -->"  type cybench-java-benchmark-!PROJECT_NAME!\src\pomUpdates\rootProfiles >>pom.updated
    >>pom.updated echo(!write!
    endlocal
 )
 del pom.tmp
 move pom.updated pom.xml
 
-copy gocypher-cybench-distribution\pom.xml gocypher-cybench-distribution\pom.tmp
-if exist gocypher-cybench-distribution\pom.updated del gocypher-cybench-distribution\pom.updated
+copy cybench-java-benchmarks-distribution\pom.xml cybench-java-benchmarks-distribution\pom.tmp
+if exist cybench-java-benchmarks-distribution\pom.updated del cybench-java-benchmarks-distribution\pom.updated
 
-for /f "tokens=* delims=" %%a in (gocypher-cybench-distribution\pom.tmp) do (
-
-   set write=%%a
-   setlocal EnableDelayedExpansion
-   if "%%a"=="                        <!--FILESET PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionFilesets >>gocypher-cybench-distribution\pom.updated
-   >>gocypher-cybench-distribution\pom.updated echo(!write!
-   endlocal
-)
-
-del gocypher-cybench-distribution\pom.tmp
-move gocypher-cybench-distribution\pom.updated gocypher-cybench-distribution\pom.xml
-
-copy gocypher-cybench-distribution\pom.xml gocypher-cybench-distribution\pom.tmp
-if exist gocypher-cybench-distribution\pom.updated del gocypher-cybench-distribution\pom.updated
-
-for /f "tokens=* delims=" %%a in (gocypher-cybench-distribution\pom.tmp) do (
+for /f "tokens=* delims=" %%a in (cybench-java-benchmarks-distribution\pom.tmp) do (
 
    set write=%%a
    setlocal EnableDelayedExpansion
-   if "%%a"=="                    <!--EXECUTION PLACEHOLDER DO NOT DELETE -->"  type gocypher-cybench-!PROJECT_NAME!\src\pomUpdates\distributionExecution >>gocypher-cybench-distribution\pom.updated
-   >>gocypher-cybench-distribution\pom.updated echo(!write!
+   if "%%a"=="                        <!--FILESET PLACEHOLDER DO NOT DELETE -->"  type cybench-java-benchmark-!PROJECT_NAME!\src\pomUpdates\distributionFilesets >>cybench-java-benchmarks-distribution\pom.updated
+   >>cybench-java-benchmarks-distribution\pom.updated echo(!write!
    endlocal
 )
-del gocypher-cybench-distribution\pom.tmp
-move gocypher-cybench-distribution\pom.updated gocypher-cybench-distribution\pom.xml
-move gocypher-cybench-distribution\pom.updated gocypher-cybench-distribution\pom.xml
+
+del cybench-java-benchmarks-distribution\pom.tmp
+move cybench-java-benchmarks-distribution\pom.updated cybench-java-benchmarks-distribution\pom.xml
+
+copy cybench-java-benchmarks-distribution\pom.xml cybench-java-benchmarks-distribution\pom.tmp
+if exist cybench-java-benchmarks-distribution\pom.updated del cybench-java-benchmarks-distribution\pom.updated
+
+for /f "tokens=* delims=" %%a in (cybench-java-benchmarks-distribution\pom.tmp) do (
+
+   set write=%%a
+   setlocal EnableDelayedExpansion
+   if "%%a"=="                    <!--EXECUTION PLACEHOLDER DO NOT DELETE -->"  type cybench-java-benchmark-!PROJECT_NAME!\src\pomUpdates\distributionExecution >>cybench-java-benchmarks-distribution\pom.updated
+   >>cybench-java-benchmarks-distribution\pom.updated echo(!write!
+   endlocal
+)
+del cybench-java-benchmarks-distribution\pom.tmp
+move cybench-java-benchmarks-distribution\pom.updated cybench-java-benchmarks-distribution\pom.xml
+move cybench-java-benchmarks-distribution\pom.updated cybench-java-benchmarks-distribution\pom.xml
 
 setlocal EnableDelayedExpansion
-if not exist gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\ mkdir gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\
-move /y gocypher-cybench-!PROJECT_NAME!\src\distribution\assembly-!PROJECT_NAME!\*.* gocypher-cybench-distribution\src\assembly-!PROJECT_NAME!\
-rem rd /s /q gocypher-cybench-!PROJECT_NAME!\src\distribution 
-rem rd /s /q gocypher-cybench-!PROJECT_NAME!\src\pomUpdates  
+if not exist cybench-java-benchmarks-distribution\src\assembly-!PROJECT_NAME!\ mkdir cybench-java-benchmarks-distribution\src\assembly-!PROJECT_NAME!\
+move /y cybench-java-benchmark-!PROJECT_NAME!\src\distribution\assembly-!PROJECT_NAME!\*.* cybench-java-benchmarks-distribution\src\assembly-!PROJECT_NAME!\
+rem rd /s /q cybench-java-benchmark-!PROJECT_NAME!\src\distribution
+rem rd /s /q cybench-java-benchmark-!PROJECT_NAME!\src\pomUpdates
 endlocal

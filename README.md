@@ -4,13 +4,13 @@
 Speed-test Java classes, collections, modules, libraries and other application building blocks under varying runtime conditions. 
 Share your results with the community, compare and choose the right libraries for your application. **CyBench** helps you be a better developer.
 
-Download and run CyBench Benchmarks [here](https://github.com/K2NIO/gocypher-cybench-java-core/releases).
+Download and run CyBench Benchmarks [here](https://github.com/K2NIO/cybench-java-benchmarks/releases).
 
 Check out the benchmarks from other users and analyze your results here [here](https://app.cybench.io/cybench/).
 
 ## Running Default Benchmarks using CyBench
 
-- Download the selected benchmark package from the [release page](https://github.com/K2NIO/gocypher-cybench-java-core/releases)
+- Download the selected benchmark package from the [release page](https://github.com/K2NIO/cybench-java-benchmarks/releases)
 - Extract the files and run cybench.bat (on Windows) or cybench.sh (on Unix).
 - Analyze results in your console, reports folder or [app.cybench.io](https://app.cybench.io/cybench/)
 - **Otional:** manage your benchmarking run configuration located in `<cybench-home>/conf/cybench-launcher.properties`

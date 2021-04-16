@@ -1,6 +1,0 @@
-        <release.${shortName}>src/assembly-${shortName}</release.${shortName}>
-        <target.deploy.${shortName}.jar>../gocypher-cybench-${shortName}/target/gocypher-cybench-${shortName}.jar</target.deploy.${shortName}.jar>
-        <release.deploy.dir.${shortName}>../deploy/${shortName}</release.deploy.dir.${shortName}>
-
-        <project.${shortName}.version>1.0.0<project.${shortName}.version>
-        <skip.${shortName}.assembly>true</skip.${shortName}.assembly>
