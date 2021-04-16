@@ -33,7 +33,7 @@ Check out the benchmarks from other users and analyze your results here [here](h
 | **warmUpIterations**| Number of iterations executed for warm up.  |  1 |
 | **warmUpSeconds**|  Number of seconds dedicated for each warm up iteration.  |  5  |
 | **runThreadCount**| Number of threads for benchmark test execution. |  1 |
-| **benchmarkMetadata**| A property which adds extra properties to the benchmarks report such as category or version or context. Configuration pattern is `<fully qualified benchmark class name>=<key1>:<value1>;<key2>:<value2>`. Example which adds category for class CollectionsBenchmarks: `com.gocypher.benchmarks.client.CollectionsBenchmarks=category:Collections;`   |   -  |
+| **benchmarkMetadata**| A property which adds extra properties to the benchmarks report such as category or version or context. Configuration pattern is `<fully qualified benchmark class name>=<key1>:<value1>;<key2>:<value2>`. Example which adds category for class CollectionsBenchmarks: `io.cybench.jmh.jvm.client.tests.ListsBenchmark=category:Collections;`   |   -  |
 | **userProperties**| User defined properties which will be added to benchmarks report section `environmentSettings->userDefinedProperties` as key/value strings. Configuration pattern:`<key1>:<value1>;<key2>:<value2>`. Example which adds a project name:`user.propname1=My Test Project;` |  -  |
 
 
@@ -63,7 +63,7 @@ Update CyBench Launcher configuration located in `<cybench-home>/conf/cybench-la
        
     Example:
     ```properties
-    benchmarkMetadata=com.gocypher.benchmarks.client.CollectionsBenchmarks=category:Collections;
+    benchmarkMetadata=io.cybench.jmh.jvm.client.tests.ListsBenchmark=category:Collections;
     ```
     
 ### Execute Only Custom Benchmarks
@@ -77,7 +77,7 @@ Update CyBench configuration in order to run specific JMH tests:
     ```
     Example:
     ```properties
-    benchmarkClasses=com.gocypher.benchmarks.client.CollectionsBenchmarks,NumberBenchmarks
+    benchmarkClasses=io.cybench.jmh.jvm.client.tests.ListsBenchmark,NumberBenchmarks
     ```
     
 

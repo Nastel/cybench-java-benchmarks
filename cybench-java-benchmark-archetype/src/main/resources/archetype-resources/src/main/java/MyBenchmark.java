@@ -1,7 +1,7 @@
 package $package;
 
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
-import com.gocypher.cybench.jmh.jvm.utils.CyBenchCounters;
+import io.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.gocypher.cybench.launcher.utils.Constants;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;

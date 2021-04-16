@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.gocypher.cybench.client</groupId>
+        <groupId>io.cybench.client</groupId>
         <artifactId>cybench-java-benchmarks</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -77,7 +77,7 @@
         </dependency>
         <!-- Benchmarking -->
         <dependency>
-            <groupId>com.gocypher.cybench.client</groupId>
+            <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>

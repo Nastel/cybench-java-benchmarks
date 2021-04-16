@@ -12,7 +12,7 @@ cd ..
 echo "Enter the name. The ^"atifactId^" becomes cybench-java-benchmark-[name]"
 set /P PROJECT_NAME=Benchmark module name:
 
-call mvn archetype:generate -DarchetypeGroupId=com.gocypher.cybench  -DarchetypeArtifactId=cybench-java-benchmark-archetype -DarchetypeVersion=1.0.0 -DartifactId=cybench-java-benchmark-%PROJECT_NAME% -DgroupId=com.gocypher.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
+call mvn archetype:generate -DarchetypeGroupId=io.cybench  -DarchetypeArtifactId=cybench-java-benchmark-archetype -DarchetypeVersion=1.0.0 -DartifactId=cybench-java-benchmark-%PROJECT_NAME% -DgroupId=io.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
 
 copy pom.xml pom.tmp
 if exist pom.updated del pom.updated

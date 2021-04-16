@@ -55,7 +55,7 @@
             <useAllReactorProjects>true</useAllReactorProjects>
             <includeSubModules>true</includeSubModules>
             <includes>
-                <include>com.gocypher.cybench.client:cybench-java-benchmark-security-rsa</include>
+                <include>io.cybench.client:cybench-java-benchmark-security-rsa</include>
             </includes>
 
             <binaries>
