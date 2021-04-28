@@ -250,17 +250,6 @@
                 <module>cybench-java-benchmark-mapping</module>
             </modules>
         </profile>
-        <!--PROFILES PLACEHOLDER DO NOT DELETE -->
-        <profile>
-            <id>x-distribution</id>
-            <activation>
-                <file><exists>.</exists></file>
-            </activation>
-            <modules>
-                <module>cybench-java-benchmarks-distribution</module>
-                <module>cybench-java-benchmarks-utils</module>
-            </modules>
-        </profile>
         <profile>
             <id>pack-all</id>
             <!--<properties>-->
@@ -288,6 +277,19 @@
                 <module>cybench-java-benchmark-security-rsa</module>
                 <module>cybench-java-benchmark-trace</module>
                 <module>cybench-java-benchmark-mapping</module>
+            </modules>
+        </profile>
+        <!--PROFILES PLACEHOLDER DO NOT DELETE -->
+        <profile>
+            <id>x-distribution</id>
+            <activation>
+                <file>
+                    <exists>.</exists>
+                </file>
+            </activation>
+            <modules>
+                <module>cybench-java-benchmarks-utils</module>
+                <module>cybench-java-benchmarks-distribution</module>
             </modules>
         </profile>
     </profiles>
