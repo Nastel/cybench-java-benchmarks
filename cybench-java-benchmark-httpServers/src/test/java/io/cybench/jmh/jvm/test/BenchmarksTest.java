@@ -19,8 +19,8 @@
 
 package io.cybench.jmh.jvm.test;
 
-import org.openjdk.jmh.profile.GCProfiler;
-import org.openjdk.jmh.profile.StackProfiler;
+import java.util.Collection;
+
 import org.openjdk.jmh.results.IterationResult;
 import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.runner.Runner;
@@ -28,82 +28,71 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
 
-
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
-import java.util.Collection;
-import java.util.Iterator;
-
 public class BenchmarksTest {
 
-    public static void main (String []args)throws Exception{
+    public static void main(String[] args) throws Exception {
 
-        // Number of separate full executions of a benchmark (warm up+measurement), this is returned still as one primary score item
-        int forks = 1 ;
-        //Number of measurements per benchmark operation, this is returned still as one primary score item
-        int measurementIterations = 3 ;
+        // Number of separate full executions of a benchmark (warm up+measurement), this is returned still as one
+        // primary score item
+        int forks = 1;
+        // Number of measurements per benchmark operation, this is returned still as one primary score item
+        int measurementIterations = 3;
         // number of iterations executed for warm up
-        int warmUpIterations = 1 ;
+        int warmUpIterations = 1;
         // number of seconds dedicated for each warm up iteration
-        int warmUpSeconds = 2 ;
+        int warmUpSeconds = 2;
         // number of threads for benchmark test execution
-        int threads =1;
+        int threads = 1;
 
         OptionsBuilder optBuild = new OptionsBuilder();
 
-        //optBuild.include(StringBenchmarks.class.getSimpleName());
-        //optBuild.include(IOSyncFileSeekBenchmarks.class.getSimpleName());
-        //optBuild.include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName());
-        //optBuild.include(NumberBenchmarks.class.getSimpleName());
+        // optBuild.include(StringBenchmarks.class.getSimpleName());
+        // optBuild.include(IOSyncFileSeekBenchmarks.class.getSimpleName());
+        // optBuild.include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName());
+        // optBuild.include(NumberBenchmarks.class.getSimpleName());
 
         @SuppressWarnings("unused")
-		Options opt = optBuild
-                .forks(forks)
-                .measurementIterations(measurementIterations)
-                //.measurementTime(TimeValue.seconds(20))
-                .warmupIterations(warmUpIterations)
-                .warmupTime(TimeValue.seconds(warmUpSeconds))
-                .threads(threads)
+        Options opt = optBuild.forks(forks).measurementIterations(measurementIterations)
+                // .measurementTime(TimeValue.seconds(20))
+                .warmupIterations(warmUpIterations).warmupTime(TimeValue.seconds(warmUpSeconds)).threads(threads)
                 .shouldDoGC(true)
-                //.addProfiler(GCProfiler.class)
-                //.addProfiler(StackProfiler.class) //produces zeros
-                //.addProfiler(HotspotMemoryProfiler.class)
-                //.addProfiler(HotspotRuntimeProfiler.class)
-                //.addProfiler(HotspotClassloadingProfiler.class)
-                //.addProfiler(HotspotCompilationProfiler.class)
-                //.addProfiler(HotspotThreadProfiler.class)
-                //.addProfiler(JavaFlightRecorderProfiler.class) //throws errors, requires -XX:+UnlockCommercialFeatures, deprecated in java 13
-                //.addProfiler(AsyncProfiler.class) //Unable to load async-profiler. Ensure asyncProfiler library is on LD_LIBRARY_PATH, -Djava.library.path or libPath=
-                //.addProfiler(ClassloaderProfiler.class)
-                //.addProfiler(CompilerProfiler.class)
-                //.addProfiler(DTraceAsmProfiler.class)//Cannot run program "sudo": CreateProcess error=2, The system cannot find the file specified
-                //.addProfiler(PausesProfiler.class)
-                //.addProfiler(SafepointsProfiler.class)
-                //.addProfiler(StackProfiler.class)
-                //.addProfiler(WinPerfAsmProfiler.class)
+                // .addProfiler(GCProfiler.class)
+                // .addProfiler(StackProfiler.class) //produces zeros
+                // .addProfiler(HotspotMemoryProfiler.class)
+                // .addProfiler(HotspotRuntimeProfiler.class)
+                // .addProfiler(HotspotClassloadingProfiler.class)
+                // .addProfiler(HotspotCompilationProfiler.class)
+                // .addProfiler(HotspotThreadProfiler.class)
+                // .addProfiler(JavaFlightRecorderProfiler.class) //throws errors, requires
+                // -XX:+UnlockCommercialFeatures, deprecated in java 13
+                // .addProfiler(AsyncProfiler.class) //Unable to load async-profiler. Ensure asyncProfiler library is on
+                // LD_LIBRARY_PATH, -Djava.library.path or libPath=
+                // .addProfiler(ClassloaderProfiler.class)
+                // .addProfiler(CompilerProfiler.class)
+                // .addProfiler(DTraceAsmProfiler.class)//Cannot run program "sudo": CreateProcess error=2, The system
+                // cannot find the file specified
+                // .addProfiler(PausesProfiler.class)
+                // .addProfiler(SafepointsProfiler.class)
+                // .addProfiler(StackProfiler.class)
+                // .addProfiler(WinPerfAsmProfiler.class)
 
                 .build();
 
         Runner runner = new Runner(opt);
-        Collection<RunResult> results = runner.run() ;
-        /*ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean() ;
-        long cpuTime = threadMXBean.getThreadCpuTime(Thread.currentThread().getId()) ;
-        System.out.println("CPU:"+cpuTime);
-        */
-        System.out.println("Results amount:"+results.size());
-        Iterator<RunResult> it = results.iterator() ;
-        while (it.hasNext()) {
-            RunResult result = it.next();
-            System.out.println("Secondary Results:"+result.getAggregatedResult().getSecondaryResults());
-            Collection<IterationResult> iterations = result.getAggregatedResult().getIterationResults() ;
-            Iterator<IterationResult>it2 = iterations.iterator() ;
-            while (it2.hasNext()){
-                IterationResult iteration = it2.next() ;
-                System.out.println("Iteration secondary:"+iteration.getSecondaryResults());
+        Collection<RunResult> results = runner.run();
+        /*
+         * ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean() ; long cpuTime =
+         * threadMXBean.getThreadCpuTime(Thread.currentThread().getId()) ; System.out.println("CPU:"+cpuTime);
+         */
+        System.out.println("Results amount:" + results.size());
+        for (RunResult result : results) {
+            System.out.println("Secondary Results:" + result.getAggregatedResult().getSecondaryResults());
+            Collection<IterationResult> iterations = result.getAggregatedResult().getIterationResults();
+            for (IterationResult iteration : iterations) {
+                System.out.println("Iteration secondary:" + iteration.getSecondaryResults());
 
             }
         }
-
 
         /*LOG.info ("Tests finished, executed tests count:{}",results.size()) ;
         System.out.println("Thread count:"+results.iterator().next().getParams().getThreads());
@@ -147,7 +136,7 @@ public class BenchmarksTest {
             }
 
         }
-        */
+         */
         /*String label1 = "for a real test, make this big and this big,for a real test, make this big and this big,for a real test, make this big and this big";
         String label2 = "so that we can see GC effects,so that we can see GC effects,so that we can see GC effects" ;
 
@@ -161,8 +150,8 @@ public class BenchmarksTest {
         }
         long t2 = System.currentTimeMillis() ;
         System.out.println((t2-t1)+" " +stringBuffer.length());
-        */
-        //scanForBenchmarks() ;
+         */
+        // scanForBenchmarks() ;
     }
     /*private static void scanForBenchmarks () throws  Exception{
         Reflections reflections = new Reflections("", new SubTypesScanner(false));
@@ -174,7 +163,6 @@ public class BenchmarksTest {
 
         }
 
-
     }
-    */
+     */
 }

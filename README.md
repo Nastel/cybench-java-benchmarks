@@ -21,7 +21,7 @@ Check out the benchmarks from other users and analyze your results here [here](h
 | ------------- |-------------| -----:|
 | **javaOptions**      | All the property fields that starts with name javaOptions will be used while benchmarking as JVM properties. | - |
 | **javaToUsePath**      | Provide full path to java.exe to be used e.g. D:/jdk180_162/bin/java.exe  | - |
-| **benchmarks**| Provide jar's with JMH benchmarks which shall be executed with CyBench. [more here](adding-custom-benchmarks-for-execution)| - |
+| **benchmarks**| Provide jar's with JMH benchmarks which shall be executed with CyBench. [more here](#adding-custom-benchmarks-for-execution)| - |
 | **sendReport**| Choose if the report generated will be automatically uploaded. (true/false)  | true |
 | **reportUploadStatus**| Define public or private property for the uploaded report visibility.  | public |
 | **benchAccessToken** | By providing the "bench" token that you get after creating a workspace in CyBench UI, you can send reports to your private directory, which will be visible only to the users that you authorize. | - |

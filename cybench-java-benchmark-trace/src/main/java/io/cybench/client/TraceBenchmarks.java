@@ -1,10 +1,14 @@
 package io.cybench.client;
 
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.Blackhole;
+
 import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
 import com.gocypher.cybench.core.annotation.BenchmarkTag;
-import io.cybench.jmh.jvm.utils.CyBenchCounters;
 import com.jkoolcloud.tnt4j.TrackingLogger;
 import com.jkoolcloud.tnt4j.tracker.TrackingActivity;
+
+import io.cybench.jmh.jvm.utils.CyBenchCounters;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.StatusCode;
 import io.opentelemetry.api.trace.Tracer;
@@ -12,8 +16,6 @@ import io.opentelemetry.exporter.logging.LoggingSpanExporter;
 import io.opentelemetry.sdk.OpenTelemetrySdk;
 import io.opentelemetry.sdk.trace.SdkTracerProvider;
 import io.opentelemetry.sdk.trace.export.SimpleSpanProcessor;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.Blackhole;
 
 @State(Scope.Benchmark)
 @BenchmarkMetaData(key = "domain", value = "java")
@@ -21,7 +23,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMetaData(key = "actionName", value = "Create activity")
 @BenchmarkMetaData(key = "version", value = "1.0.0")
 @BenchmarkMetaData(key = "description", value = "Create activity and log using JUL")
-public class TraceBenchmarks  {
+public class TraceBenchmarks {
 
     private static Tracer tracer;
 
@@ -44,7 +46,8 @@ public class TraceBenchmarks  {
         span.setAttribute("TID", 5);
         span.setAttribute("Application", 5);
         span.setAttribute("USER", "SLABS");
-        span.setAttribute("FILLIN", "PPL=java.lang.Class#RUNTIME=20756@slabs-marius-PC#SERVER=slabs-marius-PC#NETADDR=192.168.56.1#DATACENTER=UNKNOWN#GEOADDR=0,0,IdCount=0,SnapCount=0,StartTime:[2021-03-08 16:46:09.128010 EET],EndTime:[2021-03-08 16:46:09.128010 EET]} | com.jkoolcloud.tnt4j.source.DefaultSource@2d6175c2{FQName: APPL=java.lang.Class#RUNTIME=20756@slabs-marius-PC#SERVER=slabs-marius-PC#NETADDR=192.168.56.1#DATACENTER=UNKNOWN#GEOADDR=0,0, Name: java.lang.Class, User: slabs, Type: APPL, URL: \"null\", SSN: \"tnt4j-stream\"}");
+        span.setAttribute("FILLIN",
+                "PPL=java.lang.Class#RUNTIME=20756@slabs-marius-PC#SERVER=slabs-marius-PC#NETADDR=192.168.56.1#DATACENTER=UNKNOWN#GEOADDR=0,0,IdCount=0,SnapCount=0,StartTime:[2021-03-08 16:46:09.128010 EET],EndTime:[2021-03-08 16:46:09.128010 EET]} | com.jkoolcloud.tnt4j.source.DefaultSource@2d6175c2{FQName: APPL=java.lang.Class#RUNTIME=20756@slabs-marius-PC#SERVER=slabs-marius-PC#NETADDR=192.168.56.1#DATACENTER=UNKNOWN#GEOADDR=0,0, Name: java.lang.Class, User: slabs, Type: APPL, URL: \"null\", SSN: \"tnt4j-stream\"}");
         span.end();
     }
 
@@ -64,13 +67,15 @@ public class TraceBenchmarks  {
     }
 
     private static Tracer setupOTLPtracer() {
-        SdkTracerProvider tracerProvider = SdkTracerProvider.builder().addSpanProcessor(SimpleSpanProcessor.create(new LoggingSpanExporter())).build();
-        OpenTelemetrySdk openTelemetrySdk = OpenTelemetrySdk.builder().setTracerProvider(tracerProvider).buildAndRegisterGlobal();
+        SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
+                .addSpanProcessor(SimpleSpanProcessor.create(new LoggingSpanExporter())).build();
+        OpenTelemetrySdk openTelemetrySdk = OpenTelemetrySdk.builder().setTracerProvider(tracerProvider)
+                .buildAndRegisterGlobal();
         return openTelemetrySdk.getTracer("instrumentation-library-name");
     }
 
     private static TrackingLogger setupTNT4Jtracer() {
-        return TrackingLogger.getInstance(TraceBenchmarks.class.getClass());
+        return TrackingLogger.getInstance(TraceBenchmarks.class);
     }
 
     @Setup(Level.Trial)

@@ -30,17 +30,15 @@ public class SignBenchmarksTest {
             }
         });
 
-        tests.forEach(t -> {
-            Arrays.stream(t.getClass().getDeclaredMethods()).forEach(declaredMethod -> {
-                if (declaredMethod.getAnnotation(Benchmark.class) != null) {
-                    System.out.println("Invoking " + declaredMethod.getName());
-                    try {
-                        declaredMethod.invoke(t, bh);
-                    } catch (Exception e) {
-                    }
+        tests.forEach(t -> Arrays.stream(t.getClass().getDeclaredMethods()).forEach(declaredMethod -> {
+            if (declaredMethod.getAnnotation(Benchmark.class) != null) {
+                System.out.println("Invoking " + declaredMethod.getName());
+                try {
+                    declaredMethod.invoke(t, bh);
+                } catch (Exception e) {
                 }
-            });
-        });
+            }
+        }));
     }
 
     @Test
