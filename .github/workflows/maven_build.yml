@@ -5,12 +5,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - '**/src/**'
       - '**/pom.xml'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - '**/src/**'
       - '**/pom.xml'
