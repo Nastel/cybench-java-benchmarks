@@ -1,23 +1,24 @@
 package io.cybench.jmh.jvm.client.tests;
 
-import io.cybench.jmh.jvm.client.tests.keyPair.*;
-import io.cybench.jmh.jvm.client.tests.keyPair.BouncyCastleKeyPair;
-import io.cybench.jmh.jvm.client.tests.keyPair.KeyPairGenerationBenchmarks;
-import io.cybench.jmh.jvm.client.tests.keyPair.SunECKeyPair;
-import io.cybench.jmh.jvm.client.tests.keyPair.SunKeyPair;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import io.cybench.jmh.jvm.client.tests.keyPair.BouncyCastleKeyPair;
+import io.cybench.jmh.jvm.client.tests.keyPair.KeyPairGenerationBenchmarks;
+import io.cybench.jmh.jvm.client.tests.keyPair.SunECKeyPair;
+import io.cybench.jmh.jvm.client.tests.keyPair.SunKeyPair;
 
 class KeyPairGenerationBenchmarksTest {
 
     @Test
     public void testAllBenchmarkMethods() throws Exception {
-        Blackhole bh = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
+        Blackhole bh = new Blackhole(
+                "Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         List<KeyPairGenerationBenchmarks> tests = new ArrayList();
         tests.add(BouncyCastleKeyPair.class.getDeclaredConstructor(null).newInstance());
         tests.add(SunECKeyPair.class.getDeclaredConstructor(null).newInstance());
@@ -29,8 +30,7 @@ class KeyPairGenerationBenchmarksTest {
             }
         });
 
-
-        tests.stream().forEach(t -> {
+        tests.forEach(t -> {
             Arrays.stream(t.getClass().getDeclaredMethods()).forEach(declaredMethod -> {
                 if (declaredMethod.getAnnotation(Benchmark.class) != null) {
                     System.out.println("Invoking " + declaredMethod.getName());

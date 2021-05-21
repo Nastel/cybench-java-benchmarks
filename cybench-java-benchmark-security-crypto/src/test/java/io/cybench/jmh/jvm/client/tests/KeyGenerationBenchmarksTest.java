@@ -1,21 +1,23 @@
 package io.cybench.jmh.jvm.client.tests;
 
-import io.cybench.jmh.jvm.client.tests.key.BouncyCastleKey;
-import io.cybench.jmh.jvm.client.tests.key.KeyGenerationBenchmarks;
-import io.cybench.jmh.jvm.client.tests.key.SunJceKey;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import io.cybench.jmh.jvm.client.tests.key.BouncyCastleKey;
+import io.cybench.jmh.jvm.client.tests.key.KeyGenerationBenchmarks;
+import io.cybench.jmh.jvm.client.tests.key.SunJceKey;
 
 class KeyGenerationBenchmarksTest {
 
     @Test
     public void testAllBenchmarkMethods() throws Exception {
-        Blackhole bh = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
+        Blackhole bh = new Blackhole(
+                "Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         List<KeyGenerationBenchmarks> tests = new ArrayList();
         tests.add(BouncyCastleKey.class.getDeclaredConstructor(null).newInstance());
         tests.add(SunJceKey.class.getDeclaredConstructor(null).newInstance());
@@ -27,8 +29,7 @@ class KeyGenerationBenchmarksTest {
             }
         });
 
-
-        tests.stream().forEach(t -> {
+        tests.forEach(t -> {
             Arrays.stream(t.getClass().getDeclaredMethods()).forEach(declaredMethod -> {
                 if (declaredMethod.getAnnotation(Benchmark.class) != null) {
                     System.out.println("Invoking " + declaredMethod.getName());
