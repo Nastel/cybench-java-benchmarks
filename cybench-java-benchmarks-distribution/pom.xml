@@ -57,7 +57,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -151,6 +151,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
+                <configuration>
+                    <tarLongFileMode>gnu</tarLongFileMode>
+                </configuration>
                 <executions>
                     <execution>
                         <id>string-deploy</id>

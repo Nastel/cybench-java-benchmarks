@@ -28,7 +28,7 @@
     <packaging>pom</packaging>
 
     <name>cybench-java-benchmarks</name>
-    
+
     <dependencies>
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
@@ -65,14 +65,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.target>1.8</javac.target>
         <assembly.skipAssembly>true</assembly.skipAssembly>
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
-        <jmh.version>1.29</jmh.version>
+        <jmh.version>1.31</jmh.version>
         <jackson.version>2.12.3</jackson.version>
         <org.slf4j.version>1.7.30</org.slf4j.version>
         <junit.version>5.7.1</junit.version>
@@ -111,26 +111,30 @@
         <skip.matrices.assembly>true</skip.matrices.assembly>
         <release.matrices>src/assembly-matrices</release.matrices>
         <project.matrices.version>1.0.1</project.matrices.version>
-        <target.deploy.matrices.jar>../cybench-java-benchmark-matrices/target/cybench-java-benchmark-matrices.jar</target.deploy.matrices.jar>
+        <target.deploy.matrices.jar>../cybench-java-benchmark-matrices/target/cybench-java-benchmark-matrices.jar
+        </target.deploy.matrices.jar>
         <release.deploy.dir.matrices>../deploy/matrices</release.deploy.dir.matrices>
         <!-- HTTP SERVERS -->
         <skip.httpServers.assembly>true</skip.httpServers.assembly>
         <release.httpServers>src/assembly-httpServers</release.httpServers>
         <project.httpServers.version>1.0.1</project.httpServers.version>
-        <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar</target.deploy.httpServers.jar>
+        <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar
+        </target.deploy.httpServers.jar>
         <release.deploy.dir.httpServers>../deploy/httpServers</release.deploy.dir.httpServers>
         <!-- SECURITY CRYPTO -->
         <skip.security.crypto.assembly>true</skip.security.crypto.assembly>
         <release.security.crypto>src/assembly-security-crypto</release.security.crypto>
         <project.security.crypto.version>1.0.1</project.security.crypto.version>
-        <target.deploy.security.crypto.jar>../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar</target.deploy.security.crypto.jar>
+        <target.deploy.security.crypto.jar>../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar
+        </target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
         <bouncycastle.version>1.68</bouncycastle.version>
         <!-- SECURITY RSA -->
         <skip.security-rsa.assembly>true</skip.security-rsa.assembly>
         <release.security-rsa>src/assembly-security-rsa</release.security-rsa>
         <project.security-rsa.version>1.0.1</project.security-rsa.version>
-        <target.deploy.security-rsa.jar>../cybench-java-benchmark-security-rsa/target/cybench-java-benchmark-security-rsa.jar</target.deploy.security-rsa.jar>
+        <target.deploy.security-rsa.jar>../cybench-java-benchmark-security-rsa/target/cybench-java-benchmark-security-rsa.jar
+        </target.deploy.security-rsa.jar>
         <release.deploy.dir.security-rsa>../deploy/security-rsa</release.deploy.dir.security-rsa>
         <!-- TRACE -->
         <skip.trace.assembly>true</skip.trace.assembly>
@@ -149,7 +153,7 @@
         <jctools.version>3.3.0</jctools.version>
         <!--PROPERTIES PLACEHOLDER DO NOT DELETE -->
     </properties>
-    
+
     <profiles>
         <profile>
             <id>pack-jvm-string</id>
@@ -253,17 +257,17 @@
         <profile>
             <id>pack-all</id>
             <!--<properties>-->
-                <!--<skip.string.assembly>false</skip.string.assembly>-->
-                <!--<skip.json.assembly>false</skip.json.assembly>-->
-                <!--<skip.io.assembly>false</skip.io.assembly>-->
-                <!--<skip.list.assembly>false</skip.list.assembly>-->
-                <!--<skip.number.assembly>false</skip.number.assembly>-->
-                <!--<skip.matrices.assembly>false</skip.matrices.assembly>-->
-                <!--<skip.httpServers.assembly>false</skip.httpServers.assembly>-->
-                <!--<skip.security.crypto.assembly>false</skip.security.crypto.assembly>-->
-                <!--<skip.security-rsa.assembly>false</skip.security-rsa.assembly>-->
-                <!--<skip.trace.assembly>false</skip.trace.assembly>-->
-                <!--<skip.mapping.assembly>false</skip.mapping.assembly>-->
+            <!--<skip.string.assembly>false</skip.string.assembly>-->
+            <!--<skip.json.assembly>false</skip.json.assembly>-->
+            <!--<skip.io.assembly>false</skip.io.assembly>-->
+            <!--<skip.list.assembly>false</skip.list.assembly>-->
+            <!--<skip.number.assembly>false</skip.number.assembly>-->
+            <!--<skip.matrices.assembly>false</skip.matrices.assembly>-->
+            <!--<skip.httpServers.assembly>false</skip.httpServers.assembly>-->
+            <!--<skip.security.crypto.assembly>false</skip.security.crypto.assembly>-->
+            <!--<skip.security-rsa.assembly>false</skip.security-rsa.assembly>-->
+            <!--<skip.trace.assembly>false</skip.trace.assembly>-->
+            <!--<skip.mapping.assembly>false</skip.mapping.assembly>-->
             <!--</properties>-->
             <modules>
                 <module>cybench-java-benchmark-string</module>
@@ -309,7 +313,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
-        
+
         <resources>
             <resource>
                 <directory>../</directory>
@@ -319,20 +323,20 @@
                 </includes>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-compiler-plugin</artifactId>
-               <version>3.8.0</version>
-               <configuration>
-                   <compilerVersion>${javac.target}</compilerVersion>
-                   <source>${javac.target}</source>
-                   <target>${javac.target}</target>
-                   <!--<annotationProcessors>-->
-                       <!--<annotationProcessor>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessor>-->
-                   <!--</annotationProcessors>-->
-               </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <compilerVersion>${javac.target}</compilerVersion>
+                    <source>${javac.target}</source>
+                    <target>${javac.target}</target>
+                    <!--<annotationProcessors>-->
+                    <!--<annotationProcessor>com.gocypher.cybench.core.annotation.BenchmarkTagProcessor</annotationProcessor>-->
+                    <!--</annotationProcessors>-->
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -343,40 +347,40 @@
         </plugins>
 
         <pluginManagement>
-           <plugins>
-               <plugin>
-                   <artifactId>maven-clean-plugin</artifactId>
-                   <version>3.1.0</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-deploy-plugin</artifactId>
-                   <version>2.8.2</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-install-plugin</artifactId>
-                   <version>2.5.2</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-jar-plugin</artifactId>
-                   <version>3.2.0</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-javadoc-plugin</artifactId>
-                   <version>3.0.1</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-resources-plugin</artifactId>
-                   <version>3.2.0</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-site-plugin</artifactId>
-                   <version>3.9.1</version>
-               </plugin>
-               <plugin>
-                   <artifactId>maven-source-plugin</artifactId>
-                   <version>3.2.1</version>
-               </plugin>
-           </plugins>
-       </pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.9.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>

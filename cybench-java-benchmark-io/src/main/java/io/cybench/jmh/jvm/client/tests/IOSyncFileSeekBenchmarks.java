@@ -18,28 +18,30 @@
  */
 package io.cybench.jmh.jvm.client.tests;
 
-import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
-import com.gocypher.cybench.core.annotation.BenchmarkTag;
-import io.cybench.jmh.jvm.utils.CyBenchCounters;
-import io.cybench.jmh.jvm.utils.IOUtils;
-import org.openjdk.jmh.annotations.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.concurrent.TimeUnit;
 
+import org.openjdk.jmh.annotations.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.gocypher.cybench.core.annotation.BenchmarkMetaData;
+import com.gocypher.cybench.core.annotation.BenchmarkTag;
+import com.gocypher.cybench.core.utils.IOUtils;
+
+import io.cybench.jmh.jvm.utils.CyBenchCounters;
+
 @State(Scope.Benchmark)
-@BenchmarkMetaData(key="isLibraryBenchmark", value="false")
-@BenchmarkMetaData(key="context", value="core_IO")
-@BenchmarkMetaData(key="domain", value="java")
-@BenchmarkMetaData(key="version", value="1.0.0")
-@BenchmarkMetaData(key="libVersion", value="-")
-@BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-@BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-@BenchmarkMetaData(key="libVendor", value="-")
-@BenchmarkMetaData(key="libUrl", value="https://docs.oracle.com/javase/8/docs/api/java/io/RandomAccessFile.html")
+@BenchmarkMetaData(key = "isLibraryBenchmark", value = "false")
+@BenchmarkMetaData(key = "context", value = "core_IO")
+@BenchmarkMetaData(key = "domain", value = "java")
+@BenchmarkMetaData(key = "version", value = "1.0.0")
+@BenchmarkMetaData(key = "libVersion", value = "-")
+@BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+@BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+@BenchmarkMetaData(key = "libVendor", value = "-")
+@BenchmarkMetaData(key = "libUrl", value = "https://docs.oracle.com/javase/8/docs/api/java/io/RandomAccessFile.html")
 public class IOSyncFileSeekBenchmarks {
 
     private static Logger LOG = LoggerFactory.getLogger(IOSyncFileSeekBenchmarks.class);
@@ -55,7 +57,7 @@ public class IOSyncFileSeekBenchmarks {
     private RandomAccessFile seekDst;
 
     public static int hugeSeekChunk = 16_777_216;
-    //private int hugeSeekChunk = 8_388_608;
+    // private int hugeSeekChunk = 8_388_608;
 
     // public static int smallSeekChunk = 4_096 ;
     public static int smallSeekChunk = 16_384;
@@ -81,10 +83,12 @@ public class IOSyncFileSeekBenchmarks {
         LOG.info("\n-->Generated file {} for processing, size(B):{}", srcFile, fileSize);
         seekSrc = new RandomAccessFile(srcFile, "rwd");
         LOG.info("Will generate an array of random numbers for file positions");
-        this.arrayOfRandomNumbersForSmallChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0, fileSize - smallSeekChunk - 10, smallSeekIterationsCount);
-        this.arrayOfRandomNumbersForHugeChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0, fileSize - hugeSeekChunk - 10, hugeSeekIterationsCount);
-        this.dataForSeekAndWriteSmallChunks = IOUtils.getArrayOfRandomBytes(smallSeekChunk);
-        this.dataForSeekAndWriteHugeChunks = IOUtils.getArrayOfRandomBytes(hugeSeekChunk);
+        arrayOfRandomNumbersForSmallChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0,
+                fileSize - smallSeekChunk - 10, smallSeekIterationsCount);
+        arrayOfRandomNumbersForHugeChunks = IOUtils.getArrayOfRandomNumberUsingLongs(0,
+                fileSize - hugeSeekChunk - 10, hugeSeekIterationsCount);
+        dataForSeekAndWriteSmallChunks = IOUtils.getArrayOfRandomBytes(smallSeekChunk);
+        dataForSeekAndWriteHugeChunks = IOUtils.getArrayOfRandomBytes(hugeSeekChunk);
         LOG.info("Generated all prerequisites!");
     }
 
@@ -103,12 +107,12 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "62a03d1d-051f-4ac6-80a6-ed516ad85518")
-    @BenchmarkMetaData(key="title", value="Seek and read Sync")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16384")
-    @BenchmarkMetaData(key="seekIterations", value="8192")
-    @BenchmarkMetaData(key="actionName", value="seekReadSync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and read with RandomAccessFile API and 16KB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and read Sync")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16384")
+    @BenchmarkMetaData(key = "seekIterations", value = "8192")
+    @BenchmarkMetaData(key = "actionName", value = "seekReadSync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and read with RandomAccessFile API and 16KB size chunks.")
     public int seekAndReadFileUsingSmallChunks() throws Exception {
         int bytesRead = 0;
         for (long position : arrayOfRandomNumbersForSmallChunks) {
@@ -125,14 +129,14 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5, timeUnit = TimeUnit.SECONDS)
     @Warmup(iterations = 1, time = 5, timeUnit = TimeUnit.SECONDS)
     @BenchmarkTag(tag = "97aa1891-f7f8-41d9-8221-16e0cf0ec587")
-    @BenchmarkMetaData(key="title", value="Seek and read Sync")
-    @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16777216")
-    @BenchmarkMetaData(key="seekIterations", value="8")
-    @BenchmarkMetaData(key="actionName", value="seekReadSync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and read with RandomAccessFile API and 16MB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and read Sync")
+    @BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16777216")
+    @BenchmarkMetaData(key = "seekIterations", value = "8")
+    @BenchmarkMetaData(key = "actionName", value = "seekReadSync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and read with RandomAccessFile API and 16MB size chunks.")
     public int seekAndReadFileUsingHugeChunks() throws Exception {
         int bytesRead = 0;
         for (long position : arrayOfRandomNumbersForHugeChunks) {
@@ -150,16 +154,16 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "c4bfa008-6616-4b4b-b8f1-98be4e488423")
-    @BenchmarkMetaData(key="title", value="Seek and write Sync")
-    @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16384")
-    @BenchmarkMetaData(key="seekIterations", value="8192")
-    @BenchmarkMetaData(key="actionName", value="seekWriteSync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and write with RandomAccessFile API and 16KB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and write Sync")
+    @BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16384")
+    @BenchmarkMetaData(key = "seekIterations", value = "8192")
+    @BenchmarkMetaData(key = "actionName", value = "seekWriteSync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and write with RandomAccessFile API and 16KB size chunks.")
     public void seekAndWriteFileUsingSmallChunks() throws Exception {
-        for (long position : this.arrayOfRandomNumbersForSmallChunks) {
+        for (long position : arrayOfRandomNumbersForSmallChunks) {
             IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteSmallChunks);
         }
     }
@@ -172,16 +176,16 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5, timeUnit = TimeUnit.SECONDS)
     @Warmup(iterations = 1, time = 5, timeUnit = TimeUnit.SECONDS)
     @BenchmarkTag(tag = "3f53f832-28fb-4e9c-86b5-e6bc9d52c9bf")
-    @BenchmarkMetaData(key="title", value="Seek and write Sync")
-    @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16777216")
-    @BenchmarkMetaData(key="seekIterations", value="8")
-    @BenchmarkMetaData(key="actionName", value="seekWriteSync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and write with RandomAccessFile API and 16MB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and write Sync")
+    @BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16777216")
+    @BenchmarkMetaData(key = "seekIterations", value = "8")
+    @BenchmarkMetaData(key = "actionName", value = "seekWriteSync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and write with RandomAccessFile API and 16MB size chunks.")
     public void seekAndWriteFileUsingHugeChunks() throws Exception {
-        for (long position : this.arrayOfRandomNumbersForHugeChunks) {
+        for (long position : arrayOfRandomNumbersForHugeChunks) {
             IOUtils.seekAndWriteFile(seekSrc, position, dataForSeekAndWriteHugeChunks);
         }
     }
@@ -194,13 +198,13 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "be7d5a60-154d-43ca-95fe-2606bda9b6d5")
-    @BenchmarkMetaData(key="title", value="Seek and copy Sync")
-    @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16384")
-    @BenchmarkMetaData(key="actionName", value="seekCopySync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and copy with RandomAccessFile API and 16KB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and copy Sync")
+    @BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16384")
+    @BenchmarkMetaData(key = "actionName", value = "seekCopySync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and copy with RandomAccessFile API and 16KB size chunks.")
     public void seekAndCopyFileUsingSmallChunks() throws Exception {
         long position = 0;
         while (position <= fileSize) {
@@ -218,13 +222,13 @@ public class IOSyncFileSeekBenchmarks {
     @Measurement(iterations = 5, time = 5)
     @Warmup(iterations = 1, time = 5)
     @BenchmarkTag(tag = "da2ef185-34ba-4bdd-8b87-7c13ed89d25d")
-    @BenchmarkMetaData(key="title", value="Seek and copy Sync")
-    @BenchmarkMetaData(key="api", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="libSymbolicName", value="java.io.RandomAccessFile")
-    @BenchmarkMetaData(key="dataSize", value="1073741824")
-    @BenchmarkMetaData(key="chunkSize", value="16777216")
-    @BenchmarkMetaData(key="actionName", value="seekCopySync")
-    @BenchmarkMetaData(key="description", value="Synchronous file seek and copy with RandomAccessFile API and 16MB size chunks.")
+    @BenchmarkMetaData(key = "title", value = "Seek and copy Sync")
+    @BenchmarkMetaData(key = "api", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "libSymbolicName", value = "java.io.RandomAccessFile")
+    @BenchmarkMetaData(key = "dataSize", value = "1073741824")
+    @BenchmarkMetaData(key = "chunkSize", value = "16777216")
+    @BenchmarkMetaData(key = "actionName", value = "seekCopySync")
+    @BenchmarkMetaData(key = "description", value = "Synchronous file seek and copy with RandomAccessFile API and 16MB size chunks.")
     public void seekAndCopyFileUsingHugeChunks() throws Exception {
         long position = 0;
         while (position <= fileSize) {
