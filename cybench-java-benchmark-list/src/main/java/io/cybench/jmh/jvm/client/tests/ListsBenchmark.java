@@ -2,7 +2,6 @@ package io.cybench.jmh.jvm.client.tests;
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -190,8 +189,8 @@ public class ListsBenchmark {
 
         @Override
         public void fill() {
-            collection = Stream.iterate(0, i -> i + 2).limit(ListsBenchmark.PRECOMPILED_LIST_SIZE)
-                    .collect(Collectors.toCollection((Supplier<java.util.ArrayList>) java.util.ArrayList::new));
+            collection = new java.util.ArrayList(
+                    Stream.iterate(0, i -> i + 2).limit(ListsBenchmark.PRECOMPILED_LIST_SIZE).collect(Collectors.toList()));
         }
     }
 
@@ -232,8 +231,8 @@ public class ListsBenchmark {
 
         @Override
         public void fill() {
-            collection = Stream.iterate(0, i -> i + 2).map(Integer::new).limit(100000)
-                    .collect(Collectors.toCollection((Supplier<java.util.LinkedList>) java.util.LinkedList::new));
+            collection = new java.util.LinkedList(
+                    Stream.iterate(0, i -> i + 2).map(Integer::new).limit(100000).collect(Collectors.toList()));
         }
     }
 
