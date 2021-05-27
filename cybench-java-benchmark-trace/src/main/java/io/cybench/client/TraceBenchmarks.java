@@ -67,11 +67,12 @@ public class TraceBenchmarks {
     }
 
     private static Tracer setupOTLPtracer() {
-        SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
-                .addSpanProcessor(SimpleSpanProcessor.create(new LoggingSpanExporter())).build();
-        OpenTelemetrySdk openTelemetrySdk = OpenTelemetrySdk.builder().setTracerProvider(tracerProvider)
-                .buildAndRegisterGlobal();
-        return openTelemetrySdk.getTracer("instrumentation-library-name");
+        try (SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
+                .addSpanProcessor(SimpleSpanProcessor.create(new LoggingSpanExporter())).build()) {
+            OpenTelemetrySdk openTelemetrySdk = OpenTelemetrySdk.builder().setTracerProvider(tracerProvider)
+                    .buildAndRegisterGlobal();
+            return openTelemetrySdk.getTracer("instrumentation-library-name");
+        }
     }
 
     private static TrackingLogger setupTNT4Jtracer() {

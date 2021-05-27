@@ -317,10 +317,11 @@ public class HttpServerBenchmark {
                 HttpServletResponse response) throws IOException, ServletException {
             response.setContentType("text/html; charset=utf-8");
             response.setStatus(HttpServletResponse.SC_OK);
-            PrintWriter out = response.getWriter();
-            out.println(HttpServerBenchmark.responseString);
-            out.flush();
-            request.setHandled(true);
+            try (PrintWriter out = response.getWriter()) {
+                out.println(HttpServerBenchmark.responseString);
+                out.flush();
+                request.setHandled(true);
+            }
         }
     }
 
