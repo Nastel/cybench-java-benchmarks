@@ -100,7 +100,7 @@ set argument2=%2
 :executeBaseRun
     IF ["%JAVA_PATH%"] EQU [""] set JAVA_PATH=java
     :: Execute the benchmarks with set default or user defined properties
-    echo EXECUTE: "%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
-    "%JAVA_PATH%" %JVM_PROPERTIES% -cp gocypher-cybench-client.jar;"%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+    echo EXECUTE: "%JAVA_PATH%" %JVM_PROPERTIES% -cp "%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
+    "%JAVA_PATH%" %JVM_PROPERTIES% -cp "%CYB_LIBS%";"%CYB_LIBS_FOLDER%" com.gocypher.cybench.launcher.BenchmarkRunner cfg=%CONFIGURATION_PATH%
 @endlocal
 cmd /k

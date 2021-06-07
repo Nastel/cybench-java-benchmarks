@@ -104,5 +104,5 @@ detect_configuration_path $argument1 $argument2
 set_configuration_properties
 
 # Execute the benchmarks with set default or user defined properties
-echo EXECUTE: "${JAVA_PATH}" ${JVM_PROPERTIES} -cp ./gocypher-cybench-client.jar:${CYB_LIBS} com.gocypher.cybench.launcher.BenchmarkRunner cfg=${CONFIGURATION_PATH}
-"${JAVA_PATH}" ${JVM_PROPERTIES} -cp ./gocypher-cybench-client.jar:${CYB_LIBS} com.gocypher.cybench.launcher.BenchmarkRunner cfg=${CONFIGURATION_PATH}
+echo EXECUTE: "${JAVA_PATH}" ${JVM_PROPERTIES} -cp ${CYB_LIBS} com.gocypher.cybench.launcher.BenchmarkRunner cfg=${CONFIGURATION_PATH}
+"${JAVA_PATH}" ${JVM_PROPERTIES} -cp ${CYB_LIBS} com.gocypher.cybench.launcher.BenchmarkRunner cfg=${CONFIGURATION_PATH}
