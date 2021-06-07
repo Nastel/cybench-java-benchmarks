@@ -70,9 +70,7 @@ set_configuration_properties()
         fi
     done < ${CONFIGURATION_PATH}
 
-    jver=$("${JAVA_PATH}" -version 2>&1 | head -1 | cut -d'"' -f2 | sed '/^1\./s///' | cut -d'.' -f1 | cut -d'-' -f1)
-
-    echo "${jver}"
+    jver=$("${JAVA_PATH}" -fullversion 2>&1 | cut -d'"' -f2 | sed '/^1\./s///' | cut -d'.' -f1 | cut -d'-' -f1 | cut -d'+' -f1 | cut -d'_' -f1)
 
     if [[ $jver -ge 9 ]]; then
         JVM_PROPERTIES+=" --add-exports=java.management/sun.management=ALL-UNNAMED"
