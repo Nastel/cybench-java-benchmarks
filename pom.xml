@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
             <artifactId>gocypher-cybench-runner</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
@@ -80,51 +80,51 @@
         <!-- STRINGS -->
         <skip.string.assembly>true</skip.string.assembly>
         <release.string>src/assembly-string</release.string>
-        <project.string.version>1.0.1</project.string.version>
+        <project.string.version>1.0.2</project.string.version>
         <target.deploy.string.jar>../cybench-java-benchmark-string/target/cybench-java-benchmark-string.jar</target.deploy.string.jar>
         <release.deploy.dir.string>../deploy/string</release.deploy.dir.string>
         <!-- JSON -->
         <skip.json.assembly>true</skip.json.assembly>
         <release.json>src/assembly-json</release.json>
-        <project.json.version>1.0.1</project.json.version>
+        <project.json.version>1.0.2</project.json.version>
         <target.deploy.json.jar>../cybench-java-benchmark-json/target/cybench-java-benchmark-json.jar</target.deploy.json.jar>
         <release.deploy.dir.json>../deploy/json</release.deploy.dir.json>
         <!-- IO -->
         <skip.io.assembly>true</skip.io.assembly>
         <release.io>src/assembly-io</release.io>
-        <project.io.version>1.0.1</project.io.version>
+        <project.io.version>1.0.2</project.io.version>
         <target.deploy.io.jar>../cybench-java-benchmark-io/target/cybench-java-benchmark-io.jar</target.deploy.io.jar>
         <release.deploy.dir.io>../deploy/io</release.deploy.dir.io>
         <!-- LIST -->
         <release.list>src/assembly-list</release.list>
         <skip.list.assembly>true</skip.list.assembly>
-        <project.list.version>1.0.1</project.list.version>
+        <project.list.version>1.0.2</project.list.version>
         <target.deploy.list.jar>../cybench-java-benchmark-list/target/cybench-java-benchmark-list.jar</target.deploy.list.jar>
         <release.deploy.dir.list>../deploy/list</release.deploy.dir.list>
         <!-- NUMBER -->
         <skip.number.assembly>true</skip.number.assembly>
         <release.number>src/assembly-number</release.number>
-        <project.number.version>1.0.1</project.number.version>
+        <project.number.version>1.0.2</project.number.version>
         <target.deploy.number.jar>../cybench-java-benchmark-number/target/cybench-java-benchmark-number.jar</target.deploy.number.jar>
         <release.deploy.dir.number>../deploy/number</release.deploy.dir.number>
         <!-- MATRICES -->
         <skip.matrices.assembly>true</skip.matrices.assembly>
         <release.matrices>src/assembly-matrices</release.matrices>
-        <project.matrices.version>1.0.1</project.matrices.version>
+        <project.matrices.version>1.0.2</project.matrices.version>
         <target.deploy.matrices.jar>../cybench-java-benchmark-matrices/target/cybench-java-benchmark-matrices.jar
         </target.deploy.matrices.jar>
         <release.deploy.dir.matrices>../deploy/matrices</release.deploy.dir.matrices>
         <!-- HTTP SERVERS -->
         <skip.httpServers.assembly>true</skip.httpServers.assembly>
         <release.httpServers>src/assembly-httpServers</release.httpServers>
-        <project.httpServers.version>1.0.1</project.httpServers.version>
+        <project.httpServers.version>1.0.2</project.httpServers.version>
         <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar
         </target.deploy.httpServers.jar>
         <release.deploy.dir.httpServers>../deploy/httpServers</release.deploy.dir.httpServers>
         <!-- SECURITY CRYPTO -->
         <skip.security.crypto.assembly>true</skip.security.crypto.assembly>
         <release.security.crypto>src/assembly-security-crypto</release.security.crypto>
-        <project.security.crypto.version>1.0.1</project.security.crypto.version>
+        <project.security.crypto.version>1.0.2</project.security.crypto.version>
         <target.deploy.security.crypto.jar>../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar
         </target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
@@ -132,14 +132,14 @@
         <!-- SECURITY RSA -->
         <skip.security-rsa.assembly>true</skip.security-rsa.assembly>
         <release.security-rsa>src/assembly-security-rsa</release.security-rsa>
-        <project.security-rsa.version>1.0.1</project.security-rsa.version>
+        <project.security-rsa.version>1.0.2</project.security-rsa.version>
         <target.deploy.security-rsa.jar>../cybench-java-benchmark-security-rsa/target/cybench-java-benchmark-security-rsa.jar
         </target.deploy.security-rsa.jar>
         <release.deploy.dir.security-rsa>../deploy/security-rsa</release.deploy.dir.security-rsa>
         <!-- TRACE -->
         <skip.trace.assembly>true</skip.trace.assembly>
         <release.trace>src/assembly-trace</release.trace>
-        <project.trace.version>1.0.1</project.trace.version>
+        <project.trace.version>1.0.2</project.trace.version>
         <target.deploy.trace.jar>../cybench-java-benchmark-trace/target/cybench-java-benchmark-trace.jar</target.deploy.trace.jar>
         <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
         <opentelementry.version>1.1.0</opentelementry.version>
@@ -148,7 +148,7 @@
         <release.mapping>src/assembly-mapping</release.mapping>
         <target.deploy.mapping.jar>../cybench-java-benchmark-mapping/target/cybench-java-benchmark-mapping.jar</target.deploy.mapping.jar>
         <release.deploy.dir.mapping>../deploy/mapping</release.deploy.dir.mapping>
-        <project.mapping.version>1.0.1</project.mapping.version>
+        <project.mapping.version>1.0.2</project.mapping.version>
         <skip.mapping.assembly>true</skip.mapping.assembly>
         <jctools.version>3.3.0</jctools.version>
         <!--PROPERTIES PLACEHOLDER DO NOT DELETE -->
