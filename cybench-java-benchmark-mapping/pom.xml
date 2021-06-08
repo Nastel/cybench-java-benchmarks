@@ -13,9 +13,9 @@
     <artifactId>cybench-java-benchmark-mapping</artifactId>
     <packaging>jar</packaging>
 
-    <version>${project.list.version}</version>
+    <version>${project.mapping.version}</version>
     <name>cybench-java-benchmark-mapping</name>
-    
+
     <properties>
         <jvm.jar.name>cybench-java-benchmark-mapping</jvm.jar.name>
     </properties>
@@ -48,7 +48,7 @@
                 <targetPath>${project.build.directory}/classes</targetPath>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

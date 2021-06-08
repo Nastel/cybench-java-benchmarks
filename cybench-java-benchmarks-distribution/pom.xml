@@ -69,8 +69,8 @@
                         <fileset>
                             <directory>${release.deploy.dir.string}</directory>
                             <includes>
-                                <include>${release.deploy.finalName}-strings-${project.string.version}/</include>
-                                <include>${release.deploy.finalName}-strings-${project.string.version}.*</include>
+                                <include>${release.deploy.finalName}-strings-${project.version}/</include>
+                                <include>${release.deploy.finalName}-strings-${project.version}.*</include>
                             </includes>
                         </fileset>
                         <fileset>
@@ -361,7 +361,7 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.mapping}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}-mapping-${project.version}</finalName>
+                            <finalName>${release.deploy.finalName}-mapping-${project.mapping.version}</finalName>
                         </configuration>
                     </execution>
                     <!--EXECUTION PLACEHOLDER DO NOT DELETE -->
