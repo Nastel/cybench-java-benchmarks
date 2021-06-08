@@ -89,6 +89,8 @@ set argument2=%2
     )
 
     for /f tokens^=2-5^ delims^=.+-_^" %%j in ('%JAVA_PATH% -fullversion 2^>^&1') do set "jver=%%j%%k"
+    rem for early access versions replace "ea" part with "00" to get comparable number
+    set jver=%jver:ea=00%
 
     IF %jver% GTR 18 (
         set JVM_PROPERTIES=!JVM_PROPERTIES! --add-exports=java.management/sun.management=ALL-UNNAMED
