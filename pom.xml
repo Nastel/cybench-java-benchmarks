@@ -256,19 +256,19 @@
         </profile>
         <profile>
             <id>pack-all</id>
-            <!--<properties>-->
-            <!--<skip.string.assembly>false</skip.string.assembly>-->
-            <!--<skip.json.assembly>false</skip.json.assembly>-->
-            <!--<skip.io.assembly>false</skip.io.assembly>-->
-            <!--<skip.list.assembly>false</skip.list.assembly>-->
-            <!--<skip.number.assembly>false</skip.number.assembly>-->
-            <!--<skip.matrices.assembly>false</skip.matrices.assembly>-->
-            <!--<skip.httpServers.assembly>false</skip.httpServers.assembly>-->
-            <!--<skip.security.crypto.assembly>false</skip.security.crypto.assembly>-->
-            <!--<skip.security-rsa.assembly>false</skip.security-rsa.assembly>-->
-            <!--<skip.trace.assembly>false</skip.trace.assembly>-->
-            <!--<skip.mapping.assembly>false</skip.mapping.assembly>-->
-            <!--</properties>-->
+            <properties>
+                <skip.string.assembly>false</skip.string.assembly>
+                <skip.json.assembly>false</skip.json.assembly>
+                <skip.io.assembly>false</skip.io.assembly>
+                <skip.list.assembly>false</skip.list.assembly>
+                <skip.number.assembly>false</skip.number.assembly>
+                <skip.matrices.assembly>false</skip.matrices.assembly>
+                <skip.httpServers.assembly>false</skip.httpServers.assembly>
+                <skip.security.crypto.assembly>false</skip.security.crypto.assembly>
+                <skip.security-rsa.assembly>false</skip.security-rsa.assembly>
+                <skip.trace.assembly>false</skip.trace.assembly>
+                <skip.mapping.assembly>false</skip.mapping.assembly>
+            </properties>
             <modules>
                 <module>cybench-java-benchmark-string</module>
                 <module>cybench-java-benchmark-json</module>
