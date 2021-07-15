@@ -61,7 +61,7 @@ public class HttpServerBenchmark {
 
     public static final int port = 25555;
 
-    // public static void main(String[] args) {
+    // public static void main(String... args) {
     // new TakesWebServer().setup();
     // new HttpServerBenchmark().get();
     // }
@@ -388,7 +388,7 @@ public class HttpServerBenchmark {
             server.stop();
         }
     }
-    // public static void main(String[] args) {
+    // public static void main(String... args) {
     // NanoHTTPD nanoHTTPD = new NanoHTTPD();
     // new HttpServerBenchmark().get();
     // }

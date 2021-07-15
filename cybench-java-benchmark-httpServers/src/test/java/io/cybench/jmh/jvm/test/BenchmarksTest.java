@@ -30,7 +30,7 @@ import org.openjdk.jmh.runner.options.TimeValue;
 
 public class BenchmarksTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
 
         // Number of separate full executions of a benchmark (warm up+measurement), this is returned still as one
         // primary score item
@@ -63,14 +63,11 @@ public class BenchmarksTest {
                 // .addProfiler(HotspotClassloadingProfiler.class)
                 // .addProfiler(HotspotCompilationProfiler.class)
                 // .addProfiler(HotspotThreadProfiler.class)
-                // .addProfiler(JavaFlightRecorderProfiler.class) //throws errors, requires
-                // -XX:+UnlockCommercialFeatures, deprecated in java 13
-                // .addProfiler(AsyncProfiler.class) //Unable to load async-profiler. Ensure asyncProfiler library is on
-                // LD_LIBRARY_PATH, -Djava.library.path or libPath=
+                // .addProfiler(JavaFlightRecorderProfiler.class) //throws errors, requires -XX:+UnlockCommercialFeatures, deprecated in java 13
+                // .addProfiler(AsyncProfiler.class) //Unable to load async-profiler. Ensure asyncProfiler library is on LD_LIBRARY_PATH, -Djava.library.path or libPath=
                 // .addProfiler(ClassloaderProfiler.class)
                 // .addProfiler(CompilerProfiler.class)
-                // .addProfiler(DTraceAsmProfiler.class)//Cannot run program "sudo": CreateProcess error=2, The system
-                // cannot find the file specified
+                // .addProfiler(DTraceAsmProfiler.class)//Cannot run program "sudo": CreateProcess error=2, The system cannot find the file specified
                 // .addProfiler(PausesProfiler.class)
                 // .addProfiler(SafepointsProfiler.class)
                 // .addProfiler(StackProfiler.class)

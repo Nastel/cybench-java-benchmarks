@@ -152,7 +152,7 @@ public class ListsBenchmark {
         bh.consume(action.doJob(ar));
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String... args) throws InterruptedException {
         Method[] methods = ListsBenchmark.class.getMethods();
         System.out.println(methods);
         Thread.sleep(3000);
@@ -190,7 +190,10 @@ public class ListsBenchmark {
         @Override
         public void fill() {
             collection = new java.util.ArrayList(
-                    Stream.iterate(0, i -> i + 2).limit(ListsBenchmark.PRECOMPILED_LIST_SIZE).collect(Collectors.toList()));
+                    Stream.iterate(0, i -> i + 2) //
+                          .limit(ListsBenchmark.PRECOMPILED_LIST_SIZE) //
+                          .collect(Collectors.toList()) //
+                         );
         }
     }
 

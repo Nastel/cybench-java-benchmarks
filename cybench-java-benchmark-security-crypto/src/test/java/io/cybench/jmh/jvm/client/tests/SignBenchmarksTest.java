@@ -63,7 +63,7 @@ public class SignBenchmarksTest {
         // System.out.println(new SignBenchmarks().sign("SHA256WithDSA", "DSA", ));
     }
 
-    /*    public static void main(String[] args) throws Exception {
+    /*    public static void main(String... args) throws Exception {
         // Security.addProvider(new BouncyCastleProvider());
         // List<String> algorithms = Arrays.stream(Security.getProviders()).flatMap(provider -> provider.getServices().stream()).filter(service -> "Signature".equals(service.getType())).map(service -> service.getAlgorithm() + " - " + service.getProvider().getName() + "\n").distinct().sorted().collect(Collectors.toList());
         // System.out.println(algorithms);

@@ -72,10 +72,10 @@
         <assembly.skipAssembly>true</assembly.skipAssembly>
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
-        <jmh.version>1.31</jmh.version>
+        <jmh.version>1.32</jmh.version>
         <jackson.version>2.12.3</jackson.version>
-        <org.slf4j.version>1.7.30</org.slf4j.version>
-        <junit.version>5.7.1</junit.version>
+        <org.slf4j.version>1.7.31</org.slf4j.version>
+        <junit.version>5.7.2</junit.version>
         <!-- Properties for different assembly modules -->
         <!-- STRINGS -->
         <skip.string.assembly>true</skip.string.assembly>

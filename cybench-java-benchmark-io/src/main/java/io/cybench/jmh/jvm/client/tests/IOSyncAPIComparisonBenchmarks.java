@@ -69,13 +69,13 @@ public class IOSyncAPIComparisonBenchmarks {
 
     private boolean isSyncWrite = true;
 
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(IOSyncAPIComparisonBenchmarks.class.getSimpleName())
-                .forks(1)
-                .threads(10)
-                .measurementIterations(3)
-                .warmupIterations(1)
+    public static void main(String... args) throws RunnerException {
+        Options opt = new OptionsBuilder() //
+                .include(IOSyncAPIComparisonBenchmarks.class.getSimpleName()) //
+                .forks(1) //
+                .threads(10) //
+                .measurementIterations(3) //
+                .warmupIterations(1) //
                 .build();
 
         new Runner(opt).run();

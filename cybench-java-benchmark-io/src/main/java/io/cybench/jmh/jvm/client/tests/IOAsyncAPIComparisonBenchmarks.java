@@ -68,7 +68,7 @@ public class IOAsyncAPIComparisonBenchmarks {
 
     private boolean isSyncWrite = false;
 
-    public static void main(String[] args) throws RunnerException {
+    public static void main(String... args) throws RunnerException {
         Options opt = new OptionsBuilder().include(IOAsyncAPIComparisonBenchmarks.class.getSimpleName()).forks(1)
                 // .threads(1)
                 .measurementIterations(3).warmupIterations(1).build();
