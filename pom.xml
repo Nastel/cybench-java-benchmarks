@@ -73,9 +73,9 @@
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
         <jmh.version>1.32</jmh.version>
-        <jackson.version>2.12.3</jackson.version>
-        <org.slf4j.version>1.7.31</org.slf4j.version>
-        <junit.version>5.7.2</junit.version>
+        <jackson.version>2.12.5</jackson.version>
+        <org.slf4j.version>1.7.32</org.slf4j.version>
+        <junit.version>5.8.1</junit.version>
         <!-- Properties for different assembly modules -->
         <!-- STRINGS -->
         <skip.string.assembly>true</skip.string.assembly>
@@ -118,8 +118,7 @@
         <skip.httpServers.assembly>true</skip.httpServers.assembly>
         <release.httpServers>src/assembly-httpServers</release.httpServers>
         <project.httpServers.version>1.0.2</project.httpServers.version>
-        <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar
-        </target.deploy.httpServers.jar>
+        <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar</target.deploy.httpServers.jar>
         <release.deploy.dir.httpServers>../deploy/httpServers</release.deploy.dir.httpServers>
         <!-- SECURITY CRYPTO -->
         <skip.security.crypto.assembly>true</skip.security.crypto.assembly>
