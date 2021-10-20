@@ -73,7 +73,7 @@
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
         <jmh.version>1.32</jmh.version>
-        <jackson.version>2.12.5</jackson.version>
+        <jackson.version>2.13.0</jackson.version>
         <org.slf4j.version>1.7.32</org.slf4j.version>
         <junit.version>5.8.1</junit.version>
         <!-- Properties for different assembly modules -->
@@ -127,7 +127,7 @@
         <target.deploy.security.crypto.jar>../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar
         </target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
-        <bouncycastle.version>1.68</bouncycastle.version>
+        <bouncycastle.version>1.69</bouncycastle.version>
         <!-- SECURITY RSA -->
         <skip.security-rsa.assembly>true</skip.security-rsa.assembly>
         <release.security-rsa>src/assembly-security-rsa</release.security-rsa>
@@ -141,8 +141,8 @@
         <project.trace.version>1.0.2</project.trace.version>
         <target.deploy.trace.jar>../cybench-java-benchmark-trace/target/cybench-java-benchmark-trace.jar</target.deploy.trace.jar>
         <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
-        <opentelementry.version>1.1.0</opentelementry.version>
-        <tnt4j.version>2.14.1</tnt4j.version>
+        <opentelementry.version>1.7.0</opentelementry.version>
+        <tnt4j.version>2.14.2</tnt4j.version>
         <!-- MAPPING -->
         <release.mapping>src/assembly-mapping</release.mapping>
         <target.deploy.mapping.jar>../cybench-java-benchmark-mapping/target/cybench-java-benchmark-mapping.jar</target.deploy.mapping.jar>
