@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~
+  ~ Copyright (C) 2020-2021, K2N.IO.
+  ~
+  ~ This library is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU Lesser General Public
+  ~ License as published by the Free Software Foundation; either
+  ~ version 2.1 of the License, or (at your option) any later version.
+  ~
+  ~ This library is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this library; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+  ~
+  -->
+
+<Configuration strict="true"
+               xmlns="http://logging.apache.org/log4j/2.0/config"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config
+           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
+    <!-- ### individual value may be set over individual JVM system property having same name ### -->
+    <Properties>
+        <Property name="log4j.logs.file.name">logs/cybench.log</Property>
+    </Properties>
+    <Appenders>
+        <!-- ### direct log messages to console ### -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} %-5p [%t!%c{1}] - %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <!-- ### direct log messages to file rolling on startup ### -->
+        <RollingFile name="cybench_log"
+                     fileName="${log4j.logs.file.name}"
+                     filePattern="${log4j.logs.file.name}.%d{yyyyMMddHHmmssSSS}.gz"
+                     ignoreExceptions="false" append="false">
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <!-- <SizeBasedTriggeringPolicy size="2 MB"/> -->
+            </Policies>
+            <DefaultRolloverStrategy max="15" fileIndex="min">
+                <Delete basePath="${baseDir}" maxDepth="1">
+                    <IfFileName glob="${log4j.logs.file.name}.*.gz"/>
+                    <IfLastModified age="30d"/>
+                    <!--IfAccumulatedFileCount exceeds="15"/-->
+                </Delete>
+            </DefaultRolloverStrategy>
+            <PatternLayout>
+                <Pattern>%d{ISO8601} %-5p [%t!%c{1}] - %m%n</Pattern>
+            </PatternLayout>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <asyncRoot level="INFO">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="cybench_log"/>
+        </asyncRoot>
+    </Loggers>
+</Configuration>
