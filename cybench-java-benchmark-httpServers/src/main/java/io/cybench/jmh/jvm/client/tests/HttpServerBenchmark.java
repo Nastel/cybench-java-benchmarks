@@ -31,6 +31,8 @@ import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.response.Response;
 import org.openjdk.jmh.annotations.*;
 import org.takes.facets.fork.FkRegex;
 import org.takes.facets.fork.TkFork;
@@ -326,7 +328,7 @@ public class HttpServerBenchmark {
     }
 
     @State(Scope.Benchmark)
-    public static class NanoHTTPD extends fi.iki.elonen.NanoHTTPD {
+    public static class NanoHTTPD extends org.nanohttpd.protocols.http.NanoHTTPD {
 
         public NanoHTTPD() {
             super(HttpServerBenchmark.port);
@@ -339,7 +341,7 @@ public class HttpServerBenchmark {
 
         @Override
         public Response serve(IHTTPSession session) {
-            return NanoHTTPD.newFixedLengthResponse(HttpServerBenchmark.responseString);
+            return Response.newFixedLengthResponse(HttpServerBenchmark.responseString);
         }
 
         @TearDown
