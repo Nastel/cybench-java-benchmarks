@@ -30,7 +30,7 @@
 
     <artifactId>cybench-java-benchmark-string</artifactId>
     <packaging>jar</packaging>
-    
+
     <version>${project.string.version}</version>
     <name>cybench-java-benchmark-string</name>
 
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -61,7 +61,7 @@
                 <targetPath>${project.build.directory}/classes</targetPath>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

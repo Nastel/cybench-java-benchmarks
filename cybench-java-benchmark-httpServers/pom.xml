@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -75,7 +75,7 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.72.Final</version>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>com.gitee.l0km</groupId>
             <artifactId>nanohttpd</artifactId>

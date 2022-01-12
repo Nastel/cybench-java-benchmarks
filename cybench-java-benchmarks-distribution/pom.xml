@@ -29,6 +29,7 @@
     </parent>
 
     <artifactId>cybench-java-benchmarks-distribution</artifactId>
+    <version>${project.release.version}</version>
     <packaging>pom</packaging>
 
     <properties>
