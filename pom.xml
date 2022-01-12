@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
             <artifactId>gocypher-cybench-runner</artifactId>
-            <version>1.3.0</version>
+            <version>1.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
@@ -70,13 +70,15 @@
         <skip.string.assembly>true</skip.string.assembly>
         <release.string>src/assembly-string</release.string>
         <project.string.version>${project.release.version}</project.string.version>
-        <target.deploy.string.jar>../cybench-java-benchmark-string/target/cybench-java-benchmark-string.jar</target.deploy.string.jar>
+        <target.deploy.string.jar>../cybench-java-benchmark-string/target/cybench-java-benchmark-string.jar
+        </target.deploy.string.jar>
         <release.deploy.dir.string>../deploy/string</release.deploy.dir.string>
         <!-- JSON -->
         <skip.json.assembly>true</skip.json.assembly>
         <release.json>src/assembly-json</release.json>
         <project.json.version>${project.release.version}</project.json.version>
-        <target.deploy.json.jar>../cybench-java-benchmark-json/target/cybench-java-benchmark-json.jar</target.deploy.json.jar>
+        <target.deploy.json.jar>../cybench-java-benchmark-json/target/cybench-java-benchmark-json.jar
+        </target.deploy.json.jar>
         <release.deploy.dir.json>../deploy/json</release.deploy.dir.json>
         <!-- IO -->
         <skip.io.assembly>true</skip.io.assembly>
@@ -88,13 +90,15 @@
         <release.list>src/assembly-list</release.list>
         <skip.list.assembly>true</skip.list.assembly>
         <project.list.version>${project.release.version}</project.list.version>
-        <target.deploy.list.jar>../cybench-java-benchmark-list/target/cybench-java-benchmark-list.jar</target.deploy.list.jar>
+        <target.deploy.list.jar>../cybench-java-benchmark-list/target/cybench-java-benchmark-list.jar
+        </target.deploy.list.jar>
         <release.deploy.dir.list>../deploy/list</release.deploy.dir.list>
         <!-- NUMBER -->
         <skip.number.assembly>true</skip.number.assembly>
         <release.number>src/assembly-number</release.number>
         <project.number.version>${project.release.version}</project.number.version>
-        <target.deploy.number.jar>../cybench-java-benchmark-number/target/cybench-java-benchmark-number.jar</target.deploy.number.jar>
+        <target.deploy.number.jar>../cybench-java-benchmark-number/target/cybench-java-benchmark-number.jar
+        </target.deploy.number.jar>
         <release.deploy.dir.number>../deploy/number</release.deploy.dir.number>
         <!-- MATRICES -->
         <skip.matrices.assembly>true</skip.matrices.assembly>
@@ -107,32 +111,40 @@
         <skip.httpServers.assembly>true</skip.httpServers.assembly>
         <release.httpServers>src/assembly-httpServers</release.httpServers>
         <project.httpServers.version>${project.release.version}</project.httpServers.version>
-        <target.deploy.httpServers.jar>../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar</target.deploy.httpServers.jar>
+        <target.deploy.httpServers.jar>
+            ../cybench-java-benchmark-httpServers/target/cybench-java-benchmark-httpServers.jar
+        </target.deploy.httpServers.jar>
         <release.deploy.dir.httpServers>../deploy/httpServers</release.deploy.dir.httpServers>
         <!-- SECURITY CRYPTO -->
         <skip.security.crypto.assembly>true</skip.security.crypto.assembly>
         <release.security.crypto>src/assembly-security-crypto</release.security.crypto>
         <project.security.crypto.version>${project.release.version}</project.security.crypto.version>
-        <target.deploy.security.crypto.jar>../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar</target.deploy.security.crypto.jar>
+        <target.deploy.security.crypto.jar>
+            ../cybench-java-benchmark-security-crypto/target/cybench-java-benchmark-security-crypto.jar
+        </target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
         <bouncycastle.version>1.69</bouncycastle.version>
         <!-- SECURITY RSA -->
         <skip.security-rsa.assembly>true</skip.security-rsa.assembly>
         <release.security-rsa>src/assembly-security-rsa</release.security-rsa>
         <project.security-rsa.version>${project.release.version}</project.security-rsa.version>
-        <target.deploy.security-rsa.jar>../cybench-java-benchmark-security-rsa/target/cybench-java-benchmark-security-rsa.jar</target.deploy.security-rsa.jar>
+        <target.deploy.security-rsa.jar>
+            ../cybench-java-benchmark-security-rsa/target/cybench-java-benchmark-security-rsa.jar
+        </target.deploy.security-rsa.jar>
         <release.deploy.dir.security-rsa>../deploy/security-rsa</release.deploy.dir.security-rsa>
         <!-- TRACE -->
         <skip.trace.assembly>true</skip.trace.assembly>
         <release.trace>src/assembly-trace</release.trace>
         <project.trace.version>${project.release.version}</project.trace.version>
-        <target.deploy.trace.jar>../cybench-java-benchmark-trace/target/cybench-java-benchmark-trace.jar</target.deploy.trace.jar>
+        <target.deploy.trace.jar>../cybench-java-benchmark-trace/target/cybench-java-benchmark-trace.jar
+        </target.deploy.trace.jar>
         <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
         <opentelementry.version>1.9.1</opentelementry.version>
         <tnt4j.version>2.14.3</tnt4j.version>
         <!-- MAPPING -->
         <release.mapping>src/assembly-mapping</release.mapping>
-        <target.deploy.mapping.jar>../cybench-java-benchmark-mapping/target/cybench-java-benchmark-mapping.jar</target.deploy.mapping.jar>
+        <target.deploy.mapping.jar>../cybench-java-benchmark-mapping/target/cybench-java-benchmark-mapping.jar
+        </target.deploy.mapping.jar>
         <release.deploy.dir.mapping>../deploy/mapping</release.deploy.dir.mapping>
         <project.mapping.version>${project.release.version}</project.mapping.version>
         <skip.mapping.assembly>true</skip.mapping.assembly>
