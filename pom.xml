@@ -62,7 +62,7 @@
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
         <jmh.version>1.34</jmh.version>
-        <jackson.version>2.13.0</jackson.version>
+        <jackson.version>2.13.1</jackson.version>
         <junit.version>5.8.2</junit.version>
         <!-- Properties for different assembly modules -->
         <!-- STRINGS -->
