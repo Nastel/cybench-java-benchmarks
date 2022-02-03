@@ -38,8 +38,8 @@
         <!-- ### direct log messages to file rolling on startup ### -->
         <RollingFile name="cybench_log"
                      fileName="${log4j.logs.file.name}"
-                     filePattern="${log4j.logs.file.name}.%d{yyyyMMddHHmmssSSS}.gz"
-                     ignoreExceptions="false" append="false">
+                     filePattern="${log4j.logs.file.name}.%d{yyyyMMdd_HHmmss_SSS}.gz"
+                     ignoreExceptions="false" append="true">
             <Policies>
                 <OnStartupTriggeringPolicy/>
                 <!-- <SizeBasedTriggeringPolicy size="2 MB"/> -->
