@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.gocypher.cybench.client</groupId>
             <artifactId>gocypher-cybench-runner</artifactId>
-            <version>1.3.1</version>
+            <version>1.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
