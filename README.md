@@ -13,7 +13,7 @@ Check out the benchmarks from other users and analyze your results here [here](h
 - Download the selected benchmark package from the [release page](https://github.com/K2NIO/cybench-java-benchmarks/releases)
 - Extract the files and run cybench.bat (on Windows) or cybench.sh (on Unix).
 - Analyze results in your console, reports folder or [app.cybench.io](https://app.cybench.io/cybench/)
-- **Otional:** manage your benchmarking run configuration located in `<cybench-home>/conf/cybench-launcher.properties`
+- **Otional:** manage your benchmarking run configuration located in `<cybench-home>/config/cybench-launcher.properties`
 
 #### CyBench launcher configuration 
 
@@ -39,7 +39,7 @@ Check out the benchmarks from other users and analyze your results here [here](h
 
 ### Adding Custom Benchmarks for Execution
 
-Update CyBench Launcher configuration located in `<cybench-home>/conf/cybench-launcher.properties`:
+Update CyBench Launcher configuration located in `<cybench-home>/config/cybench-launcher.properties`:
 
 * __required__: add or update property `benchmarks`, set path to jar file which contains your JMH benchmarks, this path will be added to the `CLASSPATH` of the JVM. Values must be semicolon separated!  
 

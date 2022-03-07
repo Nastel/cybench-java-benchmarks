@@ -18,21 +18,22 @@
   ~
   -->
 
-<component xmlns="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<component xmlns="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://maven.apache.org/ASSEMBLY-COMPONENT/2.0.0 http://maven.apache.org/xsd/assembly-component-2.0.0.xsd">
     <files>
         <file>
-            <source>${project.basedir}/../cybench-java-benchmarks-distribution/resources/cybench.bat</source>
+            <source>resources/cybench.bat</source>
             <lineEnding>crlf</lineEnding>
         </file>
         <file>
-            <source>${project.basedir}/../cybench-java-benchmarks-distribution/resources/cybench.sh</source>
+            <source>resources/cybench.sh</source>
             <lineEnding>unix</lineEnding>
             <fileMode>0777</fileMode>
         </file>
         <file>
-            <source>${project.basedir}/../cybench-java-benchmarks-distribution/resources/cybench-launcher.properties</source>
-            <outputDirectory>conf</outputDirectory>
+            <source>resources/cybench-launcher.properties</source>
+            <outputDirectory>config</outputDirectory>
         </file>
         <file>
             <source>${target.deploy.list.jar}</source>
@@ -46,6 +47,14 @@
                 <include>CYBENCH_LICENSE*</include>
             </includes>
             <outputDirectory></outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.list.home}/config</directory>
+            <includes>
+                <include>*.properties</include>
+            </includes>
+            <outputDirectory>config/</outputDirectory>
+            <lineEnding>crlf</lineEnding>
         </fileSet>
     </fileSets>
 </component>

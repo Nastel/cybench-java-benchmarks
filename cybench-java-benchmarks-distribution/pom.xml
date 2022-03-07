@@ -124,7 +124,7 @@
                             </includes>
                         </fileset>
                         <fileset>
-                            <directory>${release.deploy.dir.security-rsa}</directory>
+                            <directory>${release.deploy.dir.security.rsa}</directory>
                             <includes>
                                 <include>${release.deploy.finalName}-security-rsa-${project.version}/</include>
                                 <include>${release.deploy.finalName}-security-rsa-${project.version}.*</include>
@@ -286,7 +286,8 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.httpServers}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}-http-servers-${project.httpServers.version}</finalName>
+                            <finalName>${release.deploy.finalName}-http-servers-${project.httpServers.version}
+                            </finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -305,7 +306,8 @@
                             </descriptors>
                             <outputDirectory>${release.deploy.dir.security.crypto}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}-security-${project.security.crypto.version}</finalName>
+                            <finalName>${release.deploy.finalName}-security-${project.security.crypto.version}
+                            </finalName>
                         </configuration>
                     </execution>
                     <execution>
@@ -315,16 +317,17 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <skipAssembly>${skip.security-rsa.assembly}</skipAssembly>
+                            <skipAssembly>${skip.security.rsa.assembly}</skipAssembly>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
-                                <descriptor>${release.security-rsa}/${release.deploy.zip.assembly}</descriptor>
-                                <descriptor>${release.security-rsa}/${release.deploy.gz.assembly}</descriptor>
-                                <descriptor>${release.security-rsa}/${release.deploy.dir.assembly}</descriptor>
+                                <descriptor>${release.security.rsa}/${release.deploy.zip.assembly}</descriptor>
+                                <descriptor>${release.security.rsa}/${release.deploy.gz.assembly}</descriptor>
+                                <descriptor>${release.security.rsa}/${release.deploy.dir.assembly}</descriptor>
                             </descriptors>
-                            <outputDirectory>${release.deploy.dir.security-rsa}</outputDirectory>
+                            <outputDirectory>${release.deploy.dir.security.rsa}</outputDirectory>
                             <attach>${build.assemblies.attach}</attach>
-                            <finalName>${release.deploy.finalName}-security-rsa-${project.security-rsa.version}</finalName>
+                            <finalName>${release.deploy.finalName}-security-rsa-${project.security.rsa.version}
+                            </finalName>
                         </configuration>
                     </execution>
                     <execution>

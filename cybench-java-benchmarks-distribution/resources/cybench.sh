@@ -30,12 +30,12 @@ detect_configuration_path()
     if [[ "$1" = "-conf" ]]; then resConfig=T; fi
     if [[ "$1" = "-config" ]]; then resConfig=T; fi
     if [[ "$resConfig" = "T" ]]; then CONFIGURATION_PATH=$2; fi
-    if [[ "$resConfig" = "F" ]]; then CONFIGURATION_PATH=conf/cybench-launcher.properties; fi
+    if [[ "$resConfig" = "F" ]]; then CONFIGURATION_PATH=config/cybench-launcher.properties; fi
 }
 set_configuration_properties()
 {
     if [[ "$CONFIGURATION_PATH" = "" ]]; then
-        CONFIGURATION_PATH="conf/cybench-launcher.properties"
+        CONFIGURATION_PATH="config/cybench-launcher.properties"
     fi
     # Read properties file to set JVM properties for .jar run
     JVM_PROPERTIES=""

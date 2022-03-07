@@ -34,7 +34,7 @@
         </file>
         <file>
             <source>${project.basedir}/../cybench-java-benchmarks-distribution/resources/cybench-launcher.properties</source>
-            <outputDirectory>conf</outputDirectory>
+            <outputDirectory>config</outputDirectory>
         </file>
         <file>
             <source>${prefix}${shortName}${sufix}</source>
@@ -48,6 +48,14 @@
                 <include>CYBENCH_LICENSE*</include>
             </includes>
             <outputDirectory></outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.${shortName}.home}/config</directory>
+            <includes>
+                <include>*.properties</include>
+            </includes>
+            <outputDirectory>config/</outputDirectory>
+            <lineEnding>unix</lineEnding>
         </fileSet>
     </fileSets>
 </component>

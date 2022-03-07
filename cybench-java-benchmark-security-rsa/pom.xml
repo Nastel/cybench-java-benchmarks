@@ -13,7 +13,7 @@
     <artifactId>cybench-java-benchmark-security-rsa</artifactId>
     <packaging>jar</packaging>
 
-    <version>${project.security-rsa.version}</version>
+    <version>${project.security.rsa.version}</version>
     <name>cybench-java-benchmark-security-rsa</name>
 
     <properties>

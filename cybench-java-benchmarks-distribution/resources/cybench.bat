@@ -31,7 +31,7 @@ set argument2=%2
     IF ["%1%"] EQU ["-conf"] set resConfig=T
     IF ["%1%"] EQU ["-config"] set resConfig=T
     IF ["%resConfig%"] EQU ["T"] set CONFIGURATION_PATH=%2%
-    IF ["%resConfig%"] EQU ["F"] set CONFIGURATION_PATH=conf/cybench-launcher.properties
+    IF ["%resConfig%"] EQU ["F"] set CONFIGURATION_PATH=config/cybench-launcher.properties
 
 :detectHelpFlag
     set resHelp=F
