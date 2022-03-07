@@ -1,5 +1,6 @@
         <release.${shortName}>src/assembly-${shortName}</release.${shortName}>
-        <target.deploy.${shortName}.jar>../cybench-java-benchmark-${shortName}/target/cybench-java-benchmark-${shortName}.jar</target.deploy.${shortName}.jar>
+        <project.${shortName}.home>../cybench-java-benchmark-${shortName}</project.${shortName}.home>
+        <target.deploy.${shortName}.jar>${project.${shortName}.home}/target/cybench-java-benchmark-${shortName}.jar</target.deploy.${shortName}.jar>
         <release.deploy.dir.${shortName}>../deploy/${shortName}</release.deploy.dir.${shortName}>
 
         <project.${shortName}.version>1.0.0<project.${shortName}.version>
