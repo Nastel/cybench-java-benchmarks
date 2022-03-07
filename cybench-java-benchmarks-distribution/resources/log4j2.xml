@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~
-  ~ Copyright (C) 2020-2021, K2N.IO.
+  ~ Copyright (C) 2020-2022, K2N.IO.
   ~
   ~ This library is free software; you can redistribute it and/or
   ~ modify it under the terms of the GNU Lesser General Public
@@ -18,12 +17,10 @@
   ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
   ~
   -->
-
 <Configuration strict="true"
                xmlns="http://logging.apache.org/log4j/2.0/config"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config
-           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
+               xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config">
     <!-- ### individual value may be set over individual JVM system property having same name ### -->
     <Properties>
         <Property name="log4j.logs.file.name">logs/cybench.log</Property>
@@ -41,8 +38,8 @@
                      filePattern="${log4j.logs.file.name}.%d{yyyyMMdd_HHmmss_SSS}.gz"
                      ignoreExceptions="false" append="true">
             <Policies>
-                <OnStartupTriggeringPolicy/>
-                <!-- <SizeBasedTriggeringPolicy size="2 MB"/> -->
+                <!--                <OnStartupTriggeringPolicy/>-->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
             </Policies>
             <DefaultRolloverStrategy max="15" fileIndex="min">
                 <Delete basePath="${baseDir}" maxDepth="1">
@@ -61,5 +58,6 @@
             <AppenderRef ref="console"/>
             <AppenderRef ref="cybench_log"/>
         </asyncRoot>
+        <asyncLogger name="com.gocypher.cybench.launcher" level="DEBUG"/>
     </Loggers>
 </Configuration>

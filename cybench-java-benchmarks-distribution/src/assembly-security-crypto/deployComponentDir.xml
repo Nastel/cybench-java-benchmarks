@@ -36,6 +36,10 @@
             <outputDirectory>config</outputDirectory>
         </file>
         <file>
+            <source>resources/log4j2.xml</source>
+            <outputDirectory>config</outputDirectory>
+        </file>
+        <file>
             <source>${target.deploy.security.crypto.jar}</source>
             <outputDirectory>benchmarks/</outputDirectory>
         </file>

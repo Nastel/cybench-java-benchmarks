@@ -76,6 +76,8 @@ set_configuration_properties()
         JVM_PROPERTIES+=" --add-exports=java.management/sun.management=ALL-UNNAMED"
         JVM_PROPERTIES+=" --add-opens=java.management/sun.management=ALL-UNNAMED"
     fi
+
+    JVM_PROPERTIES+=" -Dlog4j2.configurationFile=file:config/log4j2.xml"
 }
 detect_help_flag()
 {

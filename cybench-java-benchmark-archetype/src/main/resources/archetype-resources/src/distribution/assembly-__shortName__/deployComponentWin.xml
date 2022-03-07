@@ -39,6 +39,10 @@
             <outputDirectory>config</outputDirectory>
         </file>
         <file>
+            <source>resources/log4j2.xml</source>
+            <outputDirectory>config</outputDirectory>
+        </file>
+        <file>
             <source>${prefixJar}${shortName}${sufixJar}</source>
             <outputDirectory>benchmarks/</outputDirectory>
         </file>

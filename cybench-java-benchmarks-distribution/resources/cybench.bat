@@ -97,6 +97,8 @@ set argument2=%2
         set JVM_PROPERTIES=!JVM_PROPERTIES! --add-opens=java.management/sun.management=ALL-UNNAMED
     )
 
+    set JVM_PROPERTIES=%JVM_PROPERTIES% -Dlog4j2.configurationFile=file:config/log4j2.xml
+
     call :executeBaseRun
 
 :executeBaseRun
