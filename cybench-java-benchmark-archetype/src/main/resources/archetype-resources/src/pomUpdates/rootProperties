@@ -1,6 +1,8 @@
+#set($prefix = '${project.')
+#set($sufix = '.home}')
         <release.${shortName}>src/assembly-${shortName}</release.${shortName}>
         <project.${shortName}.home>../cybench-java-benchmark-${shortName}</project.${shortName}.home>
-        <target.deploy.${shortName}.jar>${project.${shortName}.home}/target/cybench-java-benchmark-${shortName}.jar</target.deploy.${shortName}.jar>
+        <target.deploy.${shortName}.jar>${prefix}${shortName}${sufix}/target/cybench-java-benchmark-${shortName}.jar</target.deploy.${shortName}.jar>
         <release.deploy.dir.${shortName}>../deploy/${shortName}</release.deploy.dir.${shortName}>
 
         <project.${shortName}.version>1.0.0<project.${shortName}.version>

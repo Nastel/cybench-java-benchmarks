@@ -1,5 +1,7 @@
-#set($prefix = '${target.deploy.')
-#set($sufix = '.jar}')
+#set($prefixJar = '${target.deploy.')
+#set($sufixJar = '.jar}')
+#set($prefixHome = '${project.')
+#set($sufixHome = '.home}')
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (C) 2020, K2N.IO.
@@ -37,7 +39,7 @@
             <outputDirectory>config</outputDirectory>
         </file>
         <file>
-            <source>${prefix}${shortName}${sufix}</source>
+            <source>${prefixJar}${shortName}${sufixJar}</source>
             <outputDirectory>benchmarks/</outputDirectory>
         </file>
     </files>
@@ -50,7 +52,7 @@
             <outputDirectory></outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.${shortName}.home}/config</directory>
+            <directory>${prefixHome}${shortName}${sufixHome}/config</directory>
             <includes>
                 <include>*.properties</include>
             </includes>
