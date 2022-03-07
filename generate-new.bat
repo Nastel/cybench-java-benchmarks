@@ -5,14 +5,17 @@ set LF=^
 
 rem TWO empty lines are required
 
+set MVN_EXEC=mvn
+set /P MVN_EXEC= Enter Maven executable path: [%MVN_EXEC%] :
+
 cd cybench-java-benchmark-archetype
-call mvn install
+call %MVN_EXEC% install
 cd ..
 
 echo "Enter the name. The ^"atifactId^" becomes cybench-java-benchmark-[name]"
-set /P PROJECT_NAME=Benchmark module name:
+set /P PROJECT_NAME= Benchmark module name:
 
-call mvn archetype:generate -DarchetypeGroupId=io.cybench  -DarchetypeArtifactId=cybench-java-benchmark-archetype -DarchetypeVersion=1.0.0 -DartifactId=cybench-java-benchmark-%PROJECT_NAME% -DgroupId=io.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
+call %MVN_EXEC% archetype:generate -DarchetypeGroupId=io.cybench  -DarchetypeArtifactId=cybench-java-benchmark-archetype -DarchetypeVersion=1.0.0 -DartifactId=cybench-java-benchmark-%PROJECT_NAME% -DgroupId=io.cybench.client -Dversion=1.0.0 -DshortName=%PROJECT_NAME%
 
 copy pom.xml pom.tmp
 if exist pom.updated del pom.updated
