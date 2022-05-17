@@ -14,11 +14,7 @@
     <packaging>jar</packaging>
 
     <version>${project.security.crypto.version}</version>
-    <name>cybench-java-benchmark-security-crypto</name>
-
-    <properties>
-        <jvm.jar.name>cybench-java-benchmark-security-crypto</jvm.jar.name>
-    </properties>
+    <name>${project.artifactId}</name>
 
     <dependencies>
         <dependency>
@@ -63,7 +59,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <finalName>${jvm.jar.name}</finalName>
+                            <finalName>${project.artifactId}</finalName>
                             <artifactSet>
                                 <excludes>
                                     <exclude>org.bouncycastle:*:*:*</exclude>

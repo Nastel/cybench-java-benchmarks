@@ -14,11 +14,7 @@
     <packaging>jar</packaging>
 
     <version>${project.trace.version}</version>
-    <name>cybench-java-benchmark-trace</name>
-
-    <properties>
-        <jvm.jar.name>cybench-java-benchmark-trace</jvm.jar.name>
-    </properties>
+    <name>${project.artifactId}</name>
 
     <dependencies>
         <dependency>
@@ -72,7 +68,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <finalName>${jvm.jar.name}</finalName>
+                            <finalName>${project.artifactId}</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

@@ -62,8 +62,8 @@
         <assembly.skipAssembly>true</assembly.skipAssembly>
         <license-name>CYBENCH_LICENSE*</license-name>
         <uberjar.name>cybench-java-benchmarks</uberjar.name>
-        <jmh.version>1.34</jmh.version>
-        <jackson.version>2.13.1</jackson.version>
+        <jmh.version>1.35</jmh.version>
+        <jackson.version>2.13.3</jackson.version>
         <junit.version>5.8.2</junit.version>
         <!-- Properties for different assembly modules -->
         <!-- STRINGS -->
@@ -122,7 +122,7 @@
         <project.security.crypto.home>../cybench-java-benchmark-security-crypto</project.security.crypto.home>
         <target.deploy.security.crypto.jar>${project.security.crypto.home}/target/cybench-java-benchmark-security-crypto.jar</target.deploy.security.crypto.jar>
         <release.deploy.dir.security.crypto>../deploy/security-crypto</release.deploy.dir.security.crypto>
-        <bouncycastle.version>1.69</bouncycastle.version>
+        <bouncycastle.version>1.70</bouncycastle.version>
         <!-- SECURITY RSA -->
         <skip.security.rsa.assembly>true</skip.security.rsa.assembly>
         <release.security.rsa>src/assembly-security-rsa</release.security.rsa>
@@ -137,7 +137,7 @@
         <project.trace.home>../cybench-java-benchmark-trace</project.trace.home>
         <target.deploy.trace.jar>${project.trace.home}/target/cybench-java-benchmark-trace.jar</target.deploy.trace.jar>
         <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
-        <opentelementry.version>1.11.0</opentelementry.version>
+        <opentelementry.version>1.14.0</opentelementry.version>
         <tnt4j.version>2.14.3</tnt4j.version>
         <!-- MAPPING -->
         <release.mapping>src/assembly-mapping</release.mapping>

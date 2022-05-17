@@ -13,11 +13,7 @@
     <packaging>jar</packaging>
 
     <version>${project.matrices.version}</version>
-    <name>cybench-java-benchmark-matrices</name>
-
-    <properties>
-        <jvm.jar.name>cybench-java-benchmark-matrices</jvm.jar.name>
-    </properties>
+    <name>${project.artifactId}</name>
 
     <dependencies>
         <dependency>
@@ -60,7 +56,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.0.1-jre</version>
+            <version>31.1-jre</version>
             <exclusions>
                 <exclusion>
                     <artifactId>listenablefuture</artifactId>
@@ -120,7 +116,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <finalName>${jvm.jar.name}</finalName>
+                            <finalName>${project.artifactId}</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

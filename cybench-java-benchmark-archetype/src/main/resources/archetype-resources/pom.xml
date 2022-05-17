@@ -10,14 +10,11 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>${project.artifactId}</artifactId>
+    <packaging>jar</packaging>
+
     <version>${version}</version>
-
-
-    <properties>
-        <jvm.jar.name>${artifactId}</jvm.jar.name>
-    </properties>
+    <name>${project.artifactId}</name>
 
     <dependencies>
         <dependency>
@@ -30,7 +27,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
-        
+
         <resources>
             <resource>
                 <directory>./</directory>
@@ -44,7 +41,7 @@
                 <targetPath>${project.build.directory}/classes</targetPath>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -58,7 +55,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <finalName>${jvm.jar.name}</finalName>
+                            <finalName>${project.artifactId}</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>
