@@ -138,7 +138,7 @@
         <target.deploy.trace.jar>${project.trace.home}/target/cybench-java-benchmark-trace.jar</target.deploy.trace.jar>
         <release.deploy.dir.trace>../deploy/trace</release.deploy.dir.trace>
         <opentelementry.version>1.14.0</opentelementry.version>
-        <tnt4j.version>2.14.3</tnt4j.version>
+        <tnt4j.version>2.15.0</tnt4j.version>
         <!-- MAPPING -->
         <release.mapping>src/assembly-mapping</release.mapping>
         <project.mapping.home>../cybench-java-benchmark-mapping</project.mapping.home>
