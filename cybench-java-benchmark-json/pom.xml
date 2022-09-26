@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.squareup.moshi</groupId>
             <artifactId>moshi</artifactId>
-            <version>1.13.0</version>
+            <version>1.14.0</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus.qson</groupId>
@@ -84,7 +84,6 @@
             <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

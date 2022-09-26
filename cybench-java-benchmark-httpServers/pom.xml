@@ -39,7 +39,6 @@
             <groupId>io.cybench.client</groupId>
             <artifactId>cybench-java-benchmarks-utils</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.wizzardo/http -->
@@ -64,13 +63,13 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.4.48.v20220622</version>
+            <version>9.4.49.v20220914</version>
         </dependency>
 
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.80.Final</version>
+            <version>4.1.82.Final</version>
         </dependency>
         <dependency>
             <groupId>com.gitee.l0km</groupId>
